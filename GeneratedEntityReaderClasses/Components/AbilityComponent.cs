@@ -1,0 +1,50 @@
+namespace GeneratedNoitaClasses;
+public class AbilityComponent{
+	public int cooldown_frames{ get; set; }
+	public string entity_file{ get; set; }
+	public string sprite_file{ get; set; }
+	public int entity_count{ get; set; }
+	public bool never_reload{ get; set; }
+	public int reload_time_frames{ get; set; }
+	public float mana{ get; set; }
+	public float mana_max{ get; set; }
+	public float mana_charge_speed{ get; set; }
+	public bool rotate_in_hand{ get; set; }
+	public float rotate_in_hand_amount{ get; set; }
+	public float rotate_hand_amount{ get; set; }
+	public bool fast_projectile{ get; set; }
+	public float swim_propel_amount{ get; set; }
+	public int max_charged_actions{ get; set; }
+	public int charge_wait_frames{ get; set; }
+	public float item_recoil_recovery_speed{ get; set; }
+	public float item_recoil_max{ get; set; }
+	public float item_recoil_offset_coeff{ get; set; }
+	public float item_recoil_rotation_coeff{ get; set; }
+	public string base_item_file{ get; set; }
+	public bool use_entity_file_as_projectile_info_proxy{ get; set; }
+	public bool click_to_use{ get; set; }
+	public int stat_times_player_has_shot{ get; set; }
+	public int stat_times_player_has_edited{ get; set; }
+	public bool shooting_reduces_amount_in_inventory{ get; set; }
+	public bool throw_as_item{ get; set; }
+	public bool simulate_throw_as_item{ get; set; }
+	public int max_amount_in_inventory{ get; set; }
+	public int amount_in_inventory{ get; set; }
+	public bool drop_as_item_on_death{ get; set; }
+	public string ui_name{ get; set; }
+	public bool use_gun_script{ get; set; }
+	public bool is_petris_gun{ get; set; }
+	public ConfigGun gun_config{ get; set; }
+	public ConfigGunActionInfo gunaction_config{ get; set; }
+	public int gun_level{ get; set; }
+	public string add_these_child_actions{ get; set; }
+	public int current_slot_durability{ get; set; }
+	public string slot_consumption_function{ get; set; }
+	public int mNextFrameUsable{ get; set; }
+	public int mCastDelayStartFrame{ get; set; }
+	public int mReloadFramesLeft{ get; set; }
+	public int mReloadNextFrameUsable{ get; set; }
+	public int mChargeCount{ get; set; }
+	public bool mIsInitialized{ get; set; }
+
+}

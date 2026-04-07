@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="EntityFileReaderGenerator/EntityFileReaderGenerator.csproj" Id="fad0de03-66a1-4d05-a85f-d4979501da07" />
+  <Project Path="GeneratedEntityReaderClasses/GeneratedEntityReaderClasses.csproj" Id="67546130-6017-4ddc-89a5-48fbcad39a82" />
+  <Project Path="PetriExtractor/PetriExtractor.csproj" />
+  <Project Path="PetriNoitaLib/PetriNoitaLib.csproj" Id="b9005adf-6faa-4420-804a-2f771052f86c" />
+  <Project Path="PetriViewer/PetriViewer.csproj" Id="4dcf27b5-3934-4394-8fe0-50f03bd1273e" />
+</Solution>
