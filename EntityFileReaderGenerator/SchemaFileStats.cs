@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.CodeAnalysis.CSharp;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection.Metadata;
@@ -10,7 +11,7 @@ using System.Xml;
 
 namespace EntityFileReaderGenerator
 {
-    internal class SchemaFileClassGenerator
+    internal class SchemaFileStats
     {
 
         // This will hold the parsed data of the schema. Components, and the sizes of different types read from the schema.
@@ -42,22 +43,13 @@ namespace EntityFileReaderGenerator
         // This loads a schema file, and parses them into Components and TypeSizes
         public void Load(string hash, string directory, iLanguage classgenerator)
         {
-            string componentdirectory = directory + "/Components/";
-            if (!Directory.Exists(componentdirectory)) Directory.CreateDirectory(componentdirectory); // Create the directory if missing
-
-            foreach (string f in Directory.EnumerateFiles(componentdirectory, "*Component.cs")) // Delete the old component files
-            {
-                File.Delete(f);
-            }
-
             string schema_content = File.ReadAllText("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Noita\\data\\schemas\\" + hash + ".xml"); // Todo: Replace static noita path
 
             // We can't parse the data using standard XML functions, it's invalid XML. Instead, we use HtmlAgilityPack, which is more forgiving.
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(schema_content);
 
-            var Successes = 0;
-            var Failures = 0;
+            Dictionary<string, int> type_statistics = new Dictionary<string, int>();
 
             // Loading the <Component>'s
             foreach (var node in doc.DocumentNode.ChildNodes[0].ChildNodes)
@@ -69,7 +61,7 @@ namespace EntityFileReaderGenerator
                 if (node.Attributes.Count != 1) // If a Component has more than three attributes, then bail. Just for future version protection I guess :).
                     throw new Exception("Component with unknown parameters: " + string.Join(" ", node.Attributes));
 
-                
+
 
                 string componentname = node.Attributes["component_name"].Value;
 
@@ -78,40 +70,28 @@ namespace EntityFileReaderGenerator
                     throw new Exception("Unexpected component name: " + componentname);
                 }
 
-                List<iLanguage.Property> properties = new List<iLanguage.Property>();
+                // Loop through it's children to find it's <Var'>
+                foreach (var attributeNode in node.ChildNodes)
+                {
+                    if (attributeNode.Name == "#text") // Ignore text nodes. Always one before and after each tag.
+                        continue;
+                    if (attributeNode.Name != "var") // HtmlAgilityPack tolower()'s tag name automatically. No Component should have anything but <Var>'s directly below the root tag
+                        throw new Exception("Unknown component attribute type: " + attributeNode.Name);
+                    if (attributeNode.Attributes.Count != 3) // It should always have three attributes
+                        throw new Exception("Component attribute with unknown parameters: " + string.Join(" ", node.Attributes));
 
+                    string membername = attributeNode.Attributes["name"].Value;
+                    string type = attributeNode.Attributes["type"].Value;
 
-                //try { 
-
-                    // Loop through it's children to find it's <Var'>
-                    foreach (var attributeNode in node.ChildNodes)
+                    if (type_statistics.ContainsKey(type))
                     {
-                        if (attributeNode.Name == "#text") // Ignore text nodes. Always one before and after each tag.
-                            continue;
-                        if (attributeNode.Name != "var") // HtmlAgilityPack tolower()'s tag name automatically. No Component should have anything but <Var>'s directly below the root tag
-                            throw new Exception("Unknown component attribute type: " + attributeNode.Name);
-                        if (attributeNode.Attributes.Count != 3) // It should always have three attributes
-                            throw new Exception("Component attribute with unknown parameters: " + string.Join(" ", node.Attributes));
-
-                        string membername = attributeNode.Attributes["name"].Value;
-                        string type = attributeNode.Attributes["type"].Value;
-
-                        properties.Add(new iLanguage.Property() { Name = membername, Type = type, NoitaType = classgenerator.GetNoitaType(type, membername)});
-
-                        int size = int.Parse(attributeNode.Attributes["size"].Value);
-
-                        if(type.StartsWith("enum ") && type.EndsWith("::Enum") && size != 4)
-                        {
-                            throw new Exception("ENUM FILE SIZE WRONG!!!!!!");
-                        }
-
-                        TypeSizes[type] = size; // Apparantly this is fine, snail's code does it.
+                        type_statistics[type] = type_statistics[type] + 1;
+                    } else
+                    {
+                        type_statistics[type] = 1;
                     }
+                }
 
-                    iLanguage.iGeneratedClass iGeneratedClass = classgenerator.GenerateClass(componentname, properties);
-
-                    File.WriteAllText(componentdirectory + "/" + iGeneratedClass.RecommendedFileName, iGeneratedClass.ClassText);
-                    Successes++;
                 //} catch(Exception e)
                 //{
                 //    Failures++;
@@ -119,7 +99,20 @@ namespace EntityFileReaderGenerator
                 //    Console.WriteLine(e.StackTrace);
                 //}
             }
-            Console.WriteLine("Done! Successes: " + Successes + " Failures: " + Failures);
+
+            List<KeyValuePair<string, int>> myList = type_statistics.ToList();
+            myList.Sort((x, y) => {
+                if(x.Value == y.Value)
+                {
+                    return 0;
+                }
+                return x.Value > y.Value ? -1 : 1;
+            });
+
+            foreach (var statistic in myList)
+            {
+                Console.WriteLine(statistic.Key + " has " + statistic.Value + " occurences");
+            }
         }
     }
 }

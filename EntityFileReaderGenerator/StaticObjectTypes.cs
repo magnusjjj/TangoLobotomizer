@@ -734,11 +734,11 @@ namespace PetriNoitaLib.V2
     ""class ConfigLaser"": [
         [
             ""max_cell_durability_to_destroy"",
-            ""Int32""
+            ""int""
         ],
         [
             ""damage_to_cells"",
-            ""UInt32""
+            ""unsigned int""
         ],
         [
             ""max_length"",
@@ -750,7 +750,7 @@ namespace PetriNoitaLib.V2
         ],
         [
             ""beam_particle_chance"",
-            ""Int32""
+            ""int""
         ],
         [
             ""beam_particle_fade"",
@@ -758,7 +758,7 @@ namespace PetriNoitaLib.V2
         ],
         [
             ""beam_particle_type"",
-            ""Int32""
+            ""int""
         ],
         [
             ""beam_particle_fade_reverse"",
@@ -766,7 +766,7 @@ namespace PetriNoitaLib.V2
         ],
         [
             ""hit_particle_chance"",
-            ""Int32""
+            ""int""
         ],
         [
             ""audio_enabled"",
