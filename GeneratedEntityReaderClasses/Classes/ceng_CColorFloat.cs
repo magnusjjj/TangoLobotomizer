@@ -1,22 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class ceng_CColorFloat {
-	public float r { get; set; }
-	public float g { get; set; }
-	public float b { get; set; }
-	public float a { get; set; }
+public class ceng_CColorFloat :  iNoitaType<ceng_CColorFloat>{
+	public NoitaFloat r { get; set; } = new();
+	public NoitaFloat g { get; set; } = new();
+	public NoitaFloat b { get; set; } = new();
+	public NoitaFloat a { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		r = s.ReadBeFloat();
-		g = s.ReadBeFloat();
-		b = s.ReadBeFloat();
-		a = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		r.Read(s);
+		g.Read(s);
+		b.Read(s);
+		a.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(r);
-		s.WriteBeFloat(g);
-		s.WriteBeFloat(b);
-		s.WriteBeFloat(a);
+    public void Write(NoitaStream s){
+		r.Write(s);
+		g.Write(s);
+		b.Write(s);
+		a.Write(s);
 
     }
 }

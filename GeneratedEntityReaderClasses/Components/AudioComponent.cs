@@ -1,31 +1,40 @@
 namespace GeneratedNoitaClasses;
-public class AudioComponent {
-	public string file { get; set; }
-	public string event_root { get; set; }
-	public string audio_physics_material { get; set; }
-	public bool set_latest_event_position { get; set; }
-	public bool remove_latest_event_on_destroyed { get; set; }
-	public bool send_message_on_event_dead { get; set; }
-	public bool play_only_if_visible { get; set; }
+public class AudioComponent : NoitaComponentBase,  iNoitaType<AudioComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString file { get; set; } = new();
+	public NoitaString event_root { get; set; } = new();
+	public NoitaString audio_physics_material { get; set; } = new();
+	public NoitaBool set_latest_event_position { get; set; } = new();
+	public NoitaBool remove_latest_event_on_destroyed { get; set; } = new();
+	public NoitaBool send_message_on_event_dead { get; set; } = new();
+	public NoitaBool play_only_if_visible { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		file = s.ReadBeString();
-		event_root = s.ReadBeString();
-		audio_physics_material = s.ReadBeString();
-		set_latest_event_position = s.ReadBool();
-		remove_latest_event_on_destroyed = s.ReadBool();
-		send_message_on_event_dead = s.ReadBool();
-		play_only_if_visible = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		file.Read(s);
+		event_root.Read(s);
+		audio_physics_material.Read(s);
+		set_latest_event_position.Read(s);
+		remove_latest_event_on_destroyed.Read(s);
+		send_message_on_event_dead.Read(s);
+		play_only_if_visible.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(file);
-		s.WriteBeString(event_root);
-		s.WriteBeString(audio_physics_material);
-		s.WriteBool(set_latest_event_position);
-		s.WriteBool(remove_latest_event_on_destroyed);
-		s.WriteBool(send_message_on_event_dead);
-		s.WriteBool(play_only_if_visible);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		file.Write(s);
+		event_root.Write(s);
+		audio_physics_material.Write(s);
+		set_latest_event_position.Write(s);
+		remove_latest_event_on_destroyed.Write(s);
+		send_message_on_event_dead.Write(s);
+		play_only_if_visible.Write(s);
 
     }
 }

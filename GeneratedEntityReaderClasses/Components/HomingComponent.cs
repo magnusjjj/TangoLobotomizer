@@ -1,37 +1,46 @@
 namespace GeneratedNoitaClasses;
-public class HomingComponent {
-	public string target_tag { get; set; }
-	public bool target_who_shot { get; set; }
-	public float detect_distance { get; set; }
-	public float homing_velocity_multiplier { get; set; }
-	public float homing_targeting_coeff { get; set; }
-	public bool just_rotate_towards_target { get; set; }
-	public float max_turn_rate { get; set; }
-	public UInt32 predefined_target { get; set; }
-	public bool look_for_root_entities_only { get; set; }
+public class HomingComponent : NoitaComponentBase,  iNoitaType<HomingComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString target_tag { get; set; } = new();
+	public NoitaBool target_who_shot { get; set; } = new();
+	public NoitaFloat detect_distance { get; set; } = new();
+	public NoitaFloat homing_velocity_multiplier { get; set; } = new();
+	public NoitaFloat homing_targeting_coeff { get; set; } = new();
+	public NoitaBool just_rotate_towards_target { get; set; } = new();
+	public NoitaFloat max_turn_rate { get; set; } = new();
+	public NoitaUInt predefined_target { get; set; } = new();
+	public NoitaBool look_for_root_entities_only { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		target_tag = s.ReadBeString();
-		target_who_shot = s.ReadBool();
-		detect_distance = s.ReadBeFloat();
-		homing_velocity_multiplier = s.ReadBeFloat();
-		homing_targeting_coeff = s.ReadBeFloat();
-		just_rotate_towards_target = s.ReadBool();
-		max_turn_rate = s.ReadBeFloat();
-		predefined_target = s.ReadBeUInt32();
-		look_for_root_entities_only = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		target_tag.Read(s);
+		target_who_shot.Read(s);
+		detect_distance.Read(s);
+		homing_velocity_multiplier.Read(s);
+		homing_targeting_coeff.Read(s);
+		just_rotate_towards_target.Read(s);
+		max_turn_rate.Read(s);
+		predefined_target.Read(s);
+		look_for_root_entities_only.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(target_tag);
-		s.WriteBool(target_who_shot);
-		s.WriteBeFloat(detect_distance);
-		s.WriteBeFloat(homing_velocity_multiplier);
-		s.WriteBeFloat(homing_targeting_coeff);
-		s.WriteBool(just_rotate_towards_target);
-		s.WriteBeFloat(max_turn_rate);
-		s.WriteBeUInt32(predefined_target);
-		s.WriteBool(look_for_root_entities_only);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		target_tag.Write(s);
+		target_who_shot.Write(s);
+		detect_distance.Write(s);
+		homing_velocity_multiplier.Write(s);
+		homing_targeting_coeff.Write(s);
+		just_rotate_towards_target.Write(s);
+		max_turn_rate.Write(s);
+		predefined_target.Write(s);
+		look_for_root_entities_only.Write(s);
 
     }
 }

@@ -1,16 +1,16 @@
 namespace GeneratedNoitaClasses;
-public class ConfigDamageCritical {
-	public Int32 chance { get; set; }
-	public float damage_multiplier { get; set; }
+public class ConfigDamageCritical :  iNoitaType<ConfigDamageCritical>{
+	public NoitaInt chance { get; set; } = new();
+	public NoitaFloat damage_multiplier { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		chance = s.ReadBeInt32();
-		damage_multiplier = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		chance.Read(s);
+		damage_multiplier.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(chance);
-		s.WriteBeFloat(damage_multiplier);
+    public void Write(NoitaStream s){
+		chance.Write(s);
+		damage_multiplier.Write(s);
 
     }
 }

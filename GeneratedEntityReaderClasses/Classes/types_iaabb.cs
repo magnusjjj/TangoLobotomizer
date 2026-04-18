@@ -1,14 +1,14 @@
 namespace GeneratedNoitaClasses;
-public class types_iaabb {
-	public CVector2<int> min { get; set; }
-	public CVector2<int> max { get; set; }
+public class types_iaabb :  iNoitaType<types_iaabb>{
+	public NoitaCVector2<NoitaInt> min { get; set; } = new();
+	public NoitaCVector2<NoitaInt> max { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		min.Load(s);
-		max.Load(s);
+    public void Read(NoitaStream s){
+		min.Read(s);
+		max.Read(s);
 
     }
-    public void Save(NoitaStream s){
+    public void Write(NoitaStream s){
 		min.Write(s);
 		max.Write(s);
 

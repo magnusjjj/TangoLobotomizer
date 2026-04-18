@@ -1,52 +1,52 @@
 namespace GeneratedNoitaClasses;
-public class ConfigLaser {
-	public Int32 max_cell_durability_to_destroy { get; set; }
-	public UInt32 damage_to_cells { get; set; }
-	public float max_length { get; set; }
-	public float beam_radius { get; set; }
-	public Int32 beam_particle_chance { get; set; }
-	public float beam_particle_fade { get; set; }
-	public Int32 beam_particle_type { get; set; }
-	public bool beam_particle_fade_reverse { get; set; }
-	public Int32 hit_particle_chance { get; set; }
-	public bool audio_enabled { get; set; }
-	public bool audio_hit_always_enabled { get; set; }
-	public float damage_to_entities { get; set; }
-	public bool damage_apply_hitbox_dmg_multiplier { get; set; }
-	public bool root_entity_is_responsible_for_damage { get; set; }
+public class ConfigLaser :  iNoitaType<ConfigLaser>{
+	public NoitaInt max_cell_durability_to_destroy { get; set; } = new();
+	public NoitaUInt damage_to_cells { get; set; } = new();
+	public NoitaFloat max_length { get; set; } = new();
+	public NoitaFloat beam_radius { get; set; } = new();
+	public NoitaInt beam_particle_chance { get; set; } = new();
+	public NoitaFloat beam_particle_fade { get; set; } = new();
+	public NoitaInt beam_particle_type { get; set; } = new();
+	public NoitaBool beam_particle_fade_reverse { get; set; } = new();
+	public NoitaInt hit_particle_chance { get; set; } = new();
+	public NoitaBool audio_enabled { get; set; } = new();
+	public NoitaBool audio_hit_always_enabled { get; set; } = new();
+	public NoitaFloat damage_to_entities { get; set; } = new();
+	public NoitaBool damage_apply_hitbox_dmg_multiplier { get; set; } = new();
+	public NoitaBool root_entity_is_responsible_for_damage { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		max_cell_durability_to_destroy = s.ReadBeInt32();
-		damage_to_cells = s.ReadBeUInt32();
-		max_length = s.ReadBeFloat();
-		beam_radius = s.ReadBeFloat();
-		beam_particle_chance = s.ReadBeInt32();
-		beam_particle_fade = s.ReadBeFloat();
-		beam_particle_type = s.ReadBeInt32();
-		beam_particle_fade_reverse = s.ReadBool();
-		hit_particle_chance = s.ReadBeInt32();
-		audio_enabled = s.ReadBool();
-		audio_hit_always_enabled = s.ReadBool();
-		damage_to_entities = s.ReadBeFloat();
-		damage_apply_hitbox_dmg_multiplier = s.ReadBool();
-		root_entity_is_responsible_for_damage = s.ReadBool();
+    public void Read(NoitaStream s){
+		max_cell_durability_to_destroy.Read(s);
+		damage_to_cells.Read(s);
+		max_length.Read(s);
+		beam_radius.Read(s);
+		beam_particle_chance.Read(s);
+		beam_particle_fade.Read(s);
+		beam_particle_type.Read(s);
+		beam_particle_fade_reverse.Read(s);
+		hit_particle_chance.Read(s);
+		audio_enabled.Read(s);
+		audio_hit_always_enabled.Read(s);
+		damage_to_entities.Read(s);
+		damage_apply_hitbox_dmg_multiplier.Read(s);
+		root_entity_is_responsible_for_damage.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(max_cell_durability_to_destroy);
-		s.WriteBeUInt32(damage_to_cells);
-		s.WriteBeFloat(max_length);
-		s.WriteBeFloat(beam_radius);
-		s.WriteBeInt32(beam_particle_chance);
-		s.WriteBeFloat(beam_particle_fade);
-		s.WriteBeInt32(beam_particle_type);
-		s.WriteBool(beam_particle_fade_reverse);
-		s.WriteBeInt32(hit_particle_chance);
-		s.WriteBool(audio_enabled);
-		s.WriteBool(audio_hit_always_enabled);
-		s.WriteBeFloat(damage_to_entities);
-		s.WriteBool(damage_apply_hitbox_dmg_multiplier);
-		s.WriteBool(root_entity_is_responsible_for_damage);
+    public void Write(NoitaStream s){
+		max_cell_durability_to_destroy.Write(s);
+		damage_to_cells.Write(s);
+		max_length.Write(s);
+		beam_radius.Write(s);
+		beam_particle_chance.Write(s);
+		beam_particle_fade.Write(s);
+		beam_particle_type.Write(s);
+		beam_particle_fade_reverse.Write(s);
+		hit_particle_chance.Write(s);
+		audio_enabled.Write(s);
+		audio_hit_always_enabled.Write(s);
+		damage_to_entities.Write(s);
+		damage_apply_hitbox_dmg_multiplier.Write(s);
+		root_entity_is_responsible_for_damage.Write(s);
 
     }
 }

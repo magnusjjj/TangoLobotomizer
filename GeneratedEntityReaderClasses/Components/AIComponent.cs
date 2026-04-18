@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class AIComponent {
-	public float TEMP_TEMP_TEMP { get; set; }
+public class AIComponent : NoitaComponentBase,  iNoitaType<AIComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat TEMP_TEMP_TEMP { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		TEMP_TEMP_TEMP = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		TEMP_TEMP_TEMP.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(TEMP_TEMP_TEMP);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		TEMP_TEMP_TEMP.Write(s);
 
     }
 }

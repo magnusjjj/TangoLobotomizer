@@ -1,43 +1,52 @@
 namespace GeneratedNoitaClasses;
-public class MaterialSuckerComponent {
-	public Int32 material_type { get; set; }
-	public Int32 barrel_size { get; set; }
-	public Int32 num_cells_sucked_per_frame { get; set; }
-	public bool set_projectile_to_liquid { get; set; }
-	public Int32 last_material_id { get; set; }
-	public bool suck_gold { get; set; }
-	public bool suck_health { get; set; }
-	public bool suck_static_materials { get; set; }
-	public string suck_tag { get; set; }
-	public types_iaabb randomized_position { get; set; }
-	public Int32 mAmountUsed { get; set; }
+public class MaterialSuckerComponent : NoitaComponentBase,  iNoitaType<MaterialSuckerComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt material_type { get; set; } = new();
+	public NoitaInt barrel_size { get; set; } = new();
+	public NoitaInt num_cells_sucked_per_frame { get; set; } = new();
+	public NoitaBool set_projectile_to_liquid { get; set; } = new();
+	public NoitaInt last_material_id { get; set; } = new();
+	public NoitaBool suck_gold { get; set; } = new();
+	public NoitaBool suck_health { get; set; } = new();
+	public NoitaBool suck_static_materials { get; set; } = new();
+	public NoitaString suck_tag { get; set; } = new();
+	public types_iaabb randomized_position { get; set; } = new();
+	public NoitaInt mAmountUsed { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		material_type = s.ReadBeInt32();
-		barrel_size = s.ReadBeInt32();
-		num_cells_sucked_per_frame = s.ReadBeInt32();
-		set_projectile_to_liquid = s.ReadBool();
-		last_material_id = s.ReadBeInt32();
-		suck_gold = s.ReadBool();
-		suck_health = s.ReadBool();
-		suck_static_materials = s.ReadBool();
-		suck_tag = s.ReadBeString();
-		randomized_position.Load(s);
-		mAmountUsed = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		material_type.Read(s);
+		barrel_size.Read(s);
+		num_cells_sucked_per_frame.Read(s);
+		set_projectile_to_liquid.Read(s);
+		last_material_id.Read(s);
+		suck_gold.Read(s);
+		suck_health.Read(s);
+		suck_static_materials.Read(s);
+		suck_tag.Read(s);
+		randomized_position.Read(s);
+		mAmountUsed.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(material_type);
-		s.WriteBeInt32(barrel_size);
-		s.WriteBeInt32(num_cells_sucked_per_frame);
-		s.WriteBool(set_projectile_to_liquid);
-		s.WriteBeInt32(last_material_id);
-		s.WriteBool(suck_gold);
-		s.WriteBool(suck_health);
-		s.WriteBool(suck_static_materials);
-		s.WriteBeString(suck_tag);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		material_type.Write(s);
+		barrel_size.Write(s);
+		num_cells_sucked_per_frame.Write(s);
+		set_projectile_to_liquid.Write(s);
+		last_material_id.Write(s);
+		suck_gold.Write(s);
+		suck_health.Write(s);
+		suck_static_materials.Write(s);
+		suck_tag.Write(s);
 		randomized_position.Write(s);
-		s.WriteBeInt32(mAmountUsed);
+		mAmountUsed.Write(s);
 
     }
 }

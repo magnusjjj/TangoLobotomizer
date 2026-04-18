@@ -1,28 +1,37 @@
 namespace GeneratedNoitaClasses;
-public class ElectricChargeComponent {
-	public Int32 charge_time_frames { get; set; }
-	public float fx_velocity_max { get; set; }
-	public Int32 electricity_emission_interval_frames { get; set; }
-	public Int32 fx_emission_interval_min { get; set; }
-	public Int32 fx_emission_interval_max { get; set; }
-	public Int32 charge { get; set; }
+public class ElectricChargeComponent : NoitaComponentBase,  iNoitaType<ElectricChargeComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt charge_time_frames { get; set; } = new();
+	public NoitaFloat fx_velocity_max { get; set; } = new();
+	public NoitaInt electricity_emission_interval_frames { get; set; } = new();
+	public NoitaInt fx_emission_interval_min { get; set; } = new();
+	public NoitaInt fx_emission_interval_max { get; set; } = new();
+	public NoitaInt charge { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		charge_time_frames = s.ReadBeInt32();
-		fx_velocity_max = s.ReadBeFloat();
-		electricity_emission_interval_frames = s.ReadBeInt32();
-		fx_emission_interval_min = s.ReadBeInt32();
-		fx_emission_interval_max = s.ReadBeInt32();
-		charge = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		charge_time_frames.Read(s);
+		fx_velocity_max.Read(s);
+		electricity_emission_interval_frames.Read(s);
+		fx_emission_interval_min.Read(s);
+		fx_emission_interval_max.Read(s);
+		charge.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(charge_time_frames);
-		s.WriteBeFloat(fx_velocity_max);
-		s.WriteBeInt32(electricity_emission_interval_frames);
-		s.WriteBeInt32(fx_emission_interval_min);
-		s.WriteBeInt32(fx_emission_interval_max);
-		s.WriteBeInt32(charge);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		charge_time_frames.Write(s);
+		fx_velocity_max.Write(s);
+		electricity_emission_interval_frames.Write(s);
+		fx_emission_interval_min.Write(s);
+		fx_emission_interval_max.Write(s);
+		charge.Write(s);
 
     }
 }

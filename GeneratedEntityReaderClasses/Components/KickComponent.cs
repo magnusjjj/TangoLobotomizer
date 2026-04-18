@@ -1,34 +1,43 @@
 namespace GeneratedNoitaClasses;
-public class KickComponent {
-	public bool can_kick { get; set; }
-	public LensValue<float> max_force { get; set; }
-	public LensValue<float> player_kickforce { get; set; }
-	public float kick_radius { get; set; }
-	public LensValue<float> kick_damage { get; set; }
-	public LensValue<float> kick_knockback { get; set; }
-	public float telekinesis_throw_speed { get; set; }
-	public string kick_entities { get; set; }
+public class KickComponent : NoitaComponentBase,  iNoitaType<KickComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool can_kick { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> max_force { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> player_kickforce { get; set; } = new();
+	public NoitaFloat kick_radius { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> kick_damage { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> kick_knockback { get; set; } = new();
+	public NoitaFloat telekinesis_throw_speed { get; set; } = new();
+	public NoitaString kick_entities { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		can_kick = s.ReadBool();
-		max_force.Load(s);
-		player_kickforce.Load(s);
-		kick_radius = s.ReadBeFloat();
-		kick_damage.Load(s);
-		kick_knockback.Load(s);
-		telekinesis_throw_speed = s.ReadBeFloat();
-		kick_entities = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		can_kick.Read(s);
+		max_force.Read(s);
+		player_kickforce.Read(s);
+		kick_radius.Read(s);
+		kick_damage.Read(s);
+		kick_knockback.Read(s);
+		telekinesis_throw_speed.Read(s);
+		kick_entities.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(can_kick);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		can_kick.Write(s);
 		max_force.Write(s);
 		player_kickforce.Write(s);
-		s.WriteBeFloat(kick_radius);
+		kick_radius.Write(s);
 		kick_damage.Write(s);
 		kick_knockback.Write(s);
-		s.WriteBeFloat(telekinesis_throw_speed);
-		s.WriteBeString(kick_entities);
+		telekinesis_throw_speed.Write(s);
+		kick_entities.Write(s);
 
     }
 }

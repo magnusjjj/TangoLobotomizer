@@ -1,28 +1,37 @@
 namespace GeneratedNoitaClasses;
-public class MusicEnergyAffectorComponent {
-	public float energy_target { get; set; }
-	public float fade_range { get; set; }
-	public bool trigger_danger_music { get; set; }
-	public Int32 fog_of_war_threshold { get; set; }
-	public bool is_enemy { get; set; }
-	public float energy_lerp_up_speed_multiplier { get; set; }
+public class MusicEnergyAffectorComponent : NoitaComponentBase,  iNoitaType<MusicEnergyAffectorComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat energy_target { get; set; } = new();
+	public NoitaFloat fade_range { get; set; } = new();
+	public NoitaBool trigger_danger_music { get; set; } = new();
+	public NoitaInt fog_of_war_threshold { get; set; } = new();
+	public NoitaBool is_enemy { get; set; } = new();
+	public NoitaFloat energy_lerp_up_speed_multiplier { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		energy_target = s.ReadBeFloat();
-		fade_range = s.ReadBeFloat();
-		trigger_danger_music = s.ReadBool();
-		fog_of_war_threshold = s.ReadBeInt32();
-		is_enemy = s.ReadBool();
-		energy_lerp_up_speed_multiplier = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		energy_target.Read(s);
+		fade_range.Read(s);
+		trigger_danger_music.Read(s);
+		fog_of_war_threshold.Read(s);
+		is_enemy.Read(s);
+		energy_lerp_up_speed_multiplier.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(energy_target);
-		s.WriteBeFloat(fade_range);
-		s.WriteBool(trigger_danger_music);
-		s.WriteBeInt32(fog_of_war_threshold);
-		s.WriteBool(is_enemy);
-		s.WriteBeFloat(energy_lerp_up_speed_multiplier);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		energy_target.Write(s);
+		fade_range.Write(s);
+		trigger_danger_music.Write(s);
+		fog_of_war_threshold.Write(s);
+		is_enemy.Write(s);
+		energy_lerp_up_speed_multiplier.Write(s);
 
     }
 }

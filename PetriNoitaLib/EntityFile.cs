@@ -80,8 +80,8 @@ namespace PetriNoitaLib
 
         public class Component
         {
-            NoitaString Name;
-            List<string> Tags;
+            NoitaString Name = new();
+            List<string> Tags = new();
             Dictionary<string, object> Fields = [];
             bool Enabled;
             bool PossiblyNotDeleted;

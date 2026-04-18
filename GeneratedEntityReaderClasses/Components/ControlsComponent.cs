@@ -1,28 +1,37 @@
 namespace GeneratedNoitaClasses;
-public class ControlsComponent {
-	public bool polymorph_hax { get; set; }
-	public Int32 polymorph_next_attack_frame { get; set; }
-	public bool enabled { get; set; }
-	public bool gamepad_indirect_aiming_enabled { get; set; }
-	public bool gamepad_fire_on_thumbstick_extend { get; set; }
-	public float gamepad_fire_on_thumbstick_extend_threshold { get; set; }
+public class ControlsComponent : NoitaComponentBase,  iNoitaType<ControlsComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool polymorph_hax { get; set; } = new();
+	public NoitaInt polymorph_next_attack_frame { get; set; } = new();
+	public NoitaBool enabled { get; set; } = new();
+	public NoitaBool gamepad_indirect_aiming_enabled { get; set; } = new();
+	public NoitaBool gamepad_fire_on_thumbstick_extend { get; set; } = new();
+	public NoitaFloat gamepad_fire_on_thumbstick_extend_threshold { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		polymorph_hax = s.ReadBool();
-		polymorph_next_attack_frame = s.ReadBeInt32();
-		enabled = s.ReadBool();
-		gamepad_indirect_aiming_enabled = s.ReadBool();
-		gamepad_fire_on_thumbstick_extend = s.ReadBool();
-		gamepad_fire_on_thumbstick_extend_threshold = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		polymorph_hax.Read(s);
+		polymorph_next_attack_frame.Read(s);
+		enabled.Read(s);
+		gamepad_indirect_aiming_enabled.Read(s);
+		gamepad_fire_on_thumbstick_extend.Read(s);
+		gamepad_fire_on_thumbstick_extend_threshold.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(polymorph_hax);
-		s.WriteBeInt32(polymorph_next_attack_frame);
-		s.WriteBool(enabled);
-		s.WriteBool(gamepad_indirect_aiming_enabled);
-		s.WriteBool(gamepad_fire_on_thumbstick_extend);
-		s.WriteBeFloat(gamepad_fire_on_thumbstick_extend_threshold);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		polymorph_hax.Write(s);
+		polymorph_next_attack_frame.Write(s);
+		enabled.Write(s);
+		gamepad_indirect_aiming_enabled.Write(s);
+		gamepad_fire_on_thumbstick_extend.Write(s);
+		gamepad_fire_on_thumbstick_extend_threshold.Write(s);
 
     }
 }

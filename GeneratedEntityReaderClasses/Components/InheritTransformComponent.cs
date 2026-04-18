@@ -1,30 +1,39 @@
 namespace GeneratedNoitaClasses;
-public class InheritTransformComponent {
-	public bool use_root_parent { get; set; }
-	public bool only_position { get; set; }
-	public string parent_hotspot_tag { get; set; }
-	public Int32 parent_sprite_id { get; set; }
-	public bool always_use_immediate_parent_rotation { get; set; }
-	public bool rotate_based_on_x_scale { get; set; }
-	public CXForm<float> Transform { get; set; }
+public class InheritTransformComponent : NoitaComponentBase,  iNoitaType<InheritTransformComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool use_root_parent { get; set; } = new();
+	public NoitaBool only_position { get; set; } = new();
+	public NoitaString parent_hotspot_tag { get; set; } = new();
+	public NoitaInt parent_sprite_id { get; set; } = new();
+	public NoitaBool always_use_immediate_parent_rotation { get; set; } = new();
+	public NoitaBool rotate_based_on_x_scale { get; set; } = new();
+	public NoitaCXForm<NoitaFloat> Transform { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		use_root_parent = s.ReadBool();
-		only_position = s.ReadBool();
-		parent_hotspot_tag = s.ReadBeString();
-		parent_sprite_id = s.ReadBeInt32();
-		always_use_immediate_parent_rotation = s.ReadBool();
-		rotate_based_on_x_scale = s.ReadBool();
-		Transform.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		use_root_parent.Read(s);
+		only_position.Read(s);
+		parent_hotspot_tag.Read(s);
+		parent_sprite_id.Read(s);
+		always_use_immediate_parent_rotation.Read(s);
+		rotate_based_on_x_scale.Read(s);
+		Transform.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(use_root_parent);
-		s.WriteBool(only_position);
-		s.WriteBeString(parent_hotspot_tag);
-		s.WriteBeInt32(parent_sprite_id);
-		s.WriteBool(always_use_immediate_parent_rotation);
-		s.WriteBool(rotate_based_on_x_scale);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		use_root_parent.Write(s);
+		only_position.Write(s);
+		parent_hotspot_tag.Write(s);
+		parent_sprite_id.Write(s);
+		always_use_immediate_parent_rotation.Write(s);
+		rotate_based_on_x_scale.Write(s);
 		Transform.Write(s);
 
     }

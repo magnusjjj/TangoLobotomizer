@@ -1,64 +1,37 @@
 namespace GeneratedNoitaClasses;
-public class StatusEffectDataComponent {
-	public List<float> stain_effects { get; set; }
-	public List<int> stain_effect_cooldowns { get; set; }
-	public List<float> effects_previous { get; set; }
-	public List<float> ingestion_effects { get; set; }
-	public List<int> ingestion_effect_causes { get; set; }
-	public List<int> ingestion_effect_causes_many { get; set; }
+public class StatusEffectDataComponent : NoitaComponentBase,  iNoitaType<StatusEffectDataComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaVector<NoitaFloat> stain_effects { get; set; } = new();
+	public NoitaVector<NoitaInt> stain_effect_cooldowns { get; set; } = new();
+	public NoitaVector<NoitaFloat> effects_previous { get; set; } = new();
+	public NoitaVector<NoitaFloat> ingestion_effects { get; set; } = new();
+	public NoitaVector<NoitaInt> ingestion_effect_causes { get; set; } = new();
+	public NoitaVector<NoitaInt> ingestion_effect_causes_many { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		stain_effects = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- stain_effects.Add(float.Load(s));
-}
-		stain_effect_cooldowns = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- stain_effect_cooldowns.Add(int.Load(s));
-}
-		effects_previous = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- effects_previous.Add(float.Load(s));
-}
-		ingestion_effects = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- ingestion_effects.Add(float.Load(s));
-}
-		ingestion_effect_causes = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- ingestion_effect_causes.Add(int.Load(s));
-}
-		ingestion_effect_causes_many = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- ingestion_effect_causes_many.Add(int.Load(s));
-}
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		stain_effects.Read(s);
+		stain_effect_cooldowns.Read(s);
+		effects_previous.Read(s);
+		ingestion_effects.Read(s);
+		ingestion_effect_causes.Read(s);
+		ingestion_effect_causes_many.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(stain_effects.Length);
-foreach(var item in stain_effects){ stain_effects.Write(s);
-}
-		s.WriteBeUInt32(stain_effect_cooldowns.Length);
-foreach(var item in stain_effect_cooldowns){ stain_effect_cooldowns.Write(s);
-}
-		s.WriteBeUInt32(effects_previous.Length);
-foreach(var item in effects_previous){ effects_previous.Write(s);
-}
-		s.WriteBeUInt32(ingestion_effects.Length);
-foreach(var item in ingestion_effects){ ingestion_effects.Write(s);
-}
-		s.WriteBeUInt32(ingestion_effect_causes.Length);
-foreach(var item in ingestion_effect_causes){ ingestion_effect_causes.Write(s);
-}
-		s.WriteBeUInt32(ingestion_effect_causes_many.Length);
-foreach(var item in ingestion_effect_causes_many){ ingestion_effect_causes_many.Write(s);
-}
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		stain_effects.Write(s);
+		stain_effect_cooldowns.Write(s);
+		effects_previous.Write(s);
+		ingestion_effects.Write(s);
+		ingestion_effect_causes.Write(s);
+		ingestion_effect_causes_many.Write(s);
 
     }
 }

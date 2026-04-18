@@ -1,133 +1,142 @@
 namespace GeneratedNoitaClasses;
-public class SpriteParticleEmitterComponent {
-	public string sprite_file { get; set; }
-	public bool sprite_centered { get; set; }
-	public bool sprite_random_rotation { get; set; }
-	public bool render_back { get; set; }
-	public float delay { get; set; }
-	public float lifetime { get; set; }
-	public ceng_CColorFloat color { get; set; }
-	public ceng_CColorFloat color_change { get; set; }
-	public bool additive { get; set; }
-	public bool emissive { get; set; }
-	public CVector2<float> velocity { get; set; }
-	public CVector2<float> gravity { get; set; }
-	public float velocity_slowdown { get; set; }
-	public float rotation { get; set; }
-	public float angular_velocity { get; set; }
-	public bool use_velocity_as_rotation { get; set; }
-	public bool use_rotation_from_velocity_component { get; set; }
-	public bool use_rotation_from_entity { get; set; }
-	public float entity_velocity_multiplier { get; set; }
-	public CVector2<float> scale { get; set; }
-	public CVector2<float> scale_velocity { get; set; }
-	public float z_index { get; set; }
-	public ValueRange randomize_lifetime { get; set; }
-	public types_aabb randomize_position { get; set; }
-	public bool randomize_position_inside_hitbox { get; set; }
-	public types_aabb randomize_velocity { get; set; }
-	public types_aabb randomize_scale { get; set; }
-	public ValueRange randomize_rotation { get; set; }
-	public ValueRange randomize_angular_velocity { get; set; }
-	public ValueRange randomize_alpha { get; set; }
-	public ValueRange randomize_animation_speed_coeff { get; set; }
-	public bool velocity_always_away_from_center { get; set; }
-	public CVector2<float> expand_randomize_position { get; set; }
-	public bool camera_bound { get; set; }
-	public float camera_distance { get; set; }
-	public bool is_emitting { get; set; }
-	public Int32 count_min { get; set; }
-	public Int32 count_max { get; set; }
-	public Int32 emission_interval_min_frames { get; set; }
-	public Int32 emission_interval_max_frames { get; set; }
-	public string entity_file { get; set; }
+public class SpriteParticleEmitterComponent : NoitaComponentBase,  iNoitaType<SpriteParticleEmitterComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString sprite_file { get; set; } = new();
+	public NoitaBool sprite_centered { get; set; } = new();
+	public NoitaBool sprite_random_rotation { get; set; } = new();
+	public NoitaBool render_back { get; set; } = new();
+	public NoitaFloat delay { get; set; } = new();
+	public NoitaFloat lifetime { get; set; } = new();
+	public ceng_CColorFloat color { get; set; } = new();
+	public ceng_CColorFloat color_change { get; set; } = new();
+	public NoitaBool additive { get; set; } = new();
+	public NoitaBool emissive { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> velocity { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> gravity { get; set; } = new();
+	public NoitaFloat velocity_slowdown { get; set; } = new();
+	public NoitaFloat rotation { get; set; } = new();
+	public NoitaFloat angular_velocity { get; set; } = new();
+	public NoitaBool use_velocity_as_rotation { get; set; } = new();
+	public NoitaBool use_rotation_from_velocity_component { get; set; } = new();
+	public NoitaBool use_rotation_from_entity { get; set; } = new();
+	public NoitaFloat entity_velocity_multiplier { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> scale { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> scale_velocity { get; set; } = new();
+	public NoitaFloat z_index { get; set; } = new();
+	public ValueRange randomize_lifetime { get; set; } = new();
+	public types_aabb randomize_position { get; set; } = new();
+	public NoitaBool randomize_position_inside_hitbox { get; set; } = new();
+	public types_aabb randomize_velocity { get; set; } = new();
+	public types_aabb randomize_scale { get; set; } = new();
+	public ValueRange randomize_rotation { get; set; } = new();
+	public ValueRange randomize_angular_velocity { get; set; } = new();
+	public ValueRange randomize_alpha { get; set; } = new();
+	public ValueRange randomize_animation_speed_coeff { get; set; } = new();
+	public NoitaBool velocity_always_away_from_center { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> expand_randomize_position { get; set; } = new();
+	public NoitaBool camera_bound { get; set; } = new();
+	public NoitaFloat camera_distance { get; set; } = new();
+	public NoitaBool is_emitting { get; set; } = new();
+	public NoitaInt count_min { get; set; } = new();
+	public NoitaInt count_max { get; set; } = new();
+	public NoitaInt emission_interval_min_frames { get; set; } = new();
+	public NoitaInt emission_interval_max_frames { get; set; } = new();
+	public NoitaString entity_file { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		sprite_file = s.ReadBeString();
-		sprite_centered = s.ReadBool();
-		sprite_random_rotation = s.ReadBool();
-		render_back = s.ReadBool();
-		delay = s.ReadBeFloat();
-		lifetime = s.ReadBeFloat();
-		color.Load(s);
-		color_change.Load(s);
-		additive = s.ReadBool();
-		emissive = s.ReadBool();
-		velocity.Load(s);
-		gravity.Load(s);
-		velocity_slowdown = s.ReadBeFloat();
-		rotation = s.ReadBeFloat();
-		angular_velocity = s.ReadBeFloat();
-		use_velocity_as_rotation = s.ReadBool();
-		use_rotation_from_velocity_component = s.ReadBool();
-		use_rotation_from_entity = s.ReadBool();
-		entity_velocity_multiplier = s.ReadBeFloat();
-		scale.Load(s);
-		scale_velocity.Load(s);
-		z_index = s.ReadBeFloat();
-		randomize_lifetime.Load(s);
-		randomize_position.Load(s);
-		randomize_position_inside_hitbox = s.ReadBool();
-		randomize_velocity.Load(s);
-		randomize_scale.Load(s);
-		randomize_rotation.Load(s);
-		randomize_angular_velocity.Load(s);
-		randomize_alpha.Load(s);
-		randomize_animation_speed_coeff.Load(s);
-		velocity_always_away_from_center = s.ReadBool();
-		expand_randomize_position.Load(s);
-		camera_bound = s.ReadBool();
-		camera_distance = s.ReadBeFloat();
-		is_emitting = s.ReadBool();
-		count_min = s.ReadBeInt32();
-		count_max = s.ReadBeInt32();
-		emission_interval_min_frames = s.ReadBeInt32();
-		emission_interval_max_frames = s.ReadBeInt32();
-		entity_file = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		sprite_file.Read(s);
+		sprite_centered.Read(s);
+		sprite_random_rotation.Read(s);
+		render_back.Read(s);
+		delay.Read(s);
+		lifetime.Read(s);
+		color.Read(s);
+		color_change.Read(s);
+		additive.Read(s);
+		emissive.Read(s);
+		velocity.Read(s);
+		gravity.Read(s);
+		velocity_slowdown.Read(s);
+		rotation.Read(s);
+		angular_velocity.Read(s);
+		use_velocity_as_rotation.Read(s);
+		use_rotation_from_velocity_component.Read(s);
+		use_rotation_from_entity.Read(s);
+		entity_velocity_multiplier.Read(s);
+		scale.Read(s);
+		scale_velocity.Read(s);
+		z_index.Read(s);
+		randomize_lifetime.Read(s);
+		randomize_position.Read(s);
+		randomize_position_inside_hitbox.Read(s);
+		randomize_velocity.Read(s);
+		randomize_scale.Read(s);
+		randomize_rotation.Read(s);
+		randomize_angular_velocity.Read(s);
+		randomize_alpha.Read(s);
+		randomize_animation_speed_coeff.Read(s);
+		velocity_always_away_from_center.Read(s);
+		expand_randomize_position.Read(s);
+		camera_bound.Read(s);
+		camera_distance.Read(s);
+		is_emitting.Read(s);
+		count_min.Read(s);
+		count_max.Read(s);
+		emission_interval_min_frames.Read(s);
+		emission_interval_max_frames.Read(s);
+		entity_file.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(sprite_file);
-		s.WriteBool(sprite_centered);
-		s.WriteBool(sprite_random_rotation);
-		s.WriteBool(render_back);
-		s.WriteBeFloat(delay);
-		s.WriteBeFloat(lifetime);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		sprite_file.Write(s);
+		sprite_centered.Write(s);
+		sprite_random_rotation.Write(s);
+		render_back.Write(s);
+		delay.Write(s);
+		lifetime.Write(s);
 		color.Write(s);
 		color_change.Write(s);
-		s.WriteBool(additive);
-		s.WriteBool(emissive);
+		additive.Write(s);
+		emissive.Write(s);
 		velocity.Write(s);
 		gravity.Write(s);
-		s.WriteBeFloat(velocity_slowdown);
-		s.WriteBeFloat(rotation);
-		s.WriteBeFloat(angular_velocity);
-		s.WriteBool(use_velocity_as_rotation);
-		s.WriteBool(use_rotation_from_velocity_component);
-		s.WriteBool(use_rotation_from_entity);
-		s.WriteBeFloat(entity_velocity_multiplier);
+		velocity_slowdown.Write(s);
+		rotation.Write(s);
+		angular_velocity.Write(s);
+		use_velocity_as_rotation.Write(s);
+		use_rotation_from_velocity_component.Write(s);
+		use_rotation_from_entity.Write(s);
+		entity_velocity_multiplier.Write(s);
 		scale.Write(s);
 		scale_velocity.Write(s);
-		s.WriteBeFloat(z_index);
+		z_index.Write(s);
 		randomize_lifetime.Write(s);
 		randomize_position.Write(s);
-		s.WriteBool(randomize_position_inside_hitbox);
+		randomize_position_inside_hitbox.Write(s);
 		randomize_velocity.Write(s);
 		randomize_scale.Write(s);
 		randomize_rotation.Write(s);
 		randomize_angular_velocity.Write(s);
 		randomize_alpha.Write(s);
 		randomize_animation_speed_coeff.Write(s);
-		s.WriteBool(velocity_always_away_from_center);
+		velocity_always_away_from_center.Write(s);
 		expand_randomize_position.Write(s);
-		s.WriteBool(camera_bound);
-		s.WriteBeFloat(camera_distance);
-		s.WriteBool(is_emitting);
-		s.WriteBeInt32(count_min);
-		s.WriteBeInt32(count_max);
-		s.WriteBeInt32(emission_interval_min_frames);
-		s.WriteBeInt32(emission_interval_max_frames);
-		s.WriteBeString(entity_file);
+		camera_bound.Write(s);
+		camera_distance.Write(s);
+		is_emitting.Write(s);
+		count_min.Write(s);
+		count_max.Write(s);
+		emission_interval_min_frames.Write(s);
+		emission_interval_max_frames.Write(s);
+		entity_file.Write(s);
 
     }
 }

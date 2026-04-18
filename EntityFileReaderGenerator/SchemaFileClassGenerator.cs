@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace EntityFileReaderGenerator
 {
@@ -50,6 +51,8 @@ namespace EntityFileReaderGenerator
                 File.Delete(f);
             }
 
+
+
             string schema_content = File.ReadAllText("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Noita\\data\\schemas\\" + hash + ".xml"); // Todo: Replace static noita path
 
             // We can't parse the data using standard XML functions, it's invalid XML. Instead, we use HtmlAgilityPack, which is more forgiving.
@@ -79,12 +82,16 @@ namespace EntityFileReaderGenerator
                 }
 
                 List<iLanguage.Property> properties = new List<iLanguage.Property>();
+                //properties.Add(new iLanguage.Property() { Name = "TypeName", Type = "string", NoitaType = classgenerator.GetNoitaType("string", "TypeName") });
+                properties.Add(new iLanguage.Property() { Name = "Deleted", Type = "bool", NoitaType = classgenerator.GetNoitaType("bool", "Deleted") });
+                properties.Add(new iLanguage.Property() { Name = "Enabled", Type = "bool", NoitaType = classgenerator.GetNoitaType("bool", "Enabled") });
+                properties.Add(new iLanguage.Property() { Name = "Tags", Type = "string", NoitaType = classgenerator.GetNoitaType("string", "Tags") });
 
 
                 //try { 
 
-                    // Loop through it's children to find it's <Var'>
-                    foreach (var attributeNode in node.ChildNodes)
+                // Loop through it's children to find it's <Var'>
+                foreach (var attributeNode in node.ChildNodes)
                     {
                         if (attributeNode.Name == "#text") // Ignore text nodes. Always one before and after each tag.
                             continue;
@@ -95,7 +102,7 @@ namespace EntityFileReaderGenerator
 
                         string membername = attributeNode.Attributes["name"].Value;
                         string type = attributeNode.Attributes["type"].Value;
-
+                     
                         properties.Add(new iLanguage.Property() { Name = membername, Type = type, NoitaType = classgenerator.GetNoitaType(type, membername)});
 
                         int size = int.Parse(attributeNode.Attributes["size"].Value);
@@ -108,7 +115,7 @@ namespace EntityFileReaderGenerator
                         TypeSizes[type] = size; // Apparantly this is fine, snail's code does it.
                     }
 
-                    iLanguage.iGeneratedClass iGeneratedClass = classgenerator.GenerateClass(componentname, properties);
+                    iLanguage.iGeneratedClass iGeneratedClass = classgenerator.GenerateClass(componentname, properties, "NoitaComponentBase, ");
 
                     File.WriteAllText(componentdirectory + "/" + iGeneratedClass.RecommendedFileName, iGeneratedClass.ClassText);
                     Successes++;

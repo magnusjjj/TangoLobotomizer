@@ -1,19 +1,19 @@
 namespace GeneratedNoitaClasses;
-public class PathFindingJumpParams {
-	public float x { get; set; }
-	public float y { get; set; }
-	public float lob { get; set; }
+public class PathFindingJumpParams :  iNoitaType<PathFindingJumpParams>{
+	public NoitaFloat x { get; set; } = new();
+	public NoitaFloat y { get; set; } = new();
+	public NoitaFloat lob { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		x = s.ReadBeFloat();
-		y = s.ReadBeFloat();
-		lob = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		x.Read(s);
+		y.Read(s);
+		lob.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(x);
-		s.WriteBeFloat(y);
-		s.WriteBeFloat(lob);
+    public void Write(NoitaStream s){
+		x.Write(s);
+		y.Write(s);
+		lob.Write(s);
 
     }
 }

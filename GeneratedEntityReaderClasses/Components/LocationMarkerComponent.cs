@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class LocationMarkerComponent {
-	public Int32 id { get; set; }
+public class LocationMarkerComponent : NoitaComponentBase,  iNoitaType<LocationMarkerComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt id { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		id = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		id.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(id);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		id.Write(s);
 
     }
 }

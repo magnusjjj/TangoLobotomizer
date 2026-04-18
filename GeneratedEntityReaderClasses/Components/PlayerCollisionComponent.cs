@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class PlayerCollisionComponent {
-	public Int32 getting_crushed_threshold { get; set; }
-	public Int32 moving_up_before_getting_crushed_threshold { get; set; }
+public class PlayerCollisionComponent : NoitaComponentBase,  iNoitaType<PlayerCollisionComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt getting_crushed_threshold { get; set; } = new();
+	public NoitaInt moving_up_before_getting_crushed_threshold { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		getting_crushed_threshold = s.ReadBeInt32();
-		moving_up_before_getting_crushed_threshold = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		getting_crushed_threshold.Read(s);
+		moving_up_before_getting_crushed_threshold.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(getting_crushed_threshold);
-		s.WriteBeInt32(moving_up_before_getting_crushed_threshold);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		getting_crushed_threshold.Write(s);
+		moving_up_before_getting_crushed_threshold.Write(s);
 
     }
 }

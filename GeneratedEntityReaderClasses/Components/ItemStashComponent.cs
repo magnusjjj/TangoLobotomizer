@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class ItemStashComponent {
-	public Int32 throw_openable_cooldown_frames { get; set; }
-	public bool init_children { get; set; }
+public class ItemStashComponent : NoitaComponentBase,  iNoitaType<ItemStashComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt throw_openable_cooldown_frames { get; set; } = new();
+	public NoitaBool init_children { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		throw_openable_cooldown_frames = s.ReadBeInt32();
-		init_children = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		throw_openable_cooldown_frames.Read(s);
+		init_children.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(throw_openable_cooldown_frames);
-		s.WriteBool(init_children);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		throw_openable_cooldown_frames.Write(s);
+		init_children.Write(s);
 
     }
 }

@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class TextLogComponent {
-	public string key { get; set; }
-	public string image_filename { get; set; }
+public class TextLogComponent : NoitaComponentBase,  iNoitaType<TextLogComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString key { get; set; } = new();
+	public NoitaString image_filename { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		key = s.ReadBeString();
-		image_filename = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		key.Read(s);
+		image_filename.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(key);
-		s.WriteBeString(image_filename);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		key.Write(s);
+		image_filename.Write(s);
 
     }
 }

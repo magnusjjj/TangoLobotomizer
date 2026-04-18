@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class ElectricitySourceComponent {
-	public Int32 radius { get; set; }
-	public Int32 emission_interval_frames { get; set; }
+public class ElectricitySourceComponent : NoitaComponentBase,  iNoitaType<ElectricitySourceComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt radius { get; set; } = new();
+	public NoitaInt emission_interval_frames { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeInt32();
-		emission_interval_frames = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		emission_interval_frames.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(radius);
-		s.WriteBeInt32(emission_interval_frames);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		emission_interval_frames.Write(s);
 
     }
 }

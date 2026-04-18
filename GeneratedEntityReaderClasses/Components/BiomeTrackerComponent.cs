@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class BiomeTrackerComponent {
-	public Int32 limit_to_every_n_frame { get; set; }
+public class BiomeTrackerComponent : NoitaComponentBase,  iNoitaType<BiomeTrackerComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt limit_to_every_n_frame { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		limit_to_every_n_frame = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		limit_to_every_n_frame.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(limit_to_every_n_frame);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		limit_to_every_n_frame.Write(s);
 
     }
 }

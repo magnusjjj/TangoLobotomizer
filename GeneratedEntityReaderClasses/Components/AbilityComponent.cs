@@ -1,148 +1,157 @@
 namespace GeneratedNoitaClasses;
-public class AbilityComponent {
-	public Int32 cooldown_frames { get; set; }
-	public string entity_file { get; set; }
-	public string sprite_file { get; set; }
-	public Int32 entity_count { get; set; }
-	public bool never_reload { get; set; }
-	public Int32 reload_time_frames { get; set; }
-	public float mana { get; set; }
-	public float mana_max { get; set; }
-	public float mana_charge_speed { get; set; }
-	public bool rotate_in_hand { get; set; }
-	public float rotate_in_hand_amount { get; set; }
-	public float rotate_hand_amount { get; set; }
-	public bool fast_projectile { get; set; }
-	public float swim_propel_amount { get; set; }
-	public Int32 max_charged_actions { get; set; }
-	public Int32 charge_wait_frames { get; set; }
-	public float item_recoil_recovery_speed { get; set; }
-	public float item_recoil_max { get; set; }
-	public float item_recoil_offset_coeff { get; set; }
-	public float item_recoil_rotation_coeff { get; set; }
-	public string base_item_file { get; set; }
-	public bool use_entity_file_as_projectile_info_proxy { get; set; }
-	public bool click_to_use { get; set; }
-	public Int32 stat_times_player_has_shot { get; set; }
-	public Int32 stat_times_player_has_edited { get; set; }
-	public bool shooting_reduces_amount_in_inventory { get; set; }
-	public bool throw_as_item { get; set; }
-	public bool simulate_throw_as_item { get; set; }
-	public Int32 max_amount_in_inventory { get; set; }
-	public Int32 amount_in_inventory { get; set; }
-	public bool drop_as_item_on_death { get; set; }
-	public string ui_name { get; set; }
-	public bool use_gun_script { get; set; }
-	public bool is_petris_gun { get; set; }
-	public ConfigGun gun_config { get; set; }
-	public ConfigGunActionInfo gunaction_config { get; set; }
-	public Int32 gun_level { get; set; }
-	public string add_these_child_actions { get; set; }
-	public Int32 current_slot_durability { get; set; }
-	public string slot_consumption_function { get; set; }
-	public Int32 mNextFrameUsable { get; set; }
-	public Int32 mCastDelayStartFrame { get; set; }
-	public Int32 mReloadFramesLeft { get; set; }
-	public Int32 mReloadNextFrameUsable { get; set; }
-	public Int32 mChargeCount { get; set; }
-	public bool mIsInitialized { get; set; }
+public class AbilityComponent : NoitaComponentBase,  iNoitaType<AbilityComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt cooldown_frames { get; set; } = new();
+	public NoitaString entity_file { get; set; } = new();
+	public NoitaString sprite_file { get; set; } = new();
+	public NoitaInt entity_count { get; set; } = new();
+	public NoitaBool never_reload { get; set; } = new();
+	public NoitaInt reload_time_frames { get; set; } = new();
+	public NoitaFloat mana { get; set; } = new();
+	public NoitaFloat mana_max { get; set; } = new();
+	public NoitaFloat mana_charge_speed { get; set; } = new();
+	public NoitaBool rotate_in_hand { get; set; } = new();
+	public NoitaFloat rotate_in_hand_amount { get; set; } = new();
+	public NoitaFloat rotate_hand_amount { get; set; } = new();
+	public NoitaBool fast_projectile { get; set; } = new();
+	public NoitaFloat swim_propel_amount { get; set; } = new();
+	public NoitaInt max_charged_actions { get; set; } = new();
+	public NoitaInt charge_wait_frames { get; set; } = new();
+	public NoitaFloat item_recoil_recovery_speed { get; set; } = new();
+	public NoitaFloat item_recoil_max { get; set; } = new();
+	public NoitaFloat item_recoil_offset_coeff { get; set; } = new();
+	public NoitaFloat item_recoil_rotation_coeff { get; set; } = new();
+	public NoitaString base_item_file { get; set; } = new();
+	public NoitaBool use_entity_file_as_projectile_info_proxy { get; set; } = new();
+	public NoitaBool click_to_use { get; set; } = new();
+	public NoitaInt stat_times_player_has_shot { get; set; } = new();
+	public NoitaInt stat_times_player_has_edited { get; set; } = new();
+	public NoitaBool shooting_reduces_amount_in_inventory { get; set; } = new();
+	public NoitaBool throw_as_item { get; set; } = new();
+	public NoitaBool simulate_throw_as_item { get; set; } = new();
+	public NoitaInt max_amount_in_inventory { get; set; } = new();
+	public NoitaInt amount_in_inventory { get; set; } = new();
+	public NoitaBool drop_as_item_on_death { get; set; } = new();
+	public NoitaString ui_name { get; set; } = new();
+	public NoitaBool use_gun_script { get; set; } = new();
+	public NoitaBool is_petris_gun { get; set; } = new();
+	public ConfigGun gun_config { get; set; } = new();
+	public ConfigGunActionInfo gunaction_config { get; set; } = new();
+	public NoitaInt gun_level { get; set; } = new();
+	public NoitaString add_these_child_actions { get; set; } = new();
+	public NoitaInt current_slot_durability { get; set; } = new();
+	public NoitaString slot_consumption_function { get; set; } = new();
+	public NoitaInt mNextFrameUsable { get; set; } = new();
+	public NoitaInt mCastDelayStartFrame { get; set; } = new();
+	public NoitaInt mReloadFramesLeft { get; set; } = new();
+	public NoitaInt mReloadNextFrameUsable { get; set; } = new();
+	public NoitaInt mChargeCount { get; set; } = new();
+	public NoitaBool mIsInitialized { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		cooldown_frames = s.ReadBeInt32();
-		entity_file = s.ReadBeString();
-		sprite_file = s.ReadBeString();
-		entity_count = s.ReadBeInt32();
-		never_reload = s.ReadBool();
-		reload_time_frames = s.ReadBeInt32();
-		mana = s.ReadBeFloat();
-		mana_max = s.ReadBeFloat();
-		mana_charge_speed = s.ReadBeFloat();
-		rotate_in_hand = s.ReadBool();
-		rotate_in_hand_amount = s.ReadBeFloat();
-		rotate_hand_amount = s.ReadBeFloat();
-		fast_projectile = s.ReadBool();
-		swim_propel_amount = s.ReadBeFloat();
-		max_charged_actions = s.ReadBeInt32();
-		charge_wait_frames = s.ReadBeInt32();
-		item_recoil_recovery_speed = s.ReadBeFloat();
-		item_recoil_max = s.ReadBeFloat();
-		item_recoil_offset_coeff = s.ReadBeFloat();
-		item_recoil_rotation_coeff = s.ReadBeFloat();
-		base_item_file = s.ReadBeString();
-		use_entity_file_as_projectile_info_proxy = s.ReadBool();
-		click_to_use = s.ReadBool();
-		stat_times_player_has_shot = s.ReadBeInt32();
-		stat_times_player_has_edited = s.ReadBeInt32();
-		shooting_reduces_amount_in_inventory = s.ReadBool();
-		throw_as_item = s.ReadBool();
-		simulate_throw_as_item = s.ReadBool();
-		max_amount_in_inventory = s.ReadBeInt32();
-		amount_in_inventory = s.ReadBeInt32();
-		drop_as_item_on_death = s.ReadBool();
-		ui_name = s.ReadBeString();
-		use_gun_script = s.ReadBool();
-		is_petris_gun = s.ReadBool();
-		gun_config.Load(s);
-		gunaction_config.Load(s);
-		gun_level = s.ReadBeInt32();
-		add_these_child_actions = s.ReadBeString();
-		current_slot_durability = s.ReadBeInt32();
-		slot_consumption_function = s.ReadBeString();
-		mNextFrameUsable = s.ReadBeInt32();
-		mCastDelayStartFrame = s.ReadBeInt32();
-		mReloadFramesLeft = s.ReadBeInt32();
-		mReloadNextFrameUsable = s.ReadBeInt32();
-		mChargeCount = s.ReadBeInt32();
-		mIsInitialized = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		cooldown_frames.Read(s);
+		entity_file.Read(s);
+		sprite_file.Read(s);
+		entity_count.Read(s);
+		never_reload.Read(s);
+		reload_time_frames.Read(s);
+		mana.Read(s);
+		mana_max.Read(s);
+		mana_charge_speed.Read(s);
+		rotate_in_hand.Read(s);
+		rotate_in_hand_amount.Read(s);
+		rotate_hand_amount.Read(s);
+		fast_projectile.Read(s);
+		swim_propel_amount.Read(s);
+		max_charged_actions.Read(s);
+		charge_wait_frames.Read(s);
+		item_recoil_recovery_speed.Read(s);
+		item_recoil_max.Read(s);
+		item_recoil_offset_coeff.Read(s);
+		item_recoil_rotation_coeff.Read(s);
+		base_item_file.Read(s);
+		use_entity_file_as_projectile_info_proxy.Read(s);
+		click_to_use.Read(s);
+		stat_times_player_has_shot.Read(s);
+		stat_times_player_has_edited.Read(s);
+		shooting_reduces_amount_in_inventory.Read(s);
+		throw_as_item.Read(s);
+		simulate_throw_as_item.Read(s);
+		max_amount_in_inventory.Read(s);
+		amount_in_inventory.Read(s);
+		drop_as_item_on_death.Read(s);
+		ui_name.Read(s);
+		use_gun_script.Read(s);
+		is_petris_gun.Read(s);
+		gun_config.Read(s);
+		gunaction_config.Read(s);
+		gun_level.Read(s);
+		add_these_child_actions.Read(s);
+		current_slot_durability.Read(s);
+		slot_consumption_function.Read(s);
+		mNextFrameUsable.Read(s);
+		mCastDelayStartFrame.Read(s);
+		mReloadFramesLeft.Read(s);
+		mReloadNextFrameUsable.Read(s);
+		mChargeCount.Read(s);
+		mIsInitialized.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(cooldown_frames);
-		s.WriteBeString(entity_file);
-		s.WriteBeString(sprite_file);
-		s.WriteBeInt32(entity_count);
-		s.WriteBool(never_reload);
-		s.WriteBeInt32(reload_time_frames);
-		s.WriteBeFloat(mana);
-		s.WriteBeFloat(mana_max);
-		s.WriteBeFloat(mana_charge_speed);
-		s.WriteBool(rotate_in_hand);
-		s.WriteBeFloat(rotate_in_hand_amount);
-		s.WriteBeFloat(rotate_hand_amount);
-		s.WriteBool(fast_projectile);
-		s.WriteBeFloat(swim_propel_amount);
-		s.WriteBeInt32(max_charged_actions);
-		s.WriteBeInt32(charge_wait_frames);
-		s.WriteBeFloat(item_recoil_recovery_speed);
-		s.WriteBeFloat(item_recoil_max);
-		s.WriteBeFloat(item_recoil_offset_coeff);
-		s.WriteBeFloat(item_recoil_rotation_coeff);
-		s.WriteBeString(base_item_file);
-		s.WriteBool(use_entity_file_as_projectile_info_proxy);
-		s.WriteBool(click_to_use);
-		s.WriteBeInt32(stat_times_player_has_shot);
-		s.WriteBeInt32(stat_times_player_has_edited);
-		s.WriteBool(shooting_reduces_amount_in_inventory);
-		s.WriteBool(throw_as_item);
-		s.WriteBool(simulate_throw_as_item);
-		s.WriteBeInt32(max_amount_in_inventory);
-		s.WriteBeInt32(amount_in_inventory);
-		s.WriteBool(drop_as_item_on_death);
-		s.WriteBeString(ui_name);
-		s.WriteBool(use_gun_script);
-		s.WriteBool(is_petris_gun);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		cooldown_frames.Write(s);
+		entity_file.Write(s);
+		sprite_file.Write(s);
+		entity_count.Write(s);
+		never_reload.Write(s);
+		reload_time_frames.Write(s);
+		mana.Write(s);
+		mana_max.Write(s);
+		mana_charge_speed.Write(s);
+		rotate_in_hand.Write(s);
+		rotate_in_hand_amount.Write(s);
+		rotate_hand_amount.Write(s);
+		fast_projectile.Write(s);
+		swim_propel_amount.Write(s);
+		max_charged_actions.Write(s);
+		charge_wait_frames.Write(s);
+		item_recoil_recovery_speed.Write(s);
+		item_recoil_max.Write(s);
+		item_recoil_offset_coeff.Write(s);
+		item_recoil_rotation_coeff.Write(s);
+		base_item_file.Write(s);
+		use_entity_file_as_projectile_info_proxy.Write(s);
+		click_to_use.Write(s);
+		stat_times_player_has_shot.Write(s);
+		stat_times_player_has_edited.Write(s);
+		shooting_reduces_amount_in_inventory.Write(s);
+		throw_as_item.Write(s);
+		simulate_throw_as_item.Write(s);
+		max_amount_in_inventory.Write(s);
+		amount_in_inventory.Write(s);
+		drop_as_item_on_death.Write(s);
+		ui_name.Write(s);
+		use_gun_script.Write(s);
+		is_petris_gun.Write(s);
 		gun_config.Write(s);
 		gunaction_config.Write(s);
-		s.WriteBeInt32(gun_level);
-		s.WriteBeString(add_these_child_actions);
-		s.WriteBeInt32(current_slot_durability);
-		s.WriteBeString(slot_consumption_function);
-		s.WriteBeInt32(mNextFrameUsable);
-		s.WriteBeInt32(mCastDelayStartFrame);
-		s.WriteBeInt32(mReloadFramesLeft);
-		s.WriteBeInt32(mReloadNextFrameUsable);
-		s.WriteBeInt32(mChargeCount);
-		s.WriteBool(mIsInitialized);
+		gun_level.Write(s);
+		add_these_child_actions.Write(s);
+		current_slot_durability.Write(s);
+		slot_consumption_function.Write(s);
+		mNextFrameUsable.Write(s);
+		mCastDelayStartFrame.Write(s);
+		mReloadFramesLeft.Write(s);
+		mReloadNextFrameUsable.Write(s);
+		mChargeCount.Write(s);
+		mIsInitialized.Write(s);
 
     }
 }

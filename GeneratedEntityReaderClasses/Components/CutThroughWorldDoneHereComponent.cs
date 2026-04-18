@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class CutThroughWorldDoneHereComponent {
-	public UInt32 id_of_done_cut { get; set; }
+public class CutThroughWorldDoneHereComponent : NoitaComponentBase,  iNoitaType<CutThroughWorldDoneHereComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUInt id_of_done_cut { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		id_of_done_cut = s.ReadBeUInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		id_of_done_cut.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(id_of_done_cut);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		id_of_done_cut.Write(s);
 
     }
 }

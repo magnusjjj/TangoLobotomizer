@@ -11,7 +11,10 @@ namespace PetriNoitaLib.V2
 
         static StaticObjectTypes()
         {
-            ObjectFormatLookup = JsonSerializer.Deserialize<Dictionary<string, List<List<string>>>>(StaticObjectTypes.structurejson);
+            Dictionary<string, List<List<string>>>? deserialized = JsonSerializer.Deserialize<Dictionary<string, List<List<string>>>>(StaticObjectTypes.structurejson);
+            if (deserialized == null)
+                throw new Exception("This should never happen, just to shut up warnings");
+            ObjectFormatLookup = deserialized;
             /*ParsedObjectTypes = JsonDocument.Parse(StaticObjectTypes.structurejson);
             foreach(var jo in ParsedObjectTypes.RootElement.EnumerateObject())
             {

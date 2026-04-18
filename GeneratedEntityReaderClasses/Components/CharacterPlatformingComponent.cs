@@ -1,112 +1,121 @@
 namespace GeneratedNoitaClasses;
-public class CharacterPlatformingComponent {
-	public LensValue<float> velocity_min_x { get; set; }
-	public LensValue<float> velocity_max_x { get; set; }
-	public LensValue<float> velocity_min_y { get; set; }
-	public LensValue<float> velocity_max_y { get; set; }
-	public LensValue<float> run_velocity { get; set; }
-	public LensValue<float> fly_velocity_x { get; set; }
-	public float jump_velocity_x { get; set; }
-	public float jump_velocity_y { get; set; }
-	public Int32 jump_keydown_buffer { get; set; }
-	public LensValue<float> fly_speed_max_up { get; set; }
-	public LensValue<float> fly_speed_max_down { get; set; }
-	public float fly_speed_mult { get; set; }
-	public float fly_speed_change_spd { get; set; }
-	public bool fly_model_player { get; set; }
-	public bool fly_smooth_y { get; set; }
-	public float accel_x { get; set; }
-	public float accel_x_air { get; set; }
-	public float pixel_gravity { get; set; }
-	public float swim_idle_buoyancy_coeff { get; set; }
-	public float swim_down_buoyancy_coeff { get; set; }
-	public float swim_up_buoyancy_coeff { get; set; }
-	public float swim_drag { get; set; }
-	public float swim_extra_horizontal_drag { get; set; }
-	public bool mouse_look { get; set; }
-	public float mouse_look_buffer { get; set; }
-	public bool keyboard_look { get; set; }
-	public float turning_buffer { get; set; }
-	public string animation_to_play { get; set; }
-	public string animation_to_play_next { get; set; }
-	public float run_animation_velocity_switching_threshold { get; set; }
-	public bool run_animation_velocity_switching_enabled { get; set; }
-	public Int32 turn_animation_frames_between { get; set; }
-	public Int32 precision_jumping_max_duration_frames { get; set; }
-	public float audio_liquid_splash_intensity { get; set; }
+public class CharacterPlatformingComponent : NoitaComponentBase,  iNoitaType<CharacterPlatformingComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> velocity_min_x { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> velocity_max_x { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> velocity_min_y { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> velocity_max_y { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> run_velocity { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> fly_velocity_x { get; set; } = new();
+	public NoitaFloat jump_velocity_x { get; set; } = new();
+	public NoitaFloat jump_velocity_y { get; set; } = new();
+	public NoitaInt jump_keydown_buffer { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> fly_speed_max_up { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> fly_speed_max_down { get; set; } = new();
+	public NoitaFloat fly_speed_mult { get; set; } = new();
+	public NoitaFloat fly_speed_change_spd { get; set; } = new();
+	public NoitaBool fly_model_player { get; set; } = new();
+	public NoitaBool fly_smooth_y { get; set; } = new();
+	public NoitaFloat accel_x { get; set; } = new();
+	public NoitaFloat accel_x_air { get; set; } = new();
+	public NoitaFloat pixel_gravity { get; set; } = new();
+	public NoitaFloat swim_idle_buoyancy_coeff { get; set; } = new();
+	public NoitaFloat swim_down_buoyancy_coeff { get; set; } = new();
+	public NoitaFloat swim_up_buoyancy_coeff { get; set; } = new();
+	public NoitaFloat swim_drag { get; set; } = new();
+	public NoitaFloat swim_extra_horizontal_drag { get; set; } = new();
+	public NoitaBool mouse_look { get; set; } = new();
+	public NoitaFloat mouse_look_buffer { get; set; } = new();
+	public NoitaBool keyboard_look { get; set; } = new();
+	public NoitaFloat turning_buffer { get; set; } = new();
+	public NoitaString animation_to_play { get; set; } = new();
+	public NoitaString animation_to_play_next { get; set; } = new();
+	public NoitaFloat run_animation_velocity_switching_threshold { get; set; } = new();
+	public NoitaBool run_animation_velocity_switching_enabled { get; set; } = new();
+	public NoitaInt turn_animation_frames_between { get; set; } = new();
+	public NoitaInt precision_jumping_max_duration_frames { get; set; } = new();
+	public NoitaFloat audio_liquid_splash_intensity { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		velocity_min_x.Load(s);
-		velocity_max_x.Load(s);
-		velocity_min_y.Load(s);
-		velocity_max_y.Load(s);
-		run_velocity.Load(s);
-		fly_velocity_x.Load(s);
-		jump_velocity_x = s.ReadBeFloat();
-		jump_velocity_y = s.ReadBeFloat();
-		jump_keydown_buffer = s.ReadBeInt32();
-		fly_speed_max_up.Load(s);
-		fly_speed_max_down.Load(s);
-		fly_speed_mult = s.ReadBeFloat();
-		fly_speed_change_spd = s.ReadBeFloat();
-		fly_model_player = s.ReadBool();
-		fly_smooth_y = s.ReadBool();
-		accel_x = s.ReadBeFloat();
-		accel_x_air = s.ReadBeFloat();
-		pixel_gravity = s.ReadBeFloat();
-		swim_idle_buoyancy_coeff = s.ReadBeFloat();
-		swim_down_buoyancy_coeff = s.ReadBeFloat();
-		swim_up_buoyancy_coeff = s.ReadBeFloat();
-		swim_drag = s.ReadBeFloat();
-		swim_extra_horizontal_drag = s.ReadBeFloat();
-		mouse_look = s.ReadBool();
-		mouse_look_buffer = s.ReadBeFloat();
-		keyboard_look = s.ReadBool();
-		turning_buffer = s.ReadBeFloat();
-		animation_to_play = s.ReadBeString();
-		animation_to_play_next = s.ReadBeString();
-		run_animation_velocity_switching_threshold = s.ReadBeFloat();
-		run_animation_velocity_switching_enabled = s.ReadBool();
-		turn_animation_frames_between = s.ReadBeInt32();
-		precision_jumping_max_duration_frames = s.ReadBeInt32();
-		audio_liquid_splash_intensity = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		velocity_min_x.Read(s);
+		velocity_max_x.Read(s);
+		velocity_min_y.Read(s);
+		velocity_max_y.Read(s);
+		run_velocity.Read(s);
+		fly_velocity_x.Read(s);
+		jump_velocity_x.Read(s);
+		jump_velocity_y.Read(s);
+		jump_keydown_buffer.Read(s);
+		fly_speed_max_up.Read(s);
+		fly_speed_max_down.Read(s);
+		fly_speed_mult.Read(s);
+		fly_speed_change_spd.Read(s);
+		fly_model_player.Read(s);
+		fly_smooth_y.Read(s);
+		accel_x.Read(s);
+		accel_x_air.Read(s);
+		pixel_gravity.Read(s);
+		swim_idle_buoyancy_coeff.Read(s);
+		swim_down_buoyancy_coeff.Read(s);
+		swim_up_buoyancy_coeff.Read(s);
+		swim_drag.Read(s);
+		swim_extra_horizontal_drag.Read(s);
+		mouse_look.Read(s);
+		mouse_look_buffer.Read(s);
+		keyboard_look.Read(s);
+		turning_buffer.Read(s);
+		animation_to_play.Read(s);
+		animation_to_play_next.Read(s);
+		run_animation_velocity_switching_threshold.Read(s);
+		run_animation_velocity_switching_enabled.Read(s);
+		turn_animation_frames_between.Read(s);
+		precision_jumping_max_duration_frames.Read(s);
+		audio_liquid_splash_intensity.Read(s);
 
     }
-    public void Save(NoitaStream s){
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
 		velocity_min_x.Write(s);
 		velocity_max_x.Write(s);
 		velocity_min_y.Write(s);
 		velocity_max_y.Write(s);
 		run_velocity.Write(s);
 		fly_velocity_x.Write(s);
-		s.WriteBeFloat(jump_velocity_x);
-		s.WriteBeFloat(jump_velocity_y);
-		s.WriteBeInt32(jump_keydown_buffer);
+		jump_velocity_x.Write(s);
+		jump_velocity_y.Write(s);
+		jump_keydown_buffer.Write(s);
 		fly_speed_max_up.Write(s);
 		fly_speed_max_down.Write(s);
-		s.WriteBeFloat(fly_speed_mult);
-		s.WriteBeFloat(fly_speed_change_spd);
-		s.WriteBool(fly_model_player);
-		s.WriteBool(fly_smooth_y);
-		s.WriteBeFloat(accel_x);
-		s.WriteBeFloat(accel_x_air);
-		s.WriteBeFloat(pixel_gravity);
-		s.WriteBeFloat(swim_idle_buoyancy_coeff);
-		s.WriteBeFloat(swim_down_buoyancy_coeff);
-		s.WriteBeFloat(swim_up_buoyancy_coeff);
-		s.WriteBeFloat(swim_drag);
-		s.WriteBeFloat(swim_extra_horizontal_drag);
-		s.WriteBool(mouse_look);
-		s.WriteBeFloat(mouse_look_buffer);
-		s.WriteBool(keyboard_look);
-		s.WriteBeFloat(turning_buffer);
-		s.WriteBeString(animation_to_play);
-		s.WriteBeString(animation_to_play_next);
-		s.WriteBeFloat(run_animation_velocity_switching_threshold);
-		s.WriteBool(run_animation_velocity_switching_enabled);
-		s.WriteBeInt32(turn_animation_frames_between);
-		s.WriteBeInt32(precision_jumping_max_duration_frames);
-		s.WriteBeFloat(audio_liquid_splash_intensity);
+		fly_speed_mult.Write(s);
+		fly_speed_change_spd.Write(s);
+		fly_model_player.Write(s);
+		fly_smooth_y.Write(s);
+		accel_x.Write(s);
+		accel_x_air.Write(s);
+		pixel_gravity.Write(s);
+		swim_idle_buoyancy_coeff.Write(s);
+		swim_down_buoyancy_coeff.Write(s);
+		swim_up_buoyancy_coeff.Write(s);
+		swim_drag.Write(s);
+		swim_extra_horizontal_drag.Write(s);
+		mouse_look.Write(s);
+		mouse_look_buffer.Write(s);
+		keyboard_look.Write(s);
+		turning_buffer.Write(s);
+		animation_to_play.Write(s);
+		animation_to_play_next.Write(s);
+		run_animation_velocity_switching_threshold.Write(s);
+		run_animation_velocity_switching_enabled.Write(s);
+		turn_animation_frames_between.Write(s);
+		precision_jumping_max_duration_frames.Write(s);
+		audio_liquid_splash_intensity.Write(s);
 
     }
 }

@@ -1,229 +1,196 @@
 namespace GeneratedNoitaClasses;
-public class WorldStateComponent {
-	public bool is_initialized { get; set; }
-	public float time { get; set; }
-	public float time_total { get; set; }
-	public float time_dt { get; set; }
-	public Int32 day_count { get; set; }
-	public float rain { get; set; }
-	public float rain_target { get; set; }
-	public float fog { get; set; }
-	public float fog_target { get; set; }
-	public bool intro_weather { get; set; }
-	public float wind { get; set; }
-	public float wind_speed { get; set; }
-	public float wind_speed_sin_t { get; set; }
-	public float wind_speed_sin { get; set; }
-	public float clouds_01_target { get; set; }
-	public float clouds_02_target { get; set; }
-	public float gradient_sky_alpha_target { get; set; }
-	public float sky_sunset_alpha_target { get; set; }
-	public Int32 lightning_count { get; set; }
-	public CVector2<float> player_spawn_location { get; set; }
+public class WorldStateComponent : NoitaComponentBase,  iNoitaType<WorldStateComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool is_initialized { get; set; } = new();
+	public NoitaFloat time { get; set; } = new();
+	public NoitaFloat time_total { get; set; } = new();
+	public NoitaFloat time_dt { get; set; } = new();
+	public NoitaInt day_count { get; set; } = new();
+	public NoitaFloat rain { get; set; } = new();
+	public NoitaFloat rain_target { get; set; } = new();
+	public NoitaFloat fog { get; set; } = new();
+	public NoitaFloat fog_target { get; set; } = new();
+	public NoitaBool intro_weather { get; set; } = new();
+	public NoitaFloat wind { get; set; } = new();
+	public NoitaFloat wind_speed { get; set; } = new();
+	public NoitaFloat wind_speed_sin_t { get; set; } = new();
+	public NoitaFloat wind_speed_sin { get; set; } = new();
+	public NoitaFloat clouds_01_target { get; set; } = new();
+	public NoitaFloat clouds_02_target { get; set; } = new();
+	public NoitaFloat gradient_sky_alpha_target { get; set; } = new();
+	public NoitaFloat sky_sunset_alpha_target { get; set; } = new();
+	public NoitaInt lightning_count { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> player_spawn_location { get; set; } = new();
 	
-	public List<MissingClassConfigPendingPortal> pending_portals { get; set; }
-	public UInt32 next_portal_id { get; set; }
-	public List<int> apparitions_per_level { get; set; }
-	public List<MissingClassConfigNpcParty> npc_parties { get; set; }
-	public string session_stat_file { get; set; }
-	public List<int> orbs_found_thisrun { get; set; }
-	public List<string> flags { get; set; }
-	public List<string> changed_materials { get; set; }
-	public Int32 player_polymorph_count { get; set; }
-	public Int32 player_polymorph_random_count { get; set; }
-	public Int32 player_did_infinite_spell_count { get; set; }
-	public Int32 player_did_damage_over_1milj { get; set; }
-	public Int32 player_living_with_minus_hp { get; set; }
-	public float global_genome_relations_modifier { get; set; }
-	public bool mods_have_been_active_during_this_run { get; set; }
-	public bool twitch_has_been_active_during_this_run { get; set; }
-	public UInt32 next_cut_through_world_id { get; set; }
-	public List<MissingClassConfigCutThroughWorld> cuts_through_world { get; set; }
-	public LensValue<int> gore_multiplier { get; set; }
-	public LensValue<int> trick_kill_gold_multiplier { get; set; }
-	public LensValue<float> damage_flash_multiplier { get; set; }
-	public LensValue<bool> open_fog_of_war_everywhere { get; set; }
-	public LensValue<bool> consume_actions { get; set; }
-	public bool perk_infinite_spells { get; set; }
-	public bool perk_trick_kills_blood_money { get; set; }
-	public Int32 perk_hp_drop_chance { get; set; }
-	public bool perk_gold_is_forever { get; set; }
-	public bool perk_rats_player_friendly { get; set; }
-	public bool EVERYTHING_TO_GOLD { get; set; }
-	public string material_everything_to_gold { get; set; }
-	public string material_everything_to_gold_static { get; set; }
-	public bool INFINITE_GOLD_HAPPENING { get; set; }
-	public bool ENDING_HAPPINESS_HAPPENING { get; set; }
-	public Int32 ENDING_HAPPINESS_FRAMES { get; set; }
-	public bool ENDING_HAPPINESS { get; set; }
-	public float mFlashAlpha { get; set; }
-	public Int32 DEBUG_LOADED_FROM_AUTOSAVE { get; set; }
-	public Int32 DEBUG_LOADED_FROM_OLD_VERSION { get; set; }
+	public NoitaVector<MissingClassConfigPendingPortal> pending_portals { get; set; } = new();
+	public NoitaUInt next_portal_id { get; set; } = new();
+	public NoitaVector<NoitaInt> apparitions_per_level { get; set; } = new();
+	public NoitaVector<MissingClassConfigNpcParty> npc_parties { get; set; } = new();
+	public NoitaString session_stat_file { get; set; } = new();
+	public NoitaVector<NoitaInt> orbs_found_thisrun { get; set; } = new();
+	public NoitaVector<NoitaString> flags { get; set; } = new();
+	public NoitaVector<NoitaString> changed_materials { get; set; } = new();
+	public NoitaInt player_polymorph_count { get; set; } = new();
+	public NoitaInt player_polymorph_random_count { get; set; } = new();
+	public NoitaInt player_did_infinite_spell_count { get; set; } = new();
+	public NoitaInt player_did_damage_over_1milj { get; set; } = new();
+	public NoitaInt player_living_with_minus_hp { get; set; } = new();
+	public NoitaFloat global_genome_relations_modifier { get; set; } = new();
+	public NoitaBool mods_have_been_active_during_this_run { get; set; } = new();
+	public NoitaBool twitch_has_been_active_during_this_run { get; set; } = new();
+	public NoitaUInt next_cut_through_world_id { get; set; } = new();
+	public NoitaVector<MissingClassConfigCutThroughWorld> cuts_through_world { get; set; } = new();
+	public NoitaLensValue<NoitaInt> gore_multiplier { get; set; } = new();
+	public NoitaLensValue<NoitaInt> trick_kill_gold_multiplier { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> damage_flash_multiplier { get; set; } = new();
+	public NoitaLensValue<NoitaBool> open_fog_of_war_everywhere { get; set; } = new();
+	public NoitaLensValue<NoitaBool> consume_actions { get; set; } = new();
+	public NoitaBool perk_infinite_spells { get; set; } = new();
+	public NoitaBool perk_trick_kills_blood_money { get; set; } = new();
+	public NoitaInt perk_hp_drop_chance { get; set; } = new();
+	public NoitaBool perk_gold_is_forever { get; set; } = new();
+	public NoitaBool perk_rats_player_friendly { get; set; } = new();
+	public NoitaBool EVERYTHING_TO_GOLD { get; set; } = new();
+	public NoitaString material_everything_to_gold { get; set; } = new();
+	public NoitaString material_everything_to_gold_static { get; set; } = new();
+	public NoitaBool INFINITE_GOLD_HAPPENING { get; set; } = new();
+	public NoitaBool ENDING_HAPPINESS_HAPPENING { get; set; } = new();
+	public NoitaInt ENDING_HAPPINESS_FRAMES { get; set; } = new();
+	public NoitaBool ENDING_HAPPINESS { get; set; } = new();
+	public NoitaFloat mFlashAlpha { get; set; } = new();
+	public NoitaInt DEBUG_LOADED_FROM_AUTOSAVE { get; set; } = new();
+	public NoitaInt DEBUG_LOADED_FROM_OLD_VERSION { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		is_initialized = s.ReadBool();
-		time = s.ReadBeFloat();
-		time_total = s.ReadBeFloat();
-		time_dt = s.ReadBeFloat();
-		day_count = s.ReadBeInt32();
-		rain = s.ReadBeFloat();
-		rain_target = s.ReadBeFloat();
-		fog = s.ReadBeFloat();
-		fog_target = s.ReadBeFloat();
-		intro_weather = s.ReadBool();
-		wind = s.ReadBeFloat();
-		wind_speed = s.ReadBeFloat();
-		wind_speed_sin_t = s.ReadBeFloat();
-		wind_speed_sin = s.ReadBeFloat();
-		clouds_01_target = s.ReadBeFloat();
-		clouds_02_target = s.ReadBeFloat();
-		gradient_sky_alpha_target = s.ReadBeFloat();
-		sky_sunset_alpha_target = s.ReadBeFloat();
-		lightning_count = s.ReadBeInt32();
-		player_spawn_location.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		is_initialized.Read(s);
+		time.Read(s);
+		time_total.Read(s);
+		time_dt.Read(s);
+		day_count.Read(s);
+		rain.Read(s);
+		rain_target.Read(s);
+		fog.Read(s);
+		fog_target.Read(s);
+		intro_weather.Read(s);
+		wind.Read(s);
+		wind_speed.Read(s);
+		wind_speed_sin_t.Read(s);
+		wind_speed_sin.Read(s);
+		clouds_01_target.Read(s);
+		clouds_02_target.Read(s);
+		gradient_sky_alpha_target.Read(s);
+		sky_sunset_alpha_target.Read(s);
+		lightning_count.Read(s);
+		player_spawn_location.Read(s);
 		
-		pending_portals = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- pending_portals.Add(MissingClassConfigPendingPortal.Load(s));
-}
-		next_portal_id = s.ReadBeUInt32();
-		apparitions_per_level = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- apparitions_per_level.Add(int.Load(s));
-}
-		npc_parties = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- npc_parties.Add(MissingClassConfigNpcParty.Load(s));
-}
-		session_stat_file = s.ReadBeString();
-		orbs_found_thisrun = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- orbs_found_thisrun.Add(int.Load(s));
-}
-		flags = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- flags.Add(string.Load(s));
-}
-		changed_materials = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- changed_materials.Add(string.Load(s));
-}
-		player_polymorph_count = s.ReadBeInt32();
-		player_polymorph_random_count = s.ReadBeInt32();
-		player_did_infinite_spell_count = s.ReadBeInt32();
-		player_did_damage_over_1milj = s.ReadBeInt32();
-		player_living_with_minus_hp = s.ReadBeInt32();
-		global_genome_relations_modifier = s.ReadBeFloat();
-		mods_have_been_active_during_this_run = s.ReadBool();
-		twitch_has_been_active_during_this_run = s.ReadBool();
-		next_cut_through_world_id = s.ReadBeUInt32();
-		cuts_through_world = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- cuts_through_world.Add(MissingClassConfigCutThroughWorld.Load(s));
-}
-		gore_multiplier.Load(s);
-		trick_kill_gold_multiplier.Load(s);
-		damage_flash_multiplier.Load(s);
-		open_fog_of_war_everywhere.Load(s);
-		consume_actions.Load(s);
-		perk_infinite_spells = s.ReadBool();
-		perk_trick_kills_blood_money = s.ReadBool();
-		perk_hp_drop_chance = s.ReadBeInt32();
-		perk_gold_is_forever = s.ReadBool();
-		perk_rats_player_friendly = s.ReadBool();
-		EVERYTHING_TO_GOLD = s.ReadBool();
-		material_everything_to_gold = s.ReadBeString();
-		material_everything_to_gold_static = s.ReadBeString();
-		INFINITE_GOLD_HAPPENING = s.ReadBool();
-		ENDING_HAPPINESS_HAPPENING = s.ReadBool();
-		ENDING_HAPPINESS_FRAMES = s.ReadBeInt32();
-		ENDING_HAPPINESS = s.ReadBool();
-		mFlashAlpha = s.ReadBeFloat();
-		DEBUG_LOADED_FROM_AUTOSAVE = s.ReadBeInt32();
-		DEBUG_LOADED_FROM_OLD_VERSION = s.ReadBeInt32();
+		pending_portals.Read(s);
+		next_portal_id.Read(s);
+		apparitions_per_level.Read(s);
+		npc_parties.Read(s);
+		session_stat_file.Read(s);
+		orbs_found_thisrun.Read(s);
+		flags.Read(s);
+		changed_materials.Read(s);
+		player_polymorph_count.Read(s);
+		player_polymorph_random_count.Read(s);
+		player_did_infinite_spell_count.Read(s);
+		player_did_damage_over_1milj.Read(s);
+		player_living_with_minus_hp.Read(s);
+		global_genome_relations_modifier.Read(s);
+		mods_have_been_active_during_this_run.Read(s);
+		twitch_has_been_active_during_this_run.Read(s);
+		next_cut_through_world_id.Read(s);
+		cuts_through_world.Read(s);
+		gore_multiplier.Read(s);
+		trick_kill_gold_multiplier.Read(s);
+		damage_flash_multiplier.Read(s);
+		open_fog_of_war_everywhere.Read(s);
+		consume_actions.Read(s);
+		perk_infinite_spells.Read(s);
+		perk_trick_kills_blood_money.Read(s);
+		perk_hp_drop_chance.Read(s);
+		perk_gold_is_forever.Read(s);
+		perk_rats_player_friendly.Read(s);
+		EVERYTHING_TO_GOLD.Read(s);
+		material_everything_to_gold.Read(s);
+		material_everything_to_gold_static.Read(s);
+		INFINITE_GOLD_HAPPENING.Read(s);
+		ENDING_HAPPINESS_HAPPENING.Read(s);
+		ENDING_HAPPINESS_FRAMES.Read(s);
+		ENDING_HAPPINESS.Read(s);
+		mFlashAlpha.Read(s);
+		DEBUG_LOADED_FROM_AUTOSAVE.Read(s);
+		DEBUG_LOADED_FROM_OLD_VERSION.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(is_initialized);
-		s.WriteBeFloat(time);
-		s.WriteBeFloat(time_total);
-		s.WriteBeFloat(time_dt);
-		s.WriteBeInt32(day_count);
-		s.WriteBeFloat(rain);
-		s.WriteBeFloat(rain_target);
-		s.WriteBeFloat(fog);
-		s.WriteBeFloat(fog_target);
-		s.WriteBool(intro_weather);
-		s.WriteBeFloat(wind);
-		s.WriteBeFloat(wind_speed);
-		s.WriteBeFloat(wind_speed_sin_t);
-		s.WriteBeFloat(wind_speed_sin);
-		s.WriteBeFloat(clouds_01_target);
-		s.WriteBeFloat(clouds_02_target);
-		s.WriteBeFloat(gradient_sky_alpha_target);
-		s.WriteBeFloat(sky_sunset_alpha_target);
-		s.WriteBeInt32(lightning_count);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		is_initialized.Write(s);
+		time.Write(s);
+		time_total.Write(s);
+		time_dt.Write(s);
+		day_count.Write(s);
+		rain.Write(s);
+		rain_target.Write(s);
+		fog.Write(s);
+		fog_target.Write(s);
+		intro_weather.Write(s);
+		wind.Write(s);
+		wind_speed.Write(s);
+		wind_speed_sin_t.Write(s);
+		wind_speed_sin.Write(s);
+		clouds_01_target.Write(s);
+		clouds_02_target.Write(s);
+		gradient_sky_alpha_target.Write(s);
+		sky_sunset_alpha_target.Write(s);
+		lightning_count.Write(s);
 		player_spawn_location.Write(s);
 		
-		s.WriteBeUInt32(pending_portals.Length);
-foreach(var item in pending_portals){ pending_portals.Write(s);
-}
-		s.WriteBeUInt32(next_portal_id);
-		s.WriteBeUInt32(apparitions_per_level.Length);
-foreach(var item in apparitions_per_level){ apparitions_per_level.Write(s);
-}
-		s.WriteBeUInt32(npc_parties.Length);
-foreach(var item in npc_parties){ npc_parties.Write(s);
-}
-		s.WriteBeString(session_stat_file);
-		s.WriteBeUInt32(orbs_found_thisrun.Length);
-foreach(var item in orbs_found_thisrun){ orbs_found_thisrun.Write(s);
-}
-		s.WriteBeUInt32(flags.Length);
-foreach(var item in flags){ flags.Write(s);
-}
-		s.WriteBeUInt32(changed_materials.Length);
-foreach(var item in changed_materials){ changed_materials.Write(s);
-}
-		s.WriteBeInt32(player_polymorph_count);
-		s.WriteBeInt32(player_polymorph_random_count);
-		s.WriteBeInt32(player_did_infinite_spell_count);
-		s.WriteBeInt32(player_did_damage_over_1milj);
-		s.WriteBeInt32(player_living_with_minus_hp);
-		s.WriteBeFloat(global_genome_relations_modifier);
-		s.WriteBool(mods_have_been_active_during_this_run);
-		s.WriteBool(twitch_has_been_active_during_this_run);
-		s.WriteBeUInt32(next_cut_through_world_id);
-		s.WriteBeUInt32(cuts_through_world.Length);
-foreach(var item in cuts_through_world){ cuts_through_world.Write(s);
-}
+		pending_portals.Write(s);
+		next_portal_id.Write(s);
+		apparitions_per_level.Write(s);
+		npc_parties.Write(s);
+		session_stat_file.Write(s);
+		orbs_found_thisrun.Write(s);
+		flags.Write(s);
+		changed_materials.Write(s);
+		player_polymorph_count.Write(s);
+		player_polymorph_random_count.Write(s);
+		player_did_infinite_spell_count.Write(s);
+		player_did_damage_over_1milj.Write(s);
+		player_living_with_minus_hp.Write(s);
+		global_genome_relations_modifier.Write(s);
+		mods_have_been_active_during_this_run.Write(s);
+		twitch_has_been_active_during_this_run.Write(s);
+		next_cut_through_world_id.Write(s);
+		cuts_through_world.Write(s);
 		gore_multiplier.Write(s);
 		trick_kill_gold_multiplier.Write(s);
 		damage_flash_multiplier.Write(s);
 		open_fog_of_war_everywhere.Write(s);
 		consume_actions.Write(s);
-		s.WriteBool(perk_infinite_spells);
-		s.WriteBool(perk_trick_kills_blood_money);
-		s.WriteBeInt32(perk_hp_drop_chance);
-		s.WriteBool(perk_gold_is_forever);
-		s.WriteBool(perk_rats_player_friendly);
-		s.WriteBool(EVERYTHING_TO_GOLD);
-		s.WriteBeString(material_everything_to_gold);
-		s.WriteBeString(material_everything_to_gold_static);
-		s.WriteBool(INFINITE_GOLD_HAPPENING);
-		s.WriteBool(ENDING_HAPPINESS_HAPPENING);
-		s.WriteBeInt32(ENDING_HAPPINESS_FRAMES);
-		s.WriteBool(ENDING_HAPPINESS);
-		s.WriteBeFloat(mFlashAlpha);
-		s.WriteBeInt32(DEBUG_LOADED_FROM_AUTOSAVE);
-		s.WriteBeInt32(DEBUG_LOADED_FROM_OLD_VERSION);
+		perk_infinite_spells.Write(s);
+		perk_trick_kills_blood_money.Write(s);
+		perk_hp_drop_chance.Write(s);
+		perk_gold_is_forever.Write(s);
+		perk_rats_player_friendly.Write(s);
+		EVERYTHING_TO_GOLD.Write(s);
+		material_everything_to_gold.Write(s);
+		material_everything_to_gold_static.Write(s);
+		INFINITE_GOLD_HAPPENING.Write(s);
+		ENDING_HAPPINESS_HAPPENING.Write(s);
+		ENDING_HAPPINESS_FRAMES.Write(s);
+		ENDING_HAPPINESS.Write(s);
+		mFlashAlpha.Write(s);
+		DEBUG_LOADED_FROM_AUTOSAVE.Write(s);
+		DEBUG_LOADED_FROM_OLD_VERSION.Write(s);
 
     }
 }

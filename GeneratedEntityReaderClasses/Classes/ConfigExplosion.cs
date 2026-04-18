@@ -1,208 +1,208 @@
 namespace GeneratedNoitaClasses;
-public class ConfigExplosion {
-	public bool never_cache { get; set; }
-	public float explosion_radius { get; set; }
-	public string explosion_sprite { get; set; }
-	public bool explosion_sprite_emissive { get; set; }
-	public bool explosion_sprite_additive { get; set; }
-	public bool explosion_sprite_random_rotation { get; set; }
-	public float explosion_sprite_lifetime { get; set; }
-	public float damage { get; set; }
-	public ConfigDamageCritical damage_critical { get; set; }
-	public float camera_shake { get; set; }
-	public bool particle_effect { get; set; }
-	public string load_this_entity { get; set; }
-	public bool light_enabled { get; set; }
-	public float light_fade_time { get; set; }
-	public UInt32 light_r { get; set; }
-	public UInt32 light_g { get; set; }
-	public UInt32 light_b { get; set; }
-	public float light_radius_coeff { get; set; }
-	public bool hole_enabled { get; set; }
-	public bool destroy_non_platform_solid_enabled { get; set; }
-	public Int32 electricity_count { get; set; }
-	public Int32 min_radius_for_cracks { get; set; }
-	public Int32 crack_count { get; set; }
-	public float knockback_force { get; set; }
-	public bool hole_destroy_liquid { get; set; }
-	public bool hole_destroy_physics_dynamic { get; set; }
-	public string create_cell_material { get; set; }
-	public Int32 create_cell_probability { get; set; }
-	public Int32 background_lightning_count { get; set; }
-	public string spark_material { get; set; }
-	public Int32 material_sparks_min_hp { get; set; }
-	public Int32 material_sparks_probability { get; set; }
-	public Int32 material_sparks_count_min { get; set; }
-	public Int32 material_sparks_count_max { get; set; }
-	public bool material_sparks_enabled { get; set; }
-	public bool material_sparks_real { get; set; }
-	public bool material_sparks_scale_with_hp { get; set; }
-	public bool sparks_enabled { get; set; }
-	public Int32 sparks_count_min { get; set; }
-	public Int32 sparks_count_max { get; set; }
-	public float sparks_inner_radius_coeff { get; set; }
-	public bool stains_enabled { get; set; }
-	public float stains_radius { get; set; }
-	public Int32 ray_energy { get; set; }
-	public Int32 max_durability_to_destroy { get; set; }
-	public Int32 gore_particle_count { get; set; }
-	public bool shake_vegetation { get; set; }
-	public bool damage_mortals { get; set; }
-	public bool physics_throw_enabled { get; set; }
-	public ValueRange physics_explosion_power { get; set; }
-	public float physics_multiplier_ragdoll_force { get; set; }
-	public float cell_explosion_power { get; set; }
-	public float cell_explosion_radius_min { get; set; }
-	public float cell_explosion_radius_max { get; set; }
-	public float cell_explosion_velocity_min { get; set; }
-	public float cell_explosion_damage_required { get; set; }
-	public float cell_explosion_probability { get; set; }
-	public float cell_explosion_power_ragdoll_coeff { get; set; }
-	public bool pixel_sprites_enabled { get; set; }
-	public bool is_digger { get; set; }
-	public bool audio_enabled { get; set; }
-	public string audio_event_name { get; set; }
-	public float audio_liquid_amount_normalized { get; set; }
-	public ValueRangeInt delay { get; set; }
-	public Int32 explosion_delay_id { get; set; }
-	public bool not_scaled_by_gamefx { get; set; }
+public class ConfigExplosion :  iNoitaType<ConfigExplosion>{
+	public NoitaBool never_cache { get; set; } = new();
+	public NoitaFloat explosion_radius { get; set; } = new();
+	public NoitaString explosion_sprite { get; set; } = new();
+	public NoitaBool explosion_sprite_emissive { get; set; } = new();
+	public NoitaBool explosion_sprite_additive { get; set; } = new();
+	public NoitaBool explosion_sprite_random_rotation { get; set; } = new();
+	public NoitaFloat explosion_sprite_lifetime { get; set; } = new();
+	public NoitaFloat damage { get; set; } = new();
+	public ConfigDamageCritical damage_critical { get; set; } = new();
+	public NoitaFloat camera_shake { get; set; } = new();
+	public NoitaBool particle_effect { get; set; } = new();
+	public NoitaString load_this_entity { get; set; } = new();
+	public NoitaBool light_enabled { get; set; } = new();
+	public NoitaFloat light_fade_time { get; set; } = new();
+	public NoitaUInt light_r { get; set; } = new();
+	public NoitaUInt light_g { get; set; } = new();
+	public NoitaUInt light_b { get; set; } = new();
+	public NoitaFloat light_radius_coeff { get; set; } = new();
+	public NoitaBool hole_enabled { get; set; } = new();
+	public NoitaBool destroy_non_platform_solid_enabled { get; set; } = new();
+	public NoitaInt electricity_count { get; set; } = new();
+	public NoitaInt min_radius_for_cracks { get; set; } = new();
+	public NoitaInt crack_count { get; set; } = new();
+	public NoitaFloat knockback_force { get; set; } = new();
+	public NoitaBool hole_destroy_liquid { get; set; } = new();
+	public NoitaBool hole_destroy_physics_dynamic { get; set; } = new();
+	public NoitaString create_cell_material { get; set; } = new();
+	public NoitaInt create_cell_probability { get; set; } = new();
+	public NoitaInt background_lightning_count { get; set; } = new();
+	public NoitaString spark_material { get; set; } = new();
+	public NoitaInt material_sparks_min_hp { get; set; } = new();
+	public NoitaInt material_sparks_probability { get; set; } = new();
+	public NoitaInt material_sparks_count_min { get; set; } = new();
+	public NoitaInt material_sparks_count_max { get; set; } = new();
+	public NoitaBool material_sparks_enabled { get; set; } = new();
+	public NoitaBool material_sparks_real { get; set; } = new();
+	public NoitaBool material_sparks_scale_with_hp { get; set; } = new();
+	public NoitaBool sparks_enabled { get; set; } = new();
+	public NoitaInt sparks_count_min { get; set; } = new();
+	public NoitaInt sparks_count_max { get; set; } = new();
+	public NoitaFloat sparks_inner_radius_coeff { get; set; } = new();
+	public NoitaBool stains_enabled { get; set; } = new();
+	public NoitaFloat stains_radius { get; set; } = new();
+	public NoitaInt ray_energy { get; set; } = new();
+	public NoitaInt max_durability_to_destroy { get; set; } = new();
+	public NoitaInt gore_particle_count { get; set; } = new();
+	public NoitaBool shake_vegetation { get; set; } = new();
+	public NoitaBool damage_mortals { get; set; } = new();
+	public NoitaBool physics_throw_enabled { get; set; } = new();
+	public ValueRange physics_explosion_power { get; set; } = new();
+	public NoitaFloat physics_multiplier_ragdoll_force { get; set; } = new();
+	public NoitaFloat cell_explosion_power { get; set; } = new();
+	public NoitaFloat cell_explosion_radius_min { get; set; } = new();
+	public NoitaFloat cell_explosion_radius_max { get; set; } = new();
+	public NoitaFloat cell_explosion_velocity_min { get; set; } = new();
+	public NoitaFloat cell_explosion_damage_required { get; set; } = new();
+	public NoitaFloat cell_explosion_probability { get; set; } = new();
+	public NoitaFloat cell_explosion_power_ragdoll_coeff { get; set; } = new();
+	public NoitaBool pixel_sprites_enabled { get; set; } = new();
+	public NoitaBool is_digger { get; set; } = new();
+	public NoitaBool audio_enabled { get; set; } = new();
+	public NoitaString audio_event_name { get; set; } = new();
+	public NoitaFloat audio_liquid_amount_normalized { get; set; } = new();
+	public ValueRangeInt delay { get; set; } = new();
+	public NoitaInt explosion_delay_id { get; set; } = new();
+	public NoitaBool not_scaled_by_gamefx { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		never_cache = s.ReadBool();
-		explosion_radius = s.ReadBeFloat();
-		explosion_sprite = s.ReadBeString();
-		explosion_sprite_emissive = s.ReadBool();
-		explosion_sprite_additive = s.ReadBool();
-		explosion_sprite_random_rotation = s.ReadBool();
-		explosion_sprite_lifetime = s.ReadBeFloat();
-		damage = s.ReadBeFloat();
-		damage_critical.Load(s);
-		camera_shake = s.ReadBeFloat();
-		particle_effect = s.ReadBool();
-		load_this_entity = s.ReadBeString();
-		light_enabled = s.ReadBool();
-		light_fade_time = s.ReadBeFloat();
-		light_r = s.ReadBeUInt32();
-		light_g = s.ReadBeUInt32();
-		light_b = s.ReadBeUInt32();
-		light_radius_coeff = s.ReadBeFloat();
-		hole_enabled = s.ReadBool();
-		destroy_non_platform_solid_enabled = s.ReadBool();
-		electricity_count = s.ReadBeInt32();
-		min_radius_for_cracks = s.ReadBeInt32();
-		crack_count = s.ReadBeInt32();
-		knockback_force = s.ReadBeFloat();
-		hole_destroy_liquid = s.ReadBool();
-		hole_destroy_physics_dynamic = s.ReadBool();
-		create_cell_material = s.ReadBeString();
-		create_cell_probability = s.ReadBeInt32();
-		background_lightning_count = s.ReadBeInt32();
-		spark_material = s.ReadBeString();
-		material_sparks_min_hp = s.ReadBeInt32();
-		material_sparks_probability = s.ReadBeInt32();
-		material_sparks_count_min = s.ReadBeInt32();
-		material_sparks_count_max = s.ReadBeInt32();
-		material_sparks_enabled = s.ReadBool();
-		material_sparks_real = s.ReadBool();
-		material_sparks_scale_with_hp = s.ReadBool();
-		sparks_enabled = s.ReadBool();
-		sparks_count_min = s.ReadBeInt32();
-		sparks_count_max = s.ReadBeInt32();
-		sparks_inner_radius_coeff = s.ReadBeFloat();
-		stains_enabled = s.ReadBool();
-		stains_radius = s.ReadBeFloat();
-		ray_energy = s.ReadBeInt32();
-		max_durability_to_destroy = s.ReadBeInt32();
-		gore_particle_count = s.ReadBeInt32();
-		shake_vegetation = s.ReadBool();
-		damage_mortals = s.ReadBool();
-		physics_throw_enabled = s.ReadBool();
-		physics_explosion_power.Load(s);
-		physics_multiplier_ragdoll_force = s.ReadBeFloat();
-		cell_explosion_power = s.ReadBeFloat();
-		cell_explosion_radius_min = s.ReadBeFloat();
-		cell_explosion_radius_max = s.ReadBeFloat();
-		cell_explosion_velocity_min = s.ReadBeFloat();
-		cell_explosion_damage_required = s.ReadBeFloat();
-		cell_explosion_probability = s.ReadBeFloat();
-		cell_explosion_power_ragdoll_coeff = s.ReadBeFloat();
-		pixel_sprites_enabled = s.ReadBool();
-		is_digger = s.ReadBool();
-		audio_enabled = s.ReadBool();
-		audio_event_name = s.ReadBeString();
-		audio_liquid_amount_normalized = s.ReadBeFloat();
-		delay.Load(s);
-		explosion_delay_id = s.ReadBeInt32();
-		not_scaled_by_gamefx = s.ReadBool();
+    public void Read(NoitaStream s){
+		never_cache.Read(s);
+		explosion_radius.Read(s);
+		explosion_sprite.Read(s);
+		explosion_sprite_emissive.Read(s);
+		explosion_sprite_additive.Read(s);
+		explosion_sprite_random_rotation.Read(s);
+		explosion_sprite_lifetime.Read(s);
+		damage.Read(s);
+		damage_critical.Read(s);
+		camera_shake.Read(s);
+		particle_effect.Read(s);
+		load_this_entity.Read(s);
+		light_enabled.Read(s);
+		light_fade_time.Read(s);
+		light_r.Read(s);
+		light_g.Read(s);
+		light_b.Read(s);
+		light_radius_coeff.Read(s);
+		hole_enabled.Read(s);
+		destroy_non_platform_solid_enabled.Read(s);
+		electricity_count.Read(s);
+		min_radius_for_cracks.Read(s);
+		crack_count.Read(s);
+		knockback_force.Read(s);
+		hole_destroy_liquid.Read(s);
+		hole_destroy_physics_dynamic.Read(s);
+		create_cell_material.Read(s);
+		create_cell_probability.Read(s);
+		background_lightning_count.Read(s);
+		spark_material.Read(s);
+		material_sparks_min_hp.Read(s);
+		material_sparks_probability.Read(s);
+		material_sparks_count_min.Read(s);
+		material_sparks_count_max.Read(s);
+		material_sparks_enabled.Read(s);
+		material_sparks_real.Read(s);
+		material_sparks_scale_with_hp.Read(s);
+		sparks_enabled.Read(s);
+		sparks_count_min.Read(s);
+		sparks_count_max.Read(s);
+		sparks_inner_radius_coeff.Read(s);
+		stains_enabled.Read(s);
+		stains_radius.Read(s);
+		ray_energy.Read(s);
+		max_durability_to_destroy.Read(s);
+		gore_particle_count.Read(s);
+		shake_vegetation.Read(s);
+		damage_mortals.Read(s);
+		physics_throw_enabled.Read(s);
+		physics_explosion_power.Read(s);
+		physics_multiplier_ragdoll_force.Read(s);
+		cell_explosion_power.Read(s);
+		cell_explosion_radius_min.Read(s);
+		cell_explosion_radius_max.Read(s);
+		cell_explosion_velocity_min.Read(s);
+		cell_explosion_damage_required.Read(s);
+		cell_explosion_probability.Read(s);
+		cell_explosion_power_ragdoll_coeff.Read(s);
+		pixel_sprites_enabled.Read(s);
+		is_digger.Read(s);
+		audio_enabled.Read(s);
+		audio_event_name.Read(s);
+		audio_liquid_amount_normalized.Read(s);
+		delay.Read(s);
+		explosion_delay_id.Read(s);
+		not_scaled_by_gamefx.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(never_cache);
-		s.WriteBeFloat(explosion_radius);
-		s.WriteBeString(explosion_sprite);
-		s.WriteBool(explosion_sprite_emissive);
-		s.WriteBool(explosion_sprite_additive);
-		s.WriteBool(explosion_sprite_random_rotation);
-		s.WriteBeFloat(explosion_sprite_lifetime);
-		s.WriteBeFloat(damage);
+    public void Write(NoitaStream s){
+		never_cache.Write(s);
+		explosion_radius.Write(s);
+		explosion_sprite.Write(s);
+		explosion_sprite_emissive.Write(s);
+		explosion_sprite_additive.Write(s);
+		explosion_sprite_random_rotation.Write(s);
+		explosion_sprite_lifetime.Write(s);
+		damage.Write(s);
 		damage_critical.Write(s);
-		s.WriteBeFloat(camera_shake);
-		s.WriteBool(particle_effect);
-		s.WriteBeString(load_this_entity);
-		s.WriteBool(light_enabled);
-		s.WriteBeFloat(light_fade_time);
-		s.WriteBeUInt32(light_r);
-		s.WriteBeUInt32(light_g);
-		s.WriteBeUInt32(light_b);
-		s.WriteBeFloat(light_radius_coeff);
-		s.WriteBool(hole_enabled);
-		s.WriteBool(destroy_non_platform_solid_enabled);
-		s.WriteBeInt32(electricity_count);
-		s.WriteBeInt32(min_radius_for_cracks);
-		s.WriteBeInt32(crack_count);
-		s.WriteBeFloat(knockback_force);
-		s.WriteBool(hole_destroy_liquid);
-		s.WriteBool(hole_destroy_physics_dynamic);
-		s.WriteBeString(create_cell_material);
-		s.WriteBeInt32(create_cell_probability);
-		s.WriteBeInt32(background_lightning_count);
-		s.WriteBeString(spark_material);
-		s.WriteBeInt32(material_sparks_min_hp);
-		s.WriteBeInt32(material_sparks_probability);
-		s.WriteBeInt32(material_sparks_count_min);
-		s.WriteBeInt32(material_sparks_count_max);
-		s.WriteBool(material_sparks_enabled);
-		s.WriteBool(material_sparks_real);
-		s.WriteBool(material_sparks_scale_with_hp);
-		s.WriteBool(sparks_enabled);
-		s.WriteBeInt32(sparks_count_min);
-		s.WriteBeInt32(sparks_count_max);
-		s.WriteBeFloat(sparks_inner_radius_coeff);
-		s.WriteBool(stains_enabled);
-		s.WriteBeFloat(stains_radius);
-		s.WriteBeInt32(ray_energy);
-		s.WriteBeInt32(max_durability_to_destroy);
-		s.WriteBeInt32(gore_particle_count);
-		s.WriteBool(shake_vegetation);
-		s.WriteBool(damage_mortals);
-		s.WriteBool(physics_throw_enabled);
+		camera_shake.Write(s);
+		particle_effect.Write(s);
+		load_this_entity.Write(s);
+		light_enabled.Write(s);
+		light_fade_time.Write(s);
+		light_r.Write(s);
+		light_g.Write(s);
+		light_b.Write(s);
+		light_radius_coeff.Write(s);
+		hole_enabled.Write(s);
+		destroy_non_platform_solid_enabled.Write(s);
+		electricity_count.Write(s);
+		min_radius_for_cracks.Write(s);
+		crack_count.Write(s);
+		knockback_force.Write(s);
+		hole_destroy_liquid.Write(s);
+		hole_destroy_physics_dynamic.Write(s);
+		create_cell_material.Write(s);
+		create_cell_probability.Write(s);
+		background_lightning_count.Write(s);
+		spark_material.Write(s);
+		material_sparks_min_hp.Write(s);
+		material_sparks_probability.Write(s);
+		material_sparks_count_min.Write(s);
+		material_sparks_count_max.Write(s);
+		material_sparks_enabled.Write(s);
+		material_sparks_real.Write(s);
+		material_sparks_scale_with_hp.Write(s);
+		sparks_enabled.Write(s);
+		sparks_count_min.Write(s);
+		sparks_count_max.Write(s);
+		sparks_inner_radius_coeff.Write(s);
+		stains_enabled.Write(s);
+		stains_radius.Write(s);
+		ray_energy.Write(s);
+		max_durability_to_destroy.Write(s);
+		gore_particle_count.Write(s);
+		shake_vegetation.Write(s);
+		damage_mortals.Write(s);
+		physics_throw_enabled.Write(s);
 		physics_explosion_power.Write(s);
-		s.WriteBeFloat(physics_multiplier_ragdoll_force);
-		s.WriteBeFloat(cell_explosion_power);
-		s.WriteBeFloat(cell_explosion_radius_min);
-		s.WriteBeFloat(cell_explosion_radius_max);
-		s.WriteBeFloat(cell_explosion_velocity_min);
-		s.WriteBeFloat(cell_explosion_damage_required);
-		s.WriteBeFloat(cell_explosion_probability);
-		s.WriteBeFloat(cell_explosion_power_ragdoll_coeff);
-		s.WriteBool(pixel_sprites_enabled);
-		s.WriteBool(is_digger);
-		s.WriteBool(audio_enabled);
-		s.WriteBeString(audio_event_name);
-		s.WriteBeFloat(audio_liquid_amount_normalized);
+		physics_multiplier_ragdoll_force.Write(s);
+		cell_explosion_power.Write(s);
+		cell_explosion_radius_min.Write(s);
+		cell_explosion_radius_max.Write(s);
+		cell_explosion_velocity_min.Write(s);
+		cell_explosion_damage_required.Write(s);
+		cell_explosion_probability.Write(s);
+		cell_explosion_power_ragdoll_coeff.Write(s);
+		pixel_sprites_enabled.Write(s);
+		is_digger.Write(s);
+		audio_enabled.Write(s);
+		audio_event_name.Write(s);
+		audio_liquid_amount_normalized.Write(s);
 		delay.Write(s);
-		s.WriteBeInt32(explosion_delay_id);
-		s.WriteBool(not_scaled_by_gamefx);
+		explosion_delay_id.Write(s);
+		not_scaled_by_gamefx.Write(s);
 
     }
 }

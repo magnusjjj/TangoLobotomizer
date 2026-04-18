@@ -1,25 +1,34 @@
 namespace GeneratedNoitaClasses;
-public class LightningComponent {
-	public ConfigExplosion config_explosion { get; set; }
-	public string sprite_lightning_file { get; set; }
-	public bool is_projectile { get; set; }
-	public Int32 explosion_type { get; set; }
-	public Int32 arc_lifetime { get; set; }
+public class LightningComponent : NoitaComponentBase,  iNoitaType<LightningComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public ConfigExplosion config_explosion { get; set; } = new();
+	public NoitaString sprite_lightning_file { get; set; } = new();
+	public NoitaBool is_projectile { get; set; } = new();
+	public NoitaInt explosion_type { get; set; } = new();
+	public NoitaInt arc_lifetime { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		config_explosion.Load(s);
-		sprite_lightning_file = s.ReadBeString();
-		is_projectile = s.ReadBool();
-		explosion_type = s.ReadBeInt32();
-		arc_lifetime = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		config_explosion.Read(s);
+		sprite_lightning_file.Read(s);
+		is_projectile.Read(s);
+		explosion_type.Read(s);
+		arc_lifetime.Read(s);
 
     }
-    public void Save(NoitaStream s){
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
 		config_explosion.Write(s);
-		s.WriteBeString(sprite_lightning_file);
-		s.WriteBool(is_projectile);
-		s.WriteBeInt32(explosion_type);
-		s.WriteBeInt32(arc_lifetime);
+		sprite_lightning_file.Write(s);
+		is_projectile.Write(s);
+		explosion_type.Write(s);
+		arc_lifetime.Write(s);
 
     }
 }

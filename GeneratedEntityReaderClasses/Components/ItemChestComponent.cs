@@ -1,34 +1,43 @@
 namespace GeneratedNoitaClasses;
-public class ItemChestComponent {
-	public Int32 item_count_min { get; set; }
-	public Int32 item_count_max { get; set; }
-	public Int32 level { get; set; }
-	public bool enemy_drop { get; set; }
-	public string actions { get; set; }
-	public string action_uses_remaining { get; set; }
-	public string other_entities_to_spawn { get; set; }
-	public UInt32 mSeed { get; set; }
+public class ItemChestComponent : NoitaComponentBase,  iNoitaType<ItemChestComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt item_count_min { get; set; } = new();
+	public NoitaInt item_count_max { get; set; } = new();
+	public NoitaInt level { get; set; } = new();
+	public NoitaBool enemy_drop { get; set; } = new();
+	public NoitaString actions { get; set; } = new();
+	public NoitaString action_uses_remaining { get; set; } = new();
+	public NoitaString other_entities_to_spawn { get; set; } = new();
+	public NoitaUInt mSeed { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		item_count_min = s.ReadBeInt32();
-		item_count_max = s.ReadBeInt32();
-		level = s.ReadBeInt32();
-		enemy_drop = s.ReadBool();
-		actions = s.ReadBeString();
-		action_uses_remaining = s.ReadBeString();
-		other_entities_to_spawn = s.ReadBeString();
-		mSeed = s.ReadBeUInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		item_count_min.Read(s);
+		item_count_max.Read(s);
+		level.Read(s);
+		enemy_drop.Read(s);
+		actions.Read(s);
+		action_uses_remaining.Read(s);
+		other_entities_to_spawn.Read(s);
+		mSeed.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(item_count_min);
-		s.WriteBeInt32(item_count_max);
-		s.WriteBeInt32(level);
-		s.WriteBool(enemy_drop);
-		s.WriteBeString(actions);
-		s.WriteBeString(action_uses_remaining);
-		s.WriteBeString(other_entities_to_spawn);
-		s.WriteBeUInt32(mSeed);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		item_count_min.Write(s);
+		item_count_max.Write(s);
+		level.Write(s);
+		enemy_drop.Write(s);
+		actions.Write(s);
+		action_uses_remaining.Write(s);
+		other_entities_to_spawn.Write(s);
+		mSeed.Write(s);
 
     }
 }

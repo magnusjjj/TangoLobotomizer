@@ -1,22 +1,31 @@
 namespace GeneratedNoitaClasses;
-public class InteractableComponent {
-	public float radius { get; set; }
-	public string ui_text { get; set; }
-	public string name { get; set; }
-	public Int32 exclusivity_group { get; set; }
+public class InteractableComponent : NoitaComponentBase,  iNoitaType<InteractableComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
+	public NoitaString ui_text { get; set; } = new();
+	public NoitaString name { get; set; } = new();
+	public NoitaInt exclusivity_group { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeFloat();
-		ui_text = s.ReadBeString();
-		name = s.ReadBeString();
-		exclusivity_group = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		ui_text.Read(s);
+		name.Read(s);
+		exclusivity_group.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(radius);
-		s.WriteBeString(ui_text);
-		s.WriteBeString(name);
-		s.WriteBeInt32(exclusivity_group);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		ui_text.Write(s);
+		name.Write(s);
+		exclusivity_group.Write(s);
 
     }
 }

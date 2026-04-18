@@ -1,52 +1,61 @@
 namespace GeneratedNoitaClasses;
-public class PhysicsJoint2Component {
-	public UInt16 joint_id { get; set; }
-	public float break_force { get; set; }
-	public float break_distance { get; set; }
-	public bool break_on_body_modified { get; set; }
-	public float break_on_shear_angle_deg { get; set; }
-	public UInt32 type { get; set; }
-	public Int32 body1_id { get; set; }
-	public Int32 body2_id { get; set; }
-	public float offset_x { get; set; }
-	public float offset_y { get; set; }
-	public float ray_x { get; set; }
-	public float ray_y { get; set; }
-	public float surface_attachment_offset_x { get; set; }
-	public float surface_attachment_offset_y { get; set; }
+public class PhysicsJoint2Component : NoitaComponentBase,  iNoitaType<PhysicsJoint2Component>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUShort joint_id { get; set; } = new();
+	public NoitaFloat break_force { get; set; } = new();
+	public NoitaFloat break_distance { get; set; } = new();
+	public NoitaBool break_on_body_modified { get; set; } = new();
+	public NoitaFloat break_on_shear_angle_deg { get; set; } = new();
+	public NoitaUInt type { get; set; } = new();
+	public NoitaInt body1_id { get; set; } = new();
+	public NoitaInt body2_id { get; set; } = new();
+	public NoitaFloat offset_x { get; set; } = new();
+	public NoitaFloat offset_y { get; set; } = new();
+	public NoitaFloat ray_x { get; set; } = new();
+	public NoitaFloat ray_y { get; set; } = new();
+	public NoitaFloat surface_attachment_offset_x { get; set; } = new();
+	public NoitaFloat surface_attachment_offset_y { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		joint_id = s.ReadBeUInt16();
-		break_force = s.ReadBeFloat();
-		break_distance = s.ReadBeFloat();
-		break_on_body_modified = s.ReadBool();
-		break_on_shear_angle_deg = s.ReadBeFloat();
-		type = s.ReadBeUInt32();
-		body1_id = s.ReadBeInt32();
-		body2_id = s.ReadBeInt32();
-		offset_x = s.ReadBeFloat();
-		offset_y = s.ReadBeFloat();
-		ray_x = s.ReadBeFloat();
-		ray_y = s.ReadBeFloat();
-		surface_attachment_offset_x = s.ReadBeFloat();
-		surface_attachment_offset_y = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		joint_id.Read(s);
+		break_force.Read(s);
+		break_distance.Read(s);
+		break_on_body_modified.Read(s);
+		break_on_shear_angle_deg.Read(s);
+		type.Read(s);
+		body1_id.Read(s);
+		body2_id.Read(s);
+		offset_x.Read(s);
+		offset_y.Read(s);
+		ray_x.Read(s);
+		ray_y.Read(s);
+		surface_attachment_offset_x.Read(s);
+		surface_attachment_offset_y.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt16(joint_id);
-		s.WriteBeFloat(break_force);
-		s.WriteBeFloat(break_distance);
-		s.WriteBool(break_on_body_modified);
-		s.WriteBeFloat(break_on_shear_angle_deg);
-		s.WriteBeUInt32(type);
-		s.WriteBeInt32(body1_id);
-		s.WriteBeInt32(body2_id);
-		s.WriteBeFloat(offset_x);
-		s.WriteBeFloat(offset_y);
-		s.WriteBeFloat(ray_x);
-		s.WriteBeFloat(ray_y);
-		s.WriteBeFloat(surface_attachment_offset_x);
-		s.WriteBeFloat(surface_attachment_offset_y);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		joint_id.Write(s);
+		break_force.Write(s);
+		break_distance.Write(s);
+		break_on_body_modified.Write(s);
+		break_on_shear_angle_deg.Write(s);
+		type.Write(s);
+		body1_id.Write(s);
+		body2_id.Write(s);
+		offset_x.Write(s);
+		offset_y.Write(s);
+		ray_x.Write(s);
+		ray_y.Write(s);
+		surface_attachment_offset_x.Write(s);
+		surface_attachment_offset_y.Write(s);
 
     }
 }

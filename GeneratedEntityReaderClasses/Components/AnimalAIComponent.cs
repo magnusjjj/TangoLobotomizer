@@ -1,264 +1,273 @@
 namespace GeneratedNoitaClasses;
-public class AnimalAIComponent {
-	public Int32 ai_state { get; set; }
-	public Int32 ai_state_timer { get; set; }
-	public bool keep_state_alive_when_enabled { get; set; }
-	public string preferred_job { get; set; }
-	public Int32 escape_if_damaged_probability { get; set; }
-	public Int32 attack_if_damaged_probability { get; set; }
-	public Int32 eye_offset_x { get; set; }
-	public Int32 eye_offset_y { get; set; }
-	public bool attack_only_if_attacked { get; set; }
-	public bool dont_counter_attack_own_herd { get; set; }
-	public float creature_detection_range_x { get; set; }
-	public float creature_detection_range_y { get; set; }
-	public float creature_detection_angular_range_deg { get; set; }
-	public Int32 creature_detection_check_every_x_frames { get; set; }
-	public float max_distance_to_cam_to_start_hunting { get; set; }
-	public Int32 pathfinding_max_depth_no_target { get; set; }
-	public Int32 pathfinding_max_depth_has_target { get; set; }
-	public float aggressiveness_min { get; set; }
-	public float aggressiveness_max { get; set; }
-	public bool tries_to_ranged_attack_friends { get; set; }
-	public bool attack_melee_enabled { get; set; }
-	public bool attack_dash_enabled { get; set; }
-	public bool attack_landing_ranged_enabled { get; set; }
-	public bool attack_ranged_enabled { get; set; }
-	public float attack_knockback_multiplier { get; set; }
-	public bool is_static_turret { get; set; }
-	public Int32 attack_melee_max_distance { get; set; }
-	public Int32 attack_melee_action_frame { get; set; }
-	public Int32 attack_melee_frames_between { get; set; }
-	public float attack_melee_damage_min { get; set; }
-	public float attack_melee_damage_max { get; set; }
-	public float attack_melee_impulse_vector_x { get; set; }
-	public float attack_melee_impulse_vector_y { get; set; }
-	public float attack_melee_impulse_multiplier { get; set; }
-	public float attack_melee_offset_x { get; set; }
-	public float attack_melee_offset_y { get; set; }
-	public bool attack_melee_finish_enabled { get; set; }
-	public ConfigExplosion attack_melee_finish_config_explosion { get; set; }
-	public Int32 attack_melee_finish_action_frame { get; set; }
-	public float attack_dash_distance { get; set; }
-	public Int32 attack_dash_frames_between { get; set; }
-	public float attack_dash_damage { get; set; }
-	public float attack_dash_speed { get; set; }
-	public float attack_dash_lob { get; set; }
-	public float attack_ranged_min_distance { get; set; }
-	public float attack_ranged_max_distance { get; set; }
-	public Int32 attack_ranged_action_frame { get; set; }
-	public LensValue<int> attack_ranged_frames_between { get; set; }
-	public float attack_ranged_offset_x { get; set; }
-	public float attack_ranged_offset_y { get; set; }
-	public bool attack_ranged_use_message { get; set; }
-	public bool attack_ranged_predict { get; set; }
-	public string attack_ranged_entity_file { get; set; }
-	public Int32 attack_ranged_entity_count_min { get; set; }
-	public Int32 attack_ranged_entity_count_max { get; set; }
-	public bool attack_ranged_use_laser_sight { get; set; }
-	public bool attack_ranged_laser_sight_beam_kind { get; set; }
-	public bool attack_ranged_aim_rotation_enabled { get; set; }
-	public float attack_ranged_aim_rotation_speed { get; set; }
-	public float attack_ranged_aim_rotation_shooting_ok_angle_deg { get; set; }
-	public Int32 attack_ranged_state_duration_frames { get; set; }
-	public bool hide_from_prey { get; set; }
-	public float hide_from_prey_target_distance { get; set; }
-	public Int32 hide_from_prey_time { get; set; }
-	public Int32 food_material { get; set; }
-	public Int32 food_particle_effect_material { get; set; }
-	public bool food_eating_create_particles { get; set; }
-	public Int32 eating_area_radius_x { get; set; }
-	public Int32 eating_area_radius_y { get; set; }
-	public Int32 mouth_offset_x { get; set; }
-	public Int32 mouth_offset_y { get; set; }
-	public bool defecates_and_pees { get; set; }
-	public Int32 butt_offset_x { get; set; }
-	public Int32 butt_offset_y { get; set; }
-	public float pee_velocity_x { get; set; }
-	public float pee_velocity_y { get; set; }
-	public bool needs_food { get; set; }
-	public bool sense_creatures { get; set; }
-	public bool sense_creatures_through_walls { get; set; }
-	public bool can_fly { get; set; }
-	public bool can_walk { get; set; }
-	public Int32 path_distance_to_target_node_to_turn_around { get; set; }
-	public float path_cleanup_explosion_radius { get; set; }
-	public float max_distance_to_move_from_home { get; set; }
-	public LensValue<float> mAggression { get; set; }
+public class AnimalAIComponent : NoitaComponentBase,  iNoitaType<AnimalAIComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt ai_state { get; set; } = new();
+	public NoitaInt ai_state_timer { get; set; } = new();
+	public NoitaBool keep_state_alive_when_enabled { get; set; } = new();
+	public NoitaString preferred_job { get; set; } = new();
+	public NoitaInt escape_if_damaged_probability { get; set; } = new();
+	public NoitaInt attack_if_damaged_probability { get; set; } = new();
+	public NoitaInt eye_offset_x { get; set; } = new();
+	public NoitaInt eye_offset_y { get; set; } = new();
+	public NoitaBool attack_only_if_attacked { get; set; } = new();
+	public NoitaBool dont_counter_attack_own_herd { get; set; } = new();
+	public NoitaFloat creature_detection_range_x { get; set; } = new();
+	public NoitaFloat creature_detection_range_y { get; set; } = new();
+	public NoitaFloat creature_detection_angular_range_deg { get; set; } = new();
+	public NoitaInt creature_detection_check_every_x_frames { get; set; } = new();
+	public NoitaFloat max_distance_to_cam_to_start_hunting { get; set; } = new();
+	public NoitaInt pathfinding_max_depth_no_target { get; set; } = new();
+	public NoitaInt pathfinding_max_depth_has_target { get; set; } = new();
+	public NoitaFloat aggressiveness_min { get; set; } = new();
+	public NoitaFloat aggressiveness_max { get; set; } = new();
+	public NoitaBool tries_to_ranged_attack_friends { get; set; } = new();
+	public NoitaBool attack_melee_enabled { get; set; } = new();
+	public NoitaBool attack_dash_enabled { get; set; } = new();
+	public NoitaBool attack_landing_ranged_enabled { get; set; } = new();
+	public NoitaBool attack_ranged_enabled { get; set; } = new();
+	public NoitaFloat attack_knockback_multiplier { get; set; } = new();
+	public NoitaBool is_static_turret { get; set; } = new();
+	public NoitaInt attack_melee_max_distance { get; set; } = new();
+	public NoitaInt attack_melee_action_frame { get; set; } = new();
+	public NoitaInt attack_melee_frames_between { get; set; } = new();
+	public NoitaFloat attack_melee_damage_min { get; set; } = new();
+	public NoitaFloat attack_melee_damage_max { get; set; } = new();
+	public NoitaFloat attack_melee_impulse_vector_x { get; set; } = new();
+	public NoitaFloat attack_melee_impulse_vector_y { get; set; } = new();
+	public NoitaFloat attack_melee_impulse_multiplier { get; set; } = new();
+	public NoitaFloat attack_melee_offset_x { get; set; } = new();
+	public NoitaFloat attack_melee_offset_y { get; set; } = new();
+	public NoitaBool attack_melee_finish_enabled { get; set; } = new();
+	public ConfigExplosion attack_melee_finish_config_explosion { get; set; } = new();
+	public NoitaInt attack_melee_finish_action_frame { get; set; } = new();
+	public NoitaFloat attack_dash_distance { get; set; } = new();
+	public NoitaInt attack_dash_frames_between { get; set; } = new();
+	public NoitaFloat attack_dash_damage { get; set; } = new();
+	public NoitaFloat attack_dash_speed { get; set; } = new();
+	public NoitaFloat attack_dash_lob { get; set; } = new();
+	public NoitaFloat attack_ranged_min_distance { get; set; } = new();
+	public NoitaFloat attack_ranged_max_distance { get; set; } = new();
+	public NoitaInt attack_ranged_action_frame { get; set; } = new();
+	public NoitaLensValue<NoitaInt> attack_ranged_frames_between { get; set; } = new();
+	public NoitaFloat attack_ranged_offset_x { get; set; } = new();
+	public NoitaFloat attack_ranged_offset_y { get; set; } = new();
+	public NoitaBool attack_ranged_use_message { get; set; } = new();
+	public NoitaBool attack_ranged_predict { get; set; } = new();
+	public NoitaString attack_ranged_entity_file { get; set; } = new();
+	public NoitaInt attack_ranged_entity_count_min { get; set; } = new();
+	public NoitaInt attack_ranged_entity_count_max { get; set; } = new();
+	public NoitaBool attack_ranged_use_laser_sight { get; set; } = new();
+	public NoitaBool attack_ranged_laser_sight_beam_kind { get; set; } = new();
+	public NoitaBool attack_ranged_aim_rotation_enabled { get; set; } = new();
+	public NoitaFloat attack_ranged_aim_rotation_speed { get; set; } = new();
+	public NoitaFloat attack_ranged_aim_rotation_shooting_ok_angle_deg { get; set; } = new();
+	public NoitaInt attack_ranged_state_duration_frames { get; set; } = new();
+	public NoitaBool hide_from_prey { get; set; } = new();
+	public NoitaFloat hide_from_prey_target_distance { get; set; } = new();
+	public NoitaInt hide_from_prey_time { get; set; } = new();
+	public NoitaInt food_material { get; set; } = new();
+	public NoitaInt food_particle_effect_material { get; set; } = new();
+	public NoitaBool food_eating_create_particles { get; set; } = new();
+	public NoitaInt eating_area_radius_x { get; set; } = new();
+	public NoitaInt eating_area_radius_y { get; set; } = new();
+	public NoitaInt mouth_offset_x { get; set; } = new();
+	public NoitaInt mouth_offset_y { get; set; } = new();
+	public NoitaBool defecates_and_pees { get; set; } = new();
+	public NoitaInt butt_offset_x { get; set; } = new();
+	public NoitaInt butt_offset_y { get; set; } = new();
+	public NoitaFloat pee_velocity_x { get; set; } = new();
+	public NoitaFloat pee_velocity_y { get; set; } = new();
+	public NoitaBool needs_food { get; set; } = new();
+	public NoitaBool sense_creatures { get; set; } = new();
+	public NoitaBool sense_creatures_through_walls { get; set; } = new();
+	public NoitaBool can_fly { get; set; } = new();
+	public NoitaBool can_walk { get; set; } = new();
+	public NoitaInt path_distance_to_target_node_to_turn_around { get; set; } = new();
+	public NoitaFloat path_cleanup_explosion_radius { get; set; } = new();
+	public NoitaFloat max_distance_to_move_from_home { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> mAggression { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		ai_state = s.ReadBeInt32();
-		ai_state_timer = s.ReadBeInt32();
-		keep_state_alive_when_enabled = s.ReadBool();
-		preferred_job = s.ReadBeString();
-		escape_if_damaged_probability = s.ReadBeInt32();
-		attack_if_damaged_probability = s.ReadBeInt32();
-		eye_offset_x = s.ReadBeInt32();
-		eye_offset_y = s.ReadBeInt32();
-		attack_only_if_attacked = s.ReadBool();
-		dont_counter_attack_own_herd = s.ReadBool();
-		creature_detection_range_x = s.ReadBeFloat();
-		creature_detection_range_y = s.ReadBeFloat();
-		creature_detection_angular_range_deg = s.ReadBeFloat();
-		creature_detection_check_every_x_frames = s.ReadBeInt32();
-		max_distance_to_cam_to_start_hunting = s.ReadBeFloat();
-		pathfinding_max_depth_no_target = s.ReadBeInt32();
-		pathfinding_max_depth_has_target = s.ReadBeInt32();
-		aggressiveness_min = s.ReadBeFloat();
-		aggressiveness_max = s.ReadBeFloat();
-		tries_to_ranged_attack_friends = s.ReadBool();
-		attack_melee_enabled = s.ReadBool();
-		attack_dash_enabled = s.ReadBool();
-		attack_landing_ranged_enabled = s.ReadBool();
-		attack_ranged_enabled = s.ReadBool();
-		attack_knockback_multiplier = s.ReadBeFloat();
-		is_static_turret = s.ReadBool();
-		attack_melee_max_distance = s.ReadBeInt32();
-		attack_melee_action_frame = s.ReadBeInt32();
-		attack_melee_frames_between = s.ReadBeInt32();
-		attack_melee_damage_min = s.ReadBeFloat();
-		attack_melee_damage_max = s.ReadBeFloat();
-		attack_melee_impulse_vector_x = s.ReadBeFloat();
-		attack_melee_impulse_vector_y = s.ReadBeFloat();
-		attack_melee_impulse_multiplier = s.ReadBeFloat();
-		attack_melee_offset_x = s.ReadBeFloat();
-		attack_melee_offset_y = s.ReadBeFloat();
-		attack_melee_finish_enabled = s.ReadBool();
-		attack_melee_finish_config_explosion.Load(s);
-		attack_melee_finish_action_frame = s.ReadBeInt32();
-		attack_dash_distance = s.ReadBeFloat();
-		attack_dash_frames_between = s.ReadBeInt32();
-		attack_dash_damage = s.ReadBeFloat();
-		attack_dash_speed = s.ReadBeFloat();
-		attack_dash_lob = s.ReadBeFloat();
-		attack_ranged_min_distance = s.ReadBeFloat();
-		attack_ranged_max_distance = s.ReadBeFloat();
-		attack_ranged_action_frame = s.ReadBeInt32();
-		attack_ranged_frames_between.Load(s);
-		attack_ranged_offset_x = s.ReadBeFloat();
-		attack_ranged_offset_y = s.ReadBeFloat();
-		attack_ranged_use_message = s.ReadBool();
-		attack_ranged_predict = s.ReadBool();
-		attack_ranged_entity_file = s.ReadBeString();
-		attack_ranged_entity_count_min = s.ReadBeInt32();
-		attack_ranged_entity_count_max = s.ReadBeInt32();
-		attack_ranged_use_laser_sight = s.ReadBool();
-		attack_ranged_laser_sight_beam_kind = s.ReadBool();
-		attack_ranged_aim_rotation_enabled = s.ReadBool();
-		attack_ranged_aim_rotation_speed = s.ReadBeFloat();
-		attack_ranged_aim_rotation_shooting_ok_angle_deg = s.ReadBeFloat();
-		attack_ranged_state_duration_frames = s.ReadBeInt32();
-		hide_from_prey = s.ReadBool();
-		hide_from_prey_target_distance = s.ReadBeFloat();
-		hide_from_prey_time = s.ReadBeInt32();
-		food_material = s.ReadBeInt32();
-		food_particle_effect_material = s.ReadBeInt32();
-		food_eating_create_particles = s.ReadBool();
-		eating_area_radius_x = s.ReadBeInt32();
-		eating_area_radius_y = s.ReadBeInt32();
-		mouth_offset_x = s.ReadBeInt32();
-		mouth_offset_y = s.ReadBeInt32();
-		defecates_and_pees = s.ReadBool();
-		butt_offset_x = s.ReadBeInt32();
-		butt_offset_y = s.ReadBeInt32();
-		pee_velocity_x = s.ReadBeFloat();
-		pee_velocity_y = s.ReadBeFloat();
-		needs_food = s.ReadBool();
-		sense_creatures = s.ReadBool();
-		sense_creatures_through_walls = s.ReadBool();
-		can_fly = s.ReadBool();
-		can_walk = s.ReadBool();
-		path_distance_to_target_node_to_turn_around = s.ReadBeInt32();
-		path_cleanup_explosion_radius = s.ReadBeFloat();
-		max_distance_to_move_from_home = s.ReadBeFloat();
-		mAggression.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		ai_state.Read(s);
+		ai_state_timer.Read(s);
+		keep_state_alive_when_enabled.Read(s);
+		preferred_job.Read(s);
+		escape_if_damaged_probability.Read(s);
+		attack_if_damaged_probability.Read(s);
+		eye_offset_x.Read(s);
+		eye_offset_y.Read(s);
+		attack_only_if_attacked.Read(s);
+		dont_counter_attack_own_herd.Read(s);
+		creature_detection_range_x.Read(s);
+		creature_detection_range_y.Read(s);
+		creature_detection_angular_range_deg.Read(s);
+		creature_detection_check_every_x_frames.Read(s);
+		max_distance_to_cam_to_start_hunting.Read(s);
+		pathfinding_max_depth_no_target.Read(s);
+		pathfinding_max_depth_has_target.Read(s);
+		aggressiveness_min.Read(s);
+		aggressiveness_max.Read(s);
+		tries_to_ranged_attack_friends.Read(s);
+		attack_melee_enabled.Read(s);
+		attack_dash_enabled.Read(s);
+		attack_landing_ranged_enabled.Read(s);
+		attack_ranged_enabled.Read(s);
+		attack_knockback_multiplier.Read(s);
+		is_static_turret.Read(s);
+		attack_melee_max_distance.Read(s);
+		attack_melee_action_frame.Read(s);
+		attack_melee_frames_between.Read(s);
+		attack_melee_damage_min.Read(s);
+		attack_melee_damage_max.Read(s);
+		attack_melee_impulse_vector_x.Read(s);
+		attack_melee_impulse_vector_y.Read(s);
+		attack_melee_impulse_multiplier.Read(s);
+		attack_melee_offset_x.Read(s);
+		attack_melee_offset_y.Read(s);
+		attack_melee_finish_enabled.Read(s);
+		attack_melee_finish_config_explosion.Read(s);
+		attack_melee_finish_action_frame.Read(s);
+		attack_dash_distance.Read(s);
+		attack_dash_frames_between.Read(s);
+		attack_dash_damage.Read(s);
+		attack_dash_speed.Read(s);
+		attack_dash_lob.Read(s);
+		attack_ranged_min_distance.Read(s);
+		attack_ranged_max_distance.Read(s);
+		attack_ranged_action_frame.Read(s);
+		attack_ranged_frames_between.Read(s);
+		attack_ranged_offset_x.Read(s);
+		attack_ranged_offset_y.Read(s);
+		attack_ranged_use_message.Read(s);
+		attack_ranged_predict.Read(s);
+		attack_ranged_entity_file.Read(s);
+		attack_ranged_entity_count_min.Read(s);
+		attack_ranged_entity_count_max.Read(s);
+		attack_ranged_use_laser_sight.Read(s);
+		attack_ranged_laser_sight_beam_kind.Read(s);
+		attack_ranged_aim_rotation_enabled.Read(s);
+		attack_ranged_aim_rotation_speed.Read(s);
+		attack_ranged_aim_rotation_shooting_ok_angle_deg.Read(s);
+		attack_ranged_state_duration_frames.Read(s);
+		hide_from_prey.Read(s);
+		hide_from_prey_target_distance.Read(s);
+		hide_from_prey_time.Read(s);
+		food_material.Read(s);
+		food_particle_effect_material.Read(s);
+		food_eating_create_particles.Read(s);
+		eating_area_radius_x.Read(s);
+		eating_area_radius_y.Read(s);
+		mouth_offset_x.Read(s);
+		mouth_offset_y.Read(s);
+		defecates_and_pees.Read(s);
+		butt_offset_x.Read(s);
+		butt_offset_y.Read(s);
+		pee_velocity_x.Read(s);
+		pee_velocity_y.Read(s);
+		needs_food.Read(s);
+		sense_creatures.Read(s);
+		sense_creatures_through_walls.Read(s);
+		can_fly.Read(s);
+		can_walk.Read(s);
+		path_distance_to_target_node_to_turn_around.Read(s);
+		path_cleanup_explosion_radius.Read(s);
+		max_distance_to_move_from_home.Read(s);
+		mAggression.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(ai_state);
-		s.WriteBeInt32(ai_state_timer);
-		s.WriteBool(keep_state_alive_when_enabled);
-		s.WriteBeString(preferred_job);
-		s.WriteBeInt32(escape_if_damaged_probability);
-		s.WriteBeInt32(attack_if_damaged_probability);
-		s.WriteBeInt32(eye_offset_x);
-		s.WriteBeInt32(eye_offset_y);
-		s.WriteBool(attack_only_if_attacked);
-		s.WriteBool(dont_counter_attack_own_herd);
-		s.WriteBeFloat(creature_detection_range_x);
-		s.WriteBeFloat(creature_detection_range_y);
-		s.WriteBeFloat(creature_detection_angular_range_deg);
-		s.WriteBeInt32(creature_detection_check_every_x_frames);
-		s.WriteBeFloat(max_distance_to_cam_to_start_hunting);
-		s.WriteBeInt32(pathfinding_max_depth_no_target);
-		s.WriteBeInt32(pathfinding_max_depth_has_target);
-		s.WriteBeFloat(aggressiveness_min);
-		s.WriteBeFloat(aggressiveness_max);
-		s.WriteBool(tries_to_ranged_attack_friends);
-		s.WriteBool(attack_melee_enabled);
-		s.WriteBool(attack_dash_enabled);
-		s.WriteBool(attack_landing_ranged_enabled);
-		s.WriteBool(attack_ranged_enabled);
-		s.WriteBeFloat(attack_knockback_multiplier);
-		s.WriteBool(is_static_turret);
-		s.WriteBeInt32(attack_melee_max_distance);
-		s.WriteBeInt32(attack_melee_action_frame);
-		s.WriteBeInt32(attack_melee_frames_between);
-		s.WriteBeFloat(attack_melee_damage_min);
-		s.WriteBeFloat(attack_melee_damage_max);
-		s.WriteBeFloat(attack_melee_impulse_vector_x);
-		s.WriteBeFloat(attack_melee_impulse_vector_y);
-		s.WriteBeFloat(attack_melee_impulse_multiplier);
-		s.WriteBeFloat(attack_melee_offset_x);
-		s.WriteBeFloat(attack_melee_offset_y);
-		s.WriteBool(attack_melee_finish_enabled);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		ai_state.Write(s);
+		ai_state_timer.Write(s);
+		keep_state_alive_when_enabled.Write(s);
+		preferred_job.Write(s);
+		escape_if_damaged_probability.Write(s);
+		attack_if_damaged_probability.Write(s);
+		eye_offset_x.Write(s);
+		eye_offset_y.Write(s);
+		attack_only_if_attacked.Write(s);
+		dont_counter_attack_own_herd.Write(s);
+		creature_detection_range_x.Write(s);
+		creature_detection_range_y.Write(s);
+		creature_detection_angular_range_deg.Write(s);
+		creature_detection_check_every_x_frames.Write(s);
+		max_distance_to_cam_to_start_hunting.Write(s);
+		pathfinding_max_depth_no_target.Write(s);
+		pathfinding_max_depth_has_target.Write(s);
+		aggressiveness_min.Write(s);
+		aggressiveness_max.Write(s);
+		tries_to_ranged_attack_friends.Write(s);
+		attack_melee_enabled.Write(s);
+		attack_dash_enabled.Write(s);
+		attack_landing_ranged_enabled.Write(s);
+		attack_ranged_enabled.Write(s);
+		attack_knockback_multiplier.Write(s);
+		is_static_turret.Write(s);
+		attack_melee_max_distance.Write(s);
+		attack_melee_action_frame.Write(s);
+		attack_melee_frames_between.Write(s);
+		attack_melee_damage_min.Write(s);
+		attack_melee_damage_max.Write(s);
+		attack_melee_impulse_vector_x.Write(s);
+		attack_melee_impulse_vector_y.Write(s);
+		attack_melee_impulse_multiplier.Write(s);
+		attack_melee_offset_x.Write(s);
+		attack_melee_offset_y.Write(s);
+		attack_melee_finish_enabled.Write(s);
 		attack_melee_finish_config_explosion.Write(s);
-		s.WriteBeInt32(attack_melee_finish_action_frame);
-		s.WriteBeFloat(attack_dash_distance);
-		s.WriteBeInt32(attack_dash_frames_between);
-		s.WriteBeFloat(attack_dash_damage);
-		s.WriteBeFloat(attack_dash_speed);
-		s.WriteBeFloat(attack_dash_lob);
-		s.WriteBeFloat(attack_ranged_min_distance);
-		s.WriteBeFloat(attack_ranged_max_distance);
-		s.WriteBeInt32(attack_ranged_action_frame);
+		attack_melee_finish_action_frame.Write(s);
+		attack_dash_distance.Write(s);
+		attack_dash_frames_between.Write(s);
+		attack_dash_damage.Write(s);
+		attack_dash_speed.Write(s);
+		attack_dash_lob.Write(s);
+		attack_ranged_min_distance.Write(s);
+		attack_ranged_max_distance.Write(s);
+		attack_ranged_action_frame.Write(s);
 		attack_ranged_frames_between.Write(s);
-		s.WriteBeFloat(attack_ranged_offset_x);
-		s.WriteBeFloat(attack_ranged_offset_y);
-		s.WriteBool(attack_ranged_use_message);
-		s.WriteBool(attack_ranged_predict);
-		s.WriteBeString(attack_ranged_entity_file);
-		s.WriteBeInt32(attack_ranged_entity_count_min);
-		s.WriteBeInt32(attack_ranged_entity_count_max);
-		s.WriteBool(attack_ranged_use_laser_sight);
-		s.WriteBool(attack_ranged_laser_sight_beam_kind);
-		s.WriteBool(attack_ranged_aim_rotation_enabled);
-		s.WriteBeFloat(attack_ranged_aim_rotation_speed);
-		s.WriteBeFloat(attack_ranged_aim_rotation_shooting_ok_angle_deg);
-		s.WriteBeInt32(attack_ranged_state_duration_frames);
-		s.WriteBool(hide_from_prey);
-		s.WriteBeFloat(hide_from_prey_target_distance);
-		s.WriteBeInt32(hide_from_prey_time);
-		s.WriteBeInt32(food_material);
-		s.WriteBeInt32(food_particle_effect_material);
-		s.WriteBool(food_eating_create_particles);
-		s.WriteBeInt32(eating_area_radius_x);
-		s.WriteBeInt32(eating_area_radius_y);
-		s.WriteBeInt32(mouth_offset_x);
-		s.WriteBeInt32(mouth_offset_y);
-		s.WriteBool(defecates_and_pees);
-		s.WriteBeInt32(butt_offset_x);
-		s.WriteBeInt32(butt_offset_y);
-		s.WriteBeFloat(pee_velocity_x);
-		s.WriteBeFloat(pee_velocity_y);
-		s.WriteBool(needs_food);
-		s.WriteBool(sense_creatures);
-		s.WriteBool(sense_creatures_through_walls);
-		s.WriteBool(can_fly);
-		s.WriteBool(can_walk);
-		s.WriteBeInt32(path_distance_to_target_node_to_turn_around);
-		s.WriteBeFloat(path_cleanup_explosion_radius);
-		s.WriteBeFloat(max_distance_to_move_from_home);
+		attack_ranged_offset_x.Write(s);
+		attack_ranged_offset_y.Write(s);
+		attack_ranged_use_message.Write(s);
+		attack_ranged_predict.Write(s);
+		attack_ranged_entity_file.Write(s);
+		attack_ranged_entity_count_min.Write(s);
+		attack_ranged_entity_count_max.Write(s);
+		attack_ranged_use_laser_sight.Write(s);
+		attack_ranged_laser_sight_beam_kind.Write(s);
+		attack_ranged_aim_rotation_enabled.Write(s);
+		attack_ranged_aim_rotation_speed.Write(s);
+		attack_ranged_aim_rotation_shooting_ok_angle_deg.Write(s);
+		attack_ranged_state_duration_frames.Write(s);
+		hide_from_prey.Write(s);
+		hide_from_prey_target_distance.Write(s);
+		hide_from_prey_time.Write(s);
+		food_material.Write(s);
+		food_particle_effect_material.Write(s);
+		food_eating_create_particles.Write(s);
+		eating_area_radius_x.Write(s);
+		eating_area_radius_y.Write(s);
+		mouth_offset_x.Write(s);
+		mouth_offset_y.Write(s);
+		defecates_and_pees.Write(s);
+		butt_offset_x.Write(s);
+		butt_offset_y.Write(s);
+		pee_velocity_x.Write(s);
+		pee_velocity_y.Write(s);
+		needs_food.Write(s);
+		sense_creatures.Write(s);
+		sense_creatures_through_walls.Write(s);
+		can_fly.Write(s);
+		can_walk.Write(s);
+		path_distance_to_target_node_to_turn_around.Write(s);
+		path_cleanup_explosion_radius.Write(s);
+		max_distance_to_move_from_home.Write(s);
 		mAggression.Write(s);
 
     }

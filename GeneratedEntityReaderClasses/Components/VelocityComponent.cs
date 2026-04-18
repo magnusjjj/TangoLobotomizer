@@ -1,48 +1,57 @@
 namespace GeneratedNoitaClasses;
-public class VelocityComponent {
-	public float gravity_x { get; set; }
-	public float gravity_y { get; set; }
-	public float mass { get; set; }
-	public float air_friction { get; set; }
-	public float terminal_velocity { get; set; }
-	public bool apply_terminal_velocity { get; set; }
-	public bool updates_velocity { get; set; }
-	public bool displace_liquid { get; set; }
-	public bool affect_physics_bodies { get; set; }
-	public bool limit_to_max_velocity { get; set; }
-	public Int32 liquid_death_threshold { get; set; }
-	public float liquid_drag { get; set; }
-	public CVector2<float> mVelocity { get; set; }
+public class VelocityComponent : NoitaComponentBase,  iNoitaType<VelocityComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat gravity_x { get; set; } = new();
+	public NoitaFloat gravity_y { get; set; } = new();
+	public NoitaFloat mass { get; set; } = new();
+	public NoitaFloat air_friction { get; set; } = new();
+	public NoitaFloat terminal_velocity { get; set; } = new();
+	public NoitaBool apply_terminal_velocity { get; set; } = new();
+	public NoitaBool updates_velocity { get; set; } = new();
+	public NoitaBool displace_liquid { get; set; } = new();
+	public NoitaBool affect_physics_bodies { get; set; } = new();
+	public NoitaBool limit_to_max_velocity { get; set; } = new();
+	public NoitaInt liquid_death_threshold { get; set; } = new();
+	public NoitaFloat liquid_drag { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> mVelocity { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		gravity_x = s.ReadBeFloat();
-		gravity_y = s.ReadBeFloat();
-		mass = s.ReadBeFloat();
-		air_friction = s.ReadBeFloat();
-		terminal_velocity = s.ReadBeFloat();
-		apply_terminal_velocity = s.ReadBool();
-		updates_velocity = s.ReadBool();
-		displace_liquid = s.ReadBool();
-		affect_physics_bodies = s.ReadBool();
-		limit_to_max_velocity = s.ReadBool();
-		liquid_death_threshold = s.ReadBeInt32();
-		liquid_drag = s.ReadBeFloat();
-		mVelocity.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		gravity_x.Read(s);
+		gravity_y.Read(s);
+		mass.Read(s);
+		air_friction.Read(s);
+		terminal_velocity.Read(s);
+		apply_terminal_velocity.Read(s);
+		updates_velocity.Read(s);
+		displace_liquid.Read(s);
+		affect_physics_bodies.Read(s);
+		limit_to_max_velocity.Read(s);
+		liquid_death_threshold.Read(s);
+		liquid_drag.Read(s);
+		mVelocity.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(gravity_x);
-		s.WriteBeFloat(gravity_y);
-		s.WriteBeFloat(mass);
-		s.WriteBeFloat(air_friction);
-		s.WriteBeFloat(terminal_velocity);
-		s.WriteBool(apply_terminal_velocity);
-		s.WriteBool(updates_velocity);
-		s.WriteBool(displace_liquid);
-		s.WriteBool(affect_physics_bodies);
-		s.WriteBool(limit_to_max_velocity);
-		s.WriteBeInt32(liquid_death_threshold);
-		s.WriteBeFloat(liquid_drag);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		gravity_x.Write(s);
+		gravity_y.Write(s);
+		mass.Write(s);
+		air_friction.Write(s);
+		terminal_velocity.Write(s);
+		apply_terminal_velocity.Write(s);
+		updates_velocity.Write(s);
+		displace_liquid.Write(s);
+		affect_physics_bodies.Write(s);
+		limit_to_max_velocity.Write(s);
+		liquid_death_threshold.Write(s);
+		liquid_drag.Write(s);
 		mVelocity.Write(s);
 
     }

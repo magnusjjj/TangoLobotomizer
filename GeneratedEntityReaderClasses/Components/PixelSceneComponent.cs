@@ -1,34 +1,43 @@
 namespace GeneratedNoitaClasses;
-public class PixelSceneComponent {
-	public string pixel_scene { get; set; }
-	public string pixel_scene_visual { get; set; }
-	public string pixel_scene_background { get; set; }
-	public Int32 background_z_index { get; set; }
-	public float offset_x { get; set; }
-	public float offset_y { get; set; }
-	public bool skip_biome_checks { get; set; }
-	public bool skip_edge_textures { get; set; }
+public class PixelSceneComponent : NoitaComponentBase,  iNoitaType<PixelSceneComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString pixel_scene { get; set; } = new();
+	public NoitaString pixel_scene_visual { get; set; } = new();
+	public NoitaString pixel_scene_background { get; set; } = new();
+	public NoitaInt background_z_index { get; set; } = new();
+	public NoitaFloat offset_x { get; set; } = new();
+	public NoitaFloat offset_y { get; set; } = new();
+	public NoitaBool skip_biome_checks { get; set; } = new();
+	public NoitaBool skip_edge_textures { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		pixel_scene = s.ReadBeString();
-		pixel_scene_visual = s.ReadBeString();
-		pixel_scene_background = s.ReadBeString();
-		background_z_index = s.ReadBeInt32();
-		offset_x = s.ReadBeFloat();
-		offset_y = s.ReadBeFloat();
-		skip_biome_checks = s.ReadBool();
-		skip_edge_textures = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		pixel_scene.Read(s);
+		pixel_scene_visual.Read(s);
+		pixel_scene_background.Read(s);
+		background_z_index.Read(s);
+		offset_x.Read(s);
+		offset_y.Read(s);
+		skip_biome_checks.Read(s);
+		skip_edge_textures.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(pixel_scene);
-		s.WriteBeString(pixel_scene_visual);
-		s.WriteBeString(pixel_scene_background);
-		s.WriteBeInt32(background_z_index);
-		s.WriteBeFloat(offset_x);
-		s.WriteBeFloat(offset_y);
-		s.WriteBool(skip_biome_checks);
-		s.WriteBool(skip_edge_textures);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		pixel_scene.Write(s);
+		pixel_scene_visual.Write(s);
+		pixel_scene_background.Write(s);
+		background_z_index.Write(s);
+		offset_x.Write(s);
+		offset_y.Write(s);
+		skip_biome_checks.Write(s);
+		skip_edge_textures.Write(s);
 
     }
 }

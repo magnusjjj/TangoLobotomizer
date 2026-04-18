@@ -6,18 +6,18 @@ namespace EntityFileReaderGenerator
 {
     public interface iLanguage
     {
-        public iGeneratedClass GenerateClass(string classname, List<Property> properties);
-        public iNoitaType GetNoitaType(string typename, string name);
+        public iGeneratedClass GenerateClass(string classname, List<Property> properties, string additional_class="");
+        public iNoitaTypeGenerator GetNoitaType(string typename, string name);
 
 
         public class Property
         {
             public required string Name { get; set; }
             public required string Type { get; set; }
-            public required iNoitaType NoitaType { get; set; }
+            public required iNoitaTypeGenerator NoitaType { get; set; }
         }
 
-        public interface iNoitaType
+        public interface iNoitaTypeGenerator
         {
             public abstract string Type { get; set; }
             public string RealType { get; set; }

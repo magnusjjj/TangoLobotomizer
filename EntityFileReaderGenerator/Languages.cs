@@ -11,7 +11,7 @@ namespace EntityFileReaderGenerator
     {
         public class CSharp
         {
-            public string Name { get; set; }
+            public string Name { get; set; } = "";
             public List<Property> Properties { get; set; } = [];
 
             static string template =
@@ -22,8 +22,8 @@ NOITA_PROPERTIES
 
             public class Property
             {
-                public string Name { get; set; }
-                public string Type { get; set; }
+                public string Name { get; set; } = "";
+                public string Type { get; set; } = "";
             }
 
             #region SanityChecking
@@ -190,7 +190,6 @@ NOITA_PROPERTIES
                 }
 
                 throw new Exception("Unexpected type name: " + type);
-                return "";
             }
         }
     }

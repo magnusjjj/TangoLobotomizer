@@ -1,37 +1,46 @@
 namespace GeneratedNoitaClasses;
-public class HitboxComponent {
-	public bool is_player { get; set; }
-	public bool is_enemy { get; set; }
-	public bool is_item { get; set; }
-	public float aabb_min_x { get; set; }
-	public float aabb_max_x { get; set; }
-	public float aabb_min_y { get; set; }
-	public float aabb_max_y { get; set; }
-	public CVector2<float> offset { get; set; }
-	public float damage_multiplier { get; set; }
+public class HitboxComponent : NoitaComponentBase,  iNoitaType<HitboxComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool is_player { get; set; } = new();
+	public NoitaBool is_enemy { get; set; } = new();
+	public NoitaBool is_item { get; set; } = new();
+	public NoitaFloat aabb_min_x { get; set; } = new();
+	public NoitaFloat aabb_max_x { get; set; } = new();
+	public NoitaFloat aabb_min_y { get; set; } = new();
+	public NoitaFloat aabb_max_y { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> offset { get; set; } = new();
+	public NoitaFloat damage_multiplier { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		is_player = s.ReadBool();
-		is_enemy = s.ReadBool();
-		is_item = s.ReadBool();
-		aabb_min_x = s.ReadBeFloat();
-		aabb_max_x = s.ReadBeFloat();
-		aabb_min_y = s.ReadBeFloat();
-		aabb_max_y = s.ReadBeFloat();
-		offset.Load(s);
-		damage_multiplier = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		is_player.Read(s);
+		is_enemy.Read(s);
+		is_item.Read(s);
+		aabb_min_x.Read(s);
+		aabb_max_x.Read(s);
+		aabb_min_y.Read(s);
+		aabb_max_y.Read(s);
+		offset.Read(s);
+		damage_multiplier.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(is_player);
-		s.WriteBool(is_enemy);
-		s.WriteBool(is_item);
-		s.WriteBeFloat(aabb_min_x);
-		s.WriteBeFloat(aabb_max_x);
-		s.WriteBeFloat(aabb_min_y);
-		s.WriteBeFloat(aabb_max_y);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		is_player.Write(s);
+		is_enemy.Write(s);
+		is_item.Write(s);
+		aabb_min_x.Write(s);
+		aabb_max_x.Write(s);
+		aabb_min_y.Write(s);
+		aabb_max_y.Write(s);
 		offset.Write(s);
-		s.WriteBeFloat(damage_multiplier);
+		damage_multiplier.Write(s);
 
     }
 }

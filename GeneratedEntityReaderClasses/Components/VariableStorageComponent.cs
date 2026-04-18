@@ -1,25 +1,34 @@
 namespace GeneratedNoitaClasses;
-public class VariableStorageComponent {
-	public string name { get; set; }
-	public string value_string { get; set; }
-	public Int32 value_int { get; set; }
-	public bool value_bool { get; set; }
-	public float value_float { get; set; }
+public class VariableStorageComponent : NoitaComponentBase,  iNoitaType<VariableStorageComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString name { get; set; } = new();
+	public NoitaString value_string { get; set; } = new();
+	public NoitaInt value_int { get; set; } = new();
+	public NoitaBool value_bool { get; set; } = new();
+	public NoitaFloat value_float { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		name = s.ReadBeString();
-		value_string = s.ReadBeString();
-		value_int = s.ReadBeInt32();
-		value_bool = s.ReadBool();
-		value_float = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		name.Read(s);
+		value_string.Read(s);
+		value_int.Read(s);
+		value_bool.Read(s);
+		value_float.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(name);
-		s.WriteBeString(value_string);
-		s.WriteBeInt32(value_int);
-		s.WriteBool(value_bool);
-		s.WriteBeFloat(value_float);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		name.Write(s);
+		value_string.Write(s);
+		value_int.Write(s);
+		value_bool.Write(s);
+		value_float.Write(s);
 
     }
 }

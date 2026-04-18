@@ -1,25 +1,34 @@
 namespace GeneratedNoitaClasses;
-public class HitEffectComponent {
-	public UInt32 condition_effect { get; set; }
-	public UInt32 condition_status { get; set; }
-	public UInt32 effect_hit { get; set; }
-	public Int32 value { get; set; }
-	public string value_string { get; set; }
+public class HitEffectComponent : NoitaComponentBase,  iNoitaType<HitEffectComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUInt condition_effect { get; set; } = new();
+	public NoitaUInt condition_status { get; set; } = new();
+	public NoitaUInt effect_hit { get; set; } = new();
+	public NoitaInt value { get; set; } = new();
+	public NoitaString value_string { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		condition_effect = s.ReadBeUInt32();
-		condition_status = s.ReadBeUInt32();
-		effect_hit = s.ReadBeUInt32();
-		value = s.ReadBeInt32();
-		value_string = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		condition_effect.Read(s);
+		condition_status.Read(s);
+		effect_hit.Read(s);
+		value.Read(s);
+		value_string.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(condition_effect);
-		s.WriteBeUInt32(condition_status);
-		s.WriteBeUInt32(effect_hit);
-		s.WriteBeInt32(value);
-		s.WriteBeString(value_string);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		condition_effect.Write(s);
+		condition_status.Write(s);
+		effect_hit.Write(s);
+		value.Write(s);
+		value_string.Write(s);
 
     }
 }

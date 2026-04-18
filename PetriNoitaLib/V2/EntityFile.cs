@@ -210,8 +210,6 @@ namespace PetriNoitaLib.V2
             
 
             throw new NotImplementedException(typename + " not implemented");
-
-            return null;
         }
 
         class SpecialTexture

@@ -1,22 +1,31 @@
 namespace GeneratedNoitaClasses;
-public class Inventory2Component {
-	public Int32 quick_inventory_slots { get; set; }
-	public Int32 full_inventory_slots_x { get; set; }
-	public Int32 full_inventory_slots_y { get; set; }
-	public UInt32 mSavedActiveItemIndex { get; set; }
+public class Inventory2Component : NoitaComponentBase,  iNoitaType<Inventory2Component>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt quick_inventory_slots { get; set; } = new();
+	public NoitaInt full_inventory_slots_x { get; set; } = new();
+	public NoitaInt full_inventory_slots_y { get; set; } = new();
+	public NoitaUInt mSavedActiveItemIndex { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		quick_inventory_slots = s.ReadBeInt32();
-		full_inventory_slots_x = s.ReadBeInt32();
-		full_inventory_slots_y = s.ReadBeInt32();
-		mSavedActiveItemIndex = s.ReadBeUInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		quick_inventory_slots.Read(s);
+		full_inventory_slots_x.Read(s);
+		full_inventory_slots_y.Read(s);
+		mSavedActiveItemIndex.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(quick_inventory_slots);
-		s.WriteBeInt32(full_inventory_slots_x);
-		s.WriteBeInt32(full_inventory_slots_y);
-		s.WriteBeUInt32(mSavedActiveItemIndex);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		quick_inventory_slots.Write(s);
+		full_inventory_slots_x.Write(s);
+		full_inventory_slots_y.Write(s);
+		mSavedActiveItemIndex.Write(s);
 
     }
 }

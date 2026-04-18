@@ -1,19 +1,28 @@
 namespace GeneratedNoitaClasses;
-public class ArcComponent {
-	public UInt32 type { get; set; }
-	public Int32 material { get; set; }
-	public Int32 lifetime { get; set; }
+public class ArcComponent : NoitaComponentBase,  iNoitaType<ArcComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUInt type { get; set; } = new();
+	public NoitaInt material { get; set; } = new();
+	public NoitaInt lifetime { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		type = s.ReadBeUInt32();
-		material = s.ReadBeInt32();
-		lifetime = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		type.Read(s);
+		material.Read(s);
+		lifetime.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(type);
-		s.WriteBeInt32(material);
-		s.WriteBeInt32(lifetime);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		type.Write(s);
+		material.Write(s);
+		lifetime.Write(s);
 
     }
 }

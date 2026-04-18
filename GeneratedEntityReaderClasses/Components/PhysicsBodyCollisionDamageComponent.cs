@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class PhysicsBodyCollisionDamageComponent {
-	public float speed_threshold { get; set; }
-	public float damage_multiplier { get; set; }
+public class PhysicsBodyCollisionDamageComponent : NoitaComponentBase,  iNoitaType<PhysicsBodyCollisionDamageComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat speed_threshold { get; set; } = new();
+	public NoitaFloat damage_multiplier { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		speed_threshold = s.ReadBeFloat();
-		damage_multiplier = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		speed_threshold.Read(s);
+		damage_multiplier.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(speed_threshold);
-		s.WriteBeFloat(damage_multiplier);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		speed_threshold.Write(s);
+		damage_multiplier.Write(s);
 
     }
 }

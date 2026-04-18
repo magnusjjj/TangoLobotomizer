@@ -1,256 +1,265 @@
 namespace GeneratedNoitaClasses;
-public class ProjectileComponent {
-	public UInt32 projectile_type { get; set; }
-	public Int32 lifetime { get; set; }
-	public Int32 lifetime_randomness { get; set; }
-	public bool on_lifetime_out_explode { get; set; }
-	public bool collide_with_world { get; set; }
-	public ConfigGunActionInfo config { get; set; }
-	public float speed_min { get; set; }
-	public float speed_max { get; set; }
-	public float friction { get; set; }
-	public float direction_random_rad { get; set; }
-	public float direction_nonrandom_rad { get; set; }
-	public float lob_min { get; set; }
-	public float lob_max { get; set; }
-	public float camera_shake_when_shot { get; set; }
-	public float shoot_light_flash_radius { get; set; }
-	public UInt32 shoot_light_flash_r { get; set; }
-	public UInt32 shoot_light_flash_g { get; set; }
-	public UInt32 shoot_light_flash_b { get; set; }
-	public bool create_shell_casing { get; set; }
-	public string shell_casing_material { get; set; }
-	public CVector2<float> shell_casing_offset { get; set; }
-	public string muzzle_flash_file { get; set; }
-	public Int32 bounces_left { get; set; }
-	public float bounce_energy { get; set; }
-	public bool bounce_always { get; set; }
-	public bool bounce_at_any_angle { get; set; }
-	public bool attach_to_parent_trigger { get; set; }
-	public string bounce_fx_file { get; set; }
-	public float angular_velocity { get; set; }
-	public bool velocity_sets_rotation { get; set; }
-	public bool velocity_sets_scale { get; set; }
-	public float velocity_sets_scale_coeff { get; set; }
-	public bool velocity_sets_y_flip { get; set; }
-	public float velocity_updates_animation { get; set; }
-	public float ground_penetration_coeff { get; set; }
-	public Int32 ground_penetration_max_durability_to_destroy { get; set; }
-	public string go_through_this_material { get; set; }
-	public bool do_moveto_update { get; set; }
-	public Int32 on_death_duplicate_remaining { get; set; }
-	public bool on_death_gfx_leave_sprite { get; set; }
-	public bool on_death_explode { get; set; }
-	public bool on_death_emit_particle { get; set; }
-	public Int32 on_death_emit_particle_count { get; set; }
-	public bool die_on_liquid_collision { get; set; }
-	public bool die_on_low_velocity { get; set; }
-	public float die_on_low_velocity_limit { get; set; }
-	public string on_death_emit_particle_type { get; set; }
-	public bool on_death_particle_check_concrete { get; set; }
-	public bool ground_collision_fx { get; set; }
-	public bool explosion_dont_damage_shooter { get; set; }
-	public ConfigExplosion config_explosion { get; set; }
-	public float on_death_item_pickable_radius { get; set; }
-	public bool penetrate_world { get; set; }
-	public float penetrate_world_velocity_coeff { get; set; }
-	public bool penetrate_entities { get; set; }
-	public bool on_collision_die { get; set; }
-	public bool on_collision_remove_projectile { get; set; }
-	public bool on_collision_spawn_entity { get; set; }
-	public string spawn_entity { get; set; }
-	public bool spawn_entity_is_projectile { get; set; }
-	public float physics_impulse_coeff { get; set; }
-	public Int32 damage_every_x_frames { get; set; }
-	public bool damage_scaled_by_speed { get; set; }
-	public float damage_scale_max_speed { get; set; }
-	public UInt32 ragdoll_fx_on_collision { get; set; }
-	public bool collide_with_entities { get; set; }
-	public string collide_with_tag { get; set; }
-	public string dont_collide_with_tag { get; set; }
-	public Int32 collide_with_shooter_frames { get; set; }
-	public bool friendly_fire { get; set; }
-	public float damage { get; set; }
-	public ConfigDamagesByType damage_by_type { get; set; }
-	public ConfigDamageCritical damage_critical { get; set; }
-	public float knockback_force { get; set; }
-	public float ragdoll_force_multiplier { get; set; }
-	public float hit_particle_force_multiplier { get; set; }
-	public float blood_count_multiplier { get; set; }
-	public string damage_game_effect_entities { get; set; }
-	public bool never_hit_player { get; set; }
-	public bool collect_materials_to_shooter { get; set; }
-	public bool play_damage_sounds { get; set; }
-	public Int32 mLastFrameDamaged { get; set; }
+public class ProjectileComponent : NoitaComponentBase,  iNoitaType<ProjectileComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUInt projectile_type { get; set; } = new();
+	public NoitaInt lifetime { get; set; } = new();
+	public NoitaInt lifetime_randomness { get; set; } = new();
+	public NoitaBool on_lifetime_out_explode { get; set; } = new();
+	public NoitaBool collide_with_world { get; set; } = new();
+	public ConfigGunActionInfo config { get; set; } = new();
+	public NoitaFloat speed_min { get; set; } = new();
+	public NoitaFloat speed_max { get; set; } = new();
+	public NoitaFloat friction { get; set; } = new();
+	public NoitaFloat direction_random_rad { get; set; } = new();
+	public NoitaFloat direction_nonrandom_rad { get; set; } = new();
+	public NoitaFloat lob_min { get; set; } = new();
+	public NoitaFloat lob_max { get; set; } = new();
+	public NoitaFloat camera_shake_when_shot { get; set; } = new();
+	public NoitaFloat shoot_light_flash_radius { get; set; } = new();
+	public NoitaUInt shoot_light_flash_r { get; set; } = new();
+	public NoitaUInt shoot_light_flash_g { get; set; } = new();
+	public NoitaUInt shoot_light_flash_b { get; set; } = new();
+	public NoitaBool create_shell_casing { get; set; } = new();
+	public NoitaString shell_casing_material { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> shell_casing_offset { get; set; } = new();
+	public NoitaString muzzle_flash_file { get; set; } = new();
+	public NoitaInt bounces_left { get; set; } = new();
+	public NoitaFloat bounce_energy { get; set; } = new();
+	public NoitaBool bounce_always { get; set; } = new();
+	public NoitaBool bounce_at_any_angle { get; set; } = new();
+	public NoitaBool attach_to_parent_trigger { get; set; } = new();
+	public NoitaString bounce_fx_file { get; set; } = new();
+	public NoitaFloat angular_velocity { get; set; } = new();
+	public NoitaBool velocity_sets_rotation { get; set; } = new();
+	public NoitaBool velocity_sets_scale { get; set; } = new();
+	public NoitaFloat velocity_sets_scale_coeff { get; set; } = new();
+	public NoitaBool velocity_sets_y_flip { get; set; } = new();
+	public NoitaFloat velocity_updates_animation { get; set; } = new();
+	public NoitaFloat ground_penetration_coeff { get; set; } = new();
+	public NoitaInt ground_penetration_max_durability_to_destroy { get; set; } = new();
+	public NoitaString go_through_this_material { get; set; } = new();
+	public NoitaBool do_moveto_update { get; set; } = new();
+	public NoitaInt on_death_duplicate_remaining { get; set; } = new();
+	public NoitaBool on_death_gfx_leave_sprite { get; set; } = new();
+	public NoitaBool on_death_explode { get; set; } = new();
+	public NoitaBool on_death_emit_particle { get; set; } = new();
+	public NoitaInt on_death_emit_particle_count { get; set; } = new();
+	public NoitaBool die_on_liquid_collision { get; set; } = new();
+	public NoitaBool die_on_low_velocity { get; set; } = new();
+	public NoitaFloat die_on_low_velocity_limit { get; set; } = new();
+	public NoitaString on_death_emit_particle_type { get; set; } = new();
+	public NoitaBool on_death_particle_check_concrete { get; set; } = new();
+	public NoitaBool ground_collision_fx { get; set; } = new();
+	public NoitaBool explosion_dont_damage_shooter { get; set; } = new();
+	public ConfigExplosion config_explosion { get; set; } = new();
+	public NoitaFloat on_death_item_pickable_radius { get; set; } = new();
+	public NoitaBool penetrate_world { get; set; } = new();
+	public NoitaFloat penetrate_world_velocity_coeff { get; set; } = new();
+	public NoitaBool penetrate_entities { get; set; } = new();
+	public NoitaBool on_collision_die { get; set; } = new();
+	public NoitaBool on_collision_remove_projectile { get; set; } = new();
+	public NoitaBool on_collision_spawn_entity { get; set; } = new();
+	public NoitaString spawn_entity { get; set; } = new();
+	public NoitaBool spawn_entity_is_projectile { get; set; } = new();
+	public NoitaFloat physics_impulse_coeff { get; set; } = new();
+	public NoitaInt damage_every_x_frames { get; set; } = new();
+	public NoitaBool damage_scaled_by_speed { get; set; } = new();
+	public NoitaFloat damage_scale_max_speed { get; set; } = new();
+	public NoitaUInt ragdoll_fx_on_collision { get; set; } = new();
+	public NoitaBool collide_with_entities { get; set; } = new();
+	public NoitaString collide_with_tag { get; set; } = new();
+	public NoitaString dont_collide_with_tag { get; set; } = new();
+	public NoitaInt collide_with_shooter_frames { get; set; } = new();
+	public NoitaBool friendly_fire { get; set; } = new();
+	public NoitaFloat damage { get; set; } = new();
+	public ConfigDamagesByType damage_by_type { get; set; } = new();
+	public ConfigDamageCritical damage_critical { get; set; } = new();
+	public NoitaFloat knockback_force { get; set; } = new();
+	public NoitaFloat ragdoll_force_multiplier { get; set; } = new();
+	public NoitaFloat hit_particle_force_multiplier { get; set; } = new();
+	public NoitaFloat blood_count_multiplier { get; set; } = new();
+	public NoitaString damage_game_effect_entities { get; set; } = new();
+	public NoitaBool never_hit_player { get; set; } = new();
+	public NoitaBool collect_materials_to_shooter { get; set; } = new();
+	public NoitaBool play_damage_sounds { get; set; } = new();
+	public NoitaInt mLastFrameDamaged { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		projectile_type = s.ReadBeUInt32();
-		lifetime = s.ReadBeInt32();
-		lifetime_randomness = s.ReadBeInt32();
-		on_lifetime_out_explode = s.ReadBool();
-		collide_with_world = s.ReadBool();
-		config.Load(s);
-		speed_min = s.ReadBeFloat();
-		speed_max = s.ReadBeFloat();
-		friction = s.ReadBeFloat();
-		direction_random_rad = s.ReadBeFloat();
-		direction_nonrandom_rad = s.ReadBeFloat();
-		lob_min = s.ReadBeFloat();
-		lob_max = s.ReadBeFloat();
-		camera_shake_when_shot = s.ReadBeFloat();
-		shoot_light_flash_radius = s.ReadBeFloat();
-		shoot_light_flash_r = s.ReadBeUInt32();
-		shoot_light_flash_g = s.ReadBeUInt32();
-		shoot_light_flash_b = s.ReadBeUInt32();
-		create_shell_casing = s.ReadBool();
-		shell_casing_material = s.ReadBeString();
-		shell_casing_offset.Load(s);
-		muzzle_flash_file = s.ReadBeString();
-		bounces_left = s.ReadBeInt32();
-		bounce_energy = s.ReadBeFloat();
-		bounce_always = s.ReadBool();
-		bounce_at_any_angle = s.ReadBool();
-		attach_to_parent_trigger = s.ReadBool();
-		bounce_fx_file = s.ReadBeString();
-		angular_velocity = s.ReadBeFloat();
-		velocity_sets_rotation = s.ReadBool();
-		velocity_sets_scale = s.ReadBool();
-		velocity_sets_scale_coeff = s.ReadBeFloat();
-		velocity_sets_y_flip = s.ReadBool();
-		velocity_updates_animation = s.ReadBeFloat();
-		ground_penetration_coeff = s.ReadBeFloat();
-		ground_penetration_max_durability_to_destroy = s.ReadBeInt32();
-		go_through_this_material = s.ReadBeString();
-		do_moveto_update = s.ReadBool();
-		on_death_duplicate_remaining = s.ReadBeInt32();
-		on_death_gfx_leave_sprite = s.ReadBool();
-		on_death_explode = s.ReadBool();
-		on_death_emit_particle = s.ReadBool();
-		on_death_emit_particle_count = s.ReadBeInt32();
-		die_on_liquid_collision = s.ReadBool();
-		die_on_low_velocity = s.ReadBool();
-		die_on_low_velocity_limit = s.ReadBeFloat();
-		on_death_emit_particle_type = s.ReadBeString();
-		on_death_particle_check_concrete = s.ReadBool();
-		ground_collision_fx = s.ReadBool();
-		explosion_dont_damage_shooter = s.ReadBool();
-		config_explosion.Load(s);
-		on_death_item_pickable_radius = s.ReadBeFloat();
-		penetrate_world = s.ReadBool();
-		penetrate_world_velocity_coeff = s.ReadBeFloat();
-		penetrate_entities = s.ReadBool();
-		on_collision_die = s.ReadBool();
-		on_collision_remove_projectile = s.ReadBool();
-		on_collision_spawn_entity = s.ReadBool();
-		spawn_entity = s.ReadBeString();
-		spawn_entity_is_projectile = s.ReadBool();
-		physics_impulse_coeff = s.ReadBeFloat();
-		damage_every_x_frames = s.ReadBeInt32();
-		damage_scaled_by_speed = s.ReadBool();
-		damage_scale_max_speed = s.ReadBeFloat();
-		ragdoll_fx_on_collision = s.ReadBeUInt32();
-		collide_with_entities = s.ReadBool();
-		collide_with_tag = s.ReadBeString();
-		dont_collide_with_tag = s.ReadBeString();
-		collide_with_shooter_frames = s.ReadBeInt32();
-		friendly_fire = s.ReadBool();
-		damage = s.ReadBeFloat();
-		damage_by_type.Load(s);
-		damage_critical.Load(s);
-		knockback_force = s.ReadBeFloat();
-		ragdoll_force_multiplier = s.ReadBeFloat();
-		hit_particle_force_multiplier = s.ReadBeFloat();
-		blood_count_multiplier = s.ReadBeFloat();
-		damage_game_effect_entities = s.ReadBeString();
-		never_hit_player = s.ReadBool();
-		collect_materials_to_shooter = s.ReadBool();
-		play_damage_sounds = s.ReadBool();
-		mLastFrameDamaged = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		projectile_type.Read(s);
+		lifetime.Read(s);
+		lifetime_randomness.Read(s);
+		on_lifetime_out_explode.Read(s);
+		collide_with_world.Read(s);
+		config.Read(s);
+		speed_min.Read(s);
+		speed_max.Read(s);
+		friction.Read(s);
+		direction_random_rad.Read(s);
+		direction_nonrandom_rad.Read(s);
+		lob_min.Read(s);
+		lob_max.Read(s);
+		camera_shake_when_shot.Read(s);
+		shoot_light_flash_radius.Read(s);
+		shoot_light_flash_r.Read(s);
+		shoot_light_flash_g.Read(s);
+		shoot_light_flash_b.Read(s);
+		create_shell_casing.Read(s);
+		shell_casing_material.Read(s);
+		shell_casing_offset.Read(s);
+		muzzle_flash_file.Read(s);
+		bounces_left.Read(s);
+		bounce_energy.Read(s);
+		bounce_always.Read(s);
+		bounce_at_any_angle.Read(s);
+		attach_to_parent_trigger.Read(s);
+		bounce_fx_file.Read(s);
+		angular_velocity.Read(s);
+		velocity_sets_rotation.Read(s);
+		velocity_sets_scale.Read(s);
+		velocity_sets_scale_coeff.Read(s);
+		velocity_sets_y_flip.Read(s);
+		velocity_updates_animation.Read(s);
+		ground_penetration_coeff.Read(s);
+		ground_penetration_max_durability_to_destroy.Read(s);
+		go_through_this_material.Read(s);
+		do_moveto_update.Read(s);
+		on_death_duplicate_remaining.Read(s);
+		on_death_gfx_leave_sprite.Read(s);
+		on_death_explode.Read(s);
+		on_death_emit_particle.Read(s);
+		on_death_emit_particle_count.Read(s);
+		die_on_liquid_collision.Read(s);
+		die_on_low_velocity.Read(s);
+		die_on_low_velocity_limit.Read(s);
+		on_death_emit_particle_type.Read(s);
+		on_death_particle_check_concrete.Read(s);
+		ground_collision_fx.Read(s);
+		explosion_dont_damage_shooter.Read(s);
+		config_explosion.Read(s);
+		on_death_item_pickable_radius.Read(s);
+		penetrate_world.Read(s);
+		penetrate_world_velocity_coeff.Read(s);
+		penetrate_entities.Read(s);
+		on_collision_die.Read(s);
+		on_collision_remove_projectile.Read(s);
+		on_collision_spawn_entity.Read(s);
+		spawn_entity.Read(s);
+		spawn_entity_is_projectile.Read(s);
+		physics_impulse_coeff.Read(s);
+		damage_every_x_frames.Read(s);
+		damage_scaled_by_speed.Read(s);
+		damage_scale_max_speed.Read(s);
+		ragdoll_fx_on_collision.Read(s);
+		collide_with_entities.Read(s);
+		collide_with_tag.Read(s);
+		dont_collide_with_tag.Read(s);
+		collide_with_shooter_frames.Read(s);
+		friendly_fire.Read(s);
+		damage.Read(s);
+		damage_by_type.Read(s);
+		damage_critical.Read(s);
+		knockback_force.Read(s);
+		ragdoll_force_multiplier.Read(s);
+		hit_particle_force_multiplier.Read(s);
+		blood_count_multiplier.Read(s);
+		damage_game_effect_entities.Read(s);
+		never_hit_player.Read(s);
+		collect_materials_to_shooter.Read(s);
+		play_damage_sounds.Read(s);
+		mLastFrameDamaged.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(projectile_type);
-		s.WriteBeInt32(lifetime);
-		s.WriteBeInt32(lifetime_randomness);
-		s.WriteBool(on_lifetime_out_explode);
-		s.WriteBool(collide_with_world);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		projectile_type.Write(s);
+		lifetime.Write(s);
+		lifetime_randomness.Write(s);
+		on_lifetime_out_explode.Write(s);
+		collide_with_world.Write(s);
 		config.Write(s);
-		s.WriteBeFloat(speed_min);
-		s.WriteBeFloat(speed_max);
-		s.WriteBeFloat(friction);
-		s.WriteBeFloat(direction_random_rad);
-		s.WriteBeFloat(direction_nonrandom_rad);
-		s.WriteBeFloat(lob_min);
-		s.WriteBeFloat(lob_max);
-		s.WriteBeFloat(camera_shake_when_shot);
-		s.WriteBeFloat(shoot_light_flash_radius);
-		s.WriteBeUInt32(shoot_light_flash_r);
-		s.WriteBeUInt32(shoot_light_flash_g);
-		s.WriteBeUInt32(shoot_light_flash_b);
-		s.WriteBool(create_shell_casing);
-		s.WriteBeString(shell_casing_material);
+		speed_min.Write(s);
+		speed_max.Write(s);
+		friction.Write(s);
+		direction_random_rad.Write(s);
+		direction_nonrandom_rad.Write(s);
+		lob_min.Write(s);
+		lob_max.Write(s);
+		camera_shake_when_shot.Write(s);
+		shoot_light_flash_radius.Write(s);
+		shoot_light_flash_r.Write(s);
+		shoot_light_flash_g.Write(s);
+		shoot_light_flash_b.Write(s);
+		create_shell_casing.Write(s);
+		shell_casing_material.Write(s);
 		shell_casing_offset.Write(s);
-		s.WriteBeString(muzzle_flash_file);
-		s.WriteBeInt32(bounces_left);
-		s.WriteBeFloat(bounce_energy);
-		s.WriteBool(bounce_always);
-		s.WriteBool(bounce_at_any_angle);
-		s.WriteBool(attach_to_parent_trigger);
-		s.WriteBeString(bounce_fx_file);
-		s.WriteBeFloat(angular_velocity);
-		s.WriteBool(velocity_sets_rotation);
-		s.WriteBool(velocity_sets_scale);
-		s.WriteBeFloat(velocity_sets_scale_coeff);
-		s.WriteBool(velocity_sets_y_flip);
-		s.WriteBeFloat(velocity_updates_animation);
-		s.WriteBeFloat(ground_penetration_coeff);
-		s.WriteBeInt32(ground_penetration_max_durability_to_destroy);
-		s.WriteBeString(go_through_this_material);
-		s.WriteBool(do_moveto_update);
-		s.WriteBeInt32(on_death_duplicate_remaining);
-		s.WriteBool(on_death_gfx_leave_sprite);
-		s.WriteBool(on_death_explode);
-		s.WriteBool(on_death_emit_particle);
-		s.WriteBeInt32(on_death_emit_particle_count);
-		s.WriteBool(die_on_liquid_collision);
-		s.WriteBool(die_on_low_velocity);
-		s.WriteBeFloat(die_on_low_velocity_limit);
-		s.WriteBeString(on_death_emit_particle_type);
-		s.WriteBool(on_death_particle_check_concrete);
-		s.WriteBool(ground_collision_fx);
-		s.WriteBool(explosion_dont_damage_shooter);
+		muzzle_flash_file.Write(s);
+		bounces_left.Write(s);
+		bounce_energy.Write(s);
+		bounce_always.Write(s);
+		bounce_at_any_angle.Write(s);
+		attach_to_parent_trigger.Write(s);
+		bounce_fx_file.Write(s);
+		angular_velocity.Write(s);
+		velocity_sets_rotation.Write(s);
+		velocity_sets_scale.Write(s);
+		velocity_sets_scale_coeff.Write(s);
+		velocity_sets_y_flip.Write(s);
+		velocity_updates_animation.Write(s);
+		ground_penetration_coeff.Write(s);
+		ground_penetration_max_durability_to_destroy.Write(s);
+		go_through_this_material.Write(s);
+		do_moveto_update.Write(s);
+		on_death_duplicate_remaining.Write(s);
+		on_death_gfx_leave_sprite.Write(s);
+		on_death_explode.Write(s);
+		on_death_emit_particle.Write(s);
+		on_death_emit_particle_count.Write(s);
+		die_on_liquid_collision.Write(s);
+		die_on_low_velocity.Write(s);
+		die_on_low_velocity_limit.Write(s);
+		on_death_emit_particle_type.Write(s);
+		on_death_particle_check_concrete.Write(s);
+		ground_collision_fx.Write(s);
+		explosion_dont_damage_shooter.Write(s);
 		config_explosion.Write(s);
-		s.WriteBeFloat(on_death_item_pickable_radius);
-		s.WriteBool(penetrate_world);
-		s.WriteBeFloat(penetrate_world_velocity_coeff);
-		s.WriteBool(penetrate_entities);
-		s.WriteBool(on_collision_die);
-		s.WriteBool(on_collision_remove_projectile);
-		s.WriteBool(on_collision_spawn_entity);
-		s.WriteBeString(spawn_entity);
-		s.WriteBool(spawn_entity_is_projectile);
-		s.WriteBeFloat(physics_impulse_coeff);
-		s.WriteBeInt32(damage_every_x_frames);
-		s.WriteBool(damage_scaled_by_speed);
-		s.WriteBeFloat(damage_scale_max_speed);
-		s.WriteBeUInt32(ragdoll_fx_on_collision);
-		s.WriteBool(collide_with_entities);
-		s.WriteBeString(collide_with_tag);
-		s.WriteBeString(dont_collide_with_tag);
-		s.WriteBeInt32(collide_with_shooter_frames);
-		s.WriteBool(friendly_fire);
-		s.WriteBeFloat(damage);
+		on_death_item_pickable_radius.Write(s);
+		penetrate_world.Write(s);
+		penetrate_world_velocity_coeff.Write(s);
+		penetrate_entities.Write(s);
+		on_collision_die.Write(s);
+		on_collision_remove_projectile.Write(s);
+		on_collision_spawn_entity.Write(s);
+		spawn_entity.Write(s);
+		spawn_entity_is_projectile.Write(s);
+		physics_impulse_coeff.Write(s);
+		damage_every_x_frames.Write(s);
+		damage_scaled_by_speed.Write(s);
+		damage_scale_max_speed.Write(s);
+		ragdoll_fx_on_collision.Write(s);
+		collide_with_entities.Write(s);
+		collide_with_tag.Write(s);
+		dont_collide_with_tag.Write(s);
+		collide_with_shooter_frames.Write(s);
+		friendly_fire.Write(s);
+		damage.Write(s);
 		damage_by_type.Write(s);
 		damage_critical.Write(s);
-		s.WriteBeFloat(knockback_force);
-		s.WriteBeFloat(ragdoll_force_multiplier);
-		s.WriteBeFloat(hit_particle_force_multiplier);
-		s.WriteBeFloat(blood_count_multiplier);
-		s.WriteBeString(damage_game_effect_entities);
-		s.WriteBool(never_hit_player);
-		s.WriteBool(collect_materials_to_shooter);
-		s.WriteBool(play_damage_sounds);
-		s.WriteBeInt32(mLastFrameDamaged);
+		knockback_force.Write(s);
+		ragdoll_force_multiplier.Write(s);
+		hit_particle_force_multiplier.Write(s);
+		blood_count_multiplier.Write(s);
+		damage_game_effect_entities.Write(s);
+		never_hit_player.Write(s);
+		collect_materials_to_shooter.Write(s);
+		play_damage_sounds.Write(s);
+		mLastFrameDamaged.Write(s);
 
     }
 }

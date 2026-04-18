@@ -1,205 +1,205 @@
 namespace GeneratedNoitaClasses;
-public class ConfigGunActionInfo {
-	public string action_id { get; set; }
-	public string action_name { get; set; }
-	public string action_description { get; set; }
-	public string action_sprite_filename { get; set; }
-	public string action_unidentified_sprite_filename { get; set; }
-	public Int32 action_type { get; set; }
-	public string action_spawn_level { get; set; }
-	public string action_spawn_probability { get; set; }
-	public string action_spawn_requires_flag { get; set; }
-	public bool action_spawn_manual_unlock { get; set; }
-	public Int32 action_max_uses { get; set; }
-	public string custom_xml_file { get; set; }
-	public float action_mana_drain { get; set; }
-	public bool action_is_dangerous_blast { get; set; }
-	public Int32 action_draw_many_count { get; set; }
-	public bool action_ai_never_uses { get; set; }
-	public bool action_never_unlimited { get; set; }
-	public bool state_shuffled { get; set; }
-	public Int32 state_cards_drawn { get; set; }
-	public bool state_discarded_action { get; set; }
-	public bool state_destroyed_action { get; set; }
-	public Int32 fire_rate_wait { get; set; }
-	public float speed_multiplier { get; set; }
-	public float child_speed_multiplier { get; set; }
-	public float dampening { get; set; }
-	public float explosion_radius { get; set; }
-	public float spread_degrees { get; set; }
-	public float pattern_degrees { get; set; }
-	public float screenshake { get; set; }
-	public float recoil { get; set; }
-	public float damage_melee_add { get; set; }
-	public float damage_projectile_add { get; set; }
-	public float damage_electricity_add { get; set; }
-	public float damage_fire_add { get; set; }
-	public float damage_explosion_add { get; set; }
-	public float damage_ice_add { get; set; }
-	public float damage_slice_add { get; set; }
-	public float damage_healing_add { get; set; }
-	public float damage_curse_add { get; set; }
-	public float damage_drill_add { get; set; }
-	public float damage_null_all { get; set; }
-	public Int32 damage_critical_chance { get; set; }
-	public float damage_critical_multiplier { get; set; }
-	public float explosion_damage_to_materials { get; set; }
-	public float knockback_force { get; set; }
-	public Int32 reload_time { get; set; }
-	public Int32 lightning_count { get; set; }
-	public string material { get; set; }
-	public Int32 material_amount { get; set; }
-	public string trail_material { get; set; }
-	public Int32 trail_material_amount { get; set; }
-	public Int32 bounces { get; set; }
-	public float gravity { get; set; }
-	public float light { get; set; }
-	public float blood_count_multiplier { get; set; }
-	public Int32 gore_particles { get; set; }
-	public Int32 ragdoll_fx { get; set; }
-	public bool friendly_fire { get; set; }
-	public float physics_impulse_coeff { get; set; }
-	public Int32 lifetime_add { get; set; }
-	public string sprite { get; set; }
-	public string extra_entities { get; set; }
-	public string game_effect_entities { get; set; }
-	public string sound_loop_tag { get; set; }
-	public string projectile_file { get; set; }
+public class ConfigGunActionInfo :  iNoitaType<ConfigGunActionInfo>{
+	public NoitaString action_id { get; set; } = new();
+	public NoitaString action_name { get; set; } = new();
+	public NoitaString action_description { get; set; } = new();
+	public NoitaString action_sprite_filename { get; set; } = new();
+	public NoitaString action_unidentified_sprite_filename { get; set; } = new();
+	public NoitaInt action_type { get; set; } = new();
+	public NoitaString action_spawn_level { get; set; } = new();
+	public NoitaString action_spawn_probability { get; set; } = new();
+	public NoitaString action_spawn_requires_flag { get; set; } = new();
+	public NoitaBool action_spawn_manual_unlock { get; set; } = new();
+	public NoitaInt action_max_uses { get; set; } = new();
+	public NoitaString custom_xml_file { get; set; } = new();
+	public NoitaFloat action_mana_drain { get; set; } = new();
+	public NoitaBool action_is_dangerous_blast { get; set; } = new();
+	public NoitaInt action_draw_many_count { get; set; } = new();
+	public NoitaBool action_ai_never_uses { get; set; } = new();
+	public NoitaBool action_never_unlimited { get; set; } = new();
+	public NoitaBool state_shuffled { get; set; } = new();
+	public NoitaInt state_cards_drawn { get; set; } = new();
+	public NoitaBool state_discarded_action { get; set; } = new();
+	public NoitaBool state_destroyed_action { get; set; } = new();
+	public NoitaInt fire_rate_wait { get; set; } = new();
+	public NoitaFloat speed_multiplier { get; set; } = new();
+	public NoitaFloat child_speed_multiplier { get; set; } = new();
+	public NoitaFloat dampening { get; set; } = new();
+	public NoitaFloat explosion_radius { get; set; } = new();
+	public NoitaFloat spread_degrees { get; set; } = new();
+	public NoitaFloat pattern_degrees { get; set; } = new();
+	public NoitaFloat screenshake { get; set; } = new();
+	public NoitaFloat recoil { get; set; } = new();
+	public NoitaFloat damage_melee_add { get; set; } = new();
+	public NoitaFloat damage_projectile_add { get; set; } = new();
+	public NoitaFloat damage_electricity_add { get; set; } = new();
+	public NoitaFloat damage_fire_add { get; set; } = new();
+	public NoitaFloat damage_explosion_add { get; set; } = new();
+	public NoitaFloat damage_ice_add { get; set; } = new();
+	public NoitaFloat damage_slice_add { get; set; } = new();
+	public NoitaFloat damage_healing_add { get; set; } = new();
+	public NoitaFloat damage_curse_add { get; set; } = new();
+	public NoitaFloat damage_drill_add { get; set; } = new();
+	public NoitaFloat damage_null_all { get; set; } = new();
+	public NoitaInt damage_critical_chance { get; set; } = new();
+	public NoitaFloat damage_critical_multiplier { get; set; } = new();
+	public NoitaFloat explosion_damage_to_materials { get; set; } = new();
+	public NoitaFloat knockback_force { get; set; } = new();
+	public NoitaInt reload_time { get; set; } = new();
+	public NoitaInt lightning_count { get; set; } = new();
+	public NoitaString material { get; set; } = new();
+	public NoitaInt material_amount { get; set; } = new();
+	public NoitaString trail_material { get; set; } = new();
+	public NoitaInt trail_material_amount { get; set; } = new();
+	public NoitaInt bounces { get; set; } = new();
+	public NoitaFloat gravity { get; set; } = new();
+	public NoitaFloat light { get; set; } = new();
+	public NoitaFloat blood_count_multiplier { get; set; } = new();
+	public NoitaInt gore_particles { get; set; } = new();
+	public NoitaInt ragdoll_fx { get; set; } = new();
+	public NoitaBool friendly_fire { get; set; } = new();
+	public NoitaFloat physics_impulse_coeff { get; set; } = new();
+	public NoitaInt lifetime_add { get; set; } = new();
+	public NoitaString sprite { get; set; } = new();
+	public NoitaString extra_entities { get; set; } = new();
+	public NoitaString game_effect_entities { get; set; } = new();
+	public NoitaString sound_loop_tag { get; set; } = new();
+	public NoitaString projectile_file { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		action_id = s.ReadBeString();
-		action_name = s.ReadBeString();
-		action_description = s.ReadBeString();
-		action_sprite_filename = s.ReadBeString();
-		action_unidentified_sprite_filename = s.ReadBeString();
-		action_type = s.ReadBeInt32();
-		action_spawn_level = s.ReadBeString();
-		action_spawn_probability = s.ReadBeString();
-		action_spawn_requires_flag = s.ReadBeString();
-		action_spawn_manual_unlock = s.ReadBool();
-		action_max_uses = s.ReadBeInt32();
-		custom_xml_file = s.ReadBeString();
-		action_mana_drain = s.ReadBeFloat();
-		action_is_dangerous_blast = s.ReadBool();
-		action_draw_many_count = s.ReadBeInt32();
-		action_ai_never_uses = s.ReadBool();
-		action_never_unlimited = s.ReadBool();
-		state_shuffled = s.ReadBool();
-		state_cards_drawn = s.ReadBeInt32();
-		state_discarded_action = s.ReadBool();
-		state_destroyed_action = s.ReadBool();
-		fire_rate_wait = s.ReadBeInt32();
-		speed_multiplier = s.ReadBeFloat();
-		child_speed_multiplier = s.ReadBeFloat();
-		dampening = s.ReadBeFloat();
-		explosion_radius = s.ReadBeFloat();
-		spread_degrees = s.ReadBeFloat();
-		pattern_degrees = s.ReadBeFloat();
-		screenshake = s.ReadBeFloat();
-		recoil = s.ReadBeFloat();
-		damage_melee_add = s.ReadBeFloat();
-		damage_projectile_add = s.ReadBeFloat();
-		damage_electricity_add = s.ReadBeFloat();
-		damage_fire_add = s.ReadBeFloat();
-		damage_explosion_add = s.ReadBeFloat();
-		damage_ice_add = s.ReadBeFloat();
-		damage_slice_add = s.ReadBeFloat();
-		damage_healing_add = s.ReadBeFloat();
-		damage_curse_add = s.ReadBeFloat();
-		damage_drill_add = s.ReadBeFloat();
-		damage_null_all = s.ReadBeFloat();
-		damage_critical_chance = s.ReadBeInt32();
-		damage_critical_multiplier = s.ReadBeFloat();
-		explosion_damage_to_materials = s.ReadBeFloat();
-		knockback_force = s.ReadBeFloat();
-		reload_time = s.ReadBeInt32();
-		lightning_count = s.ReadBeInt32();
-		material = s.ReadBeString();
-		material_amount = s.ReadBeInt32();
-		trail_material = s.ReadBeString();
-		trail_material_amount = s.ReadBeInt32();
-		bounces = s.ReadBeInt32();
-		gravity = s.ReadBeFloat();
-		light = s.ReadBeFloat();
-		blood_count_multiplier = s.ReadBeFloat();
-		gore_particles = s.ReadBeInt32();
-		ragdoll_fx = s.ReadBeInt32();
-		friendly_fire = s.ReadBool();
-		physics_impulse_coeff = s.ReadBeFloat();
-		lifetime_add = s.ReadBeInt32();
-		sprite = s.ReadBeString();
-		extra_entities = s.ReadBeString();
-		game_effect_entities = s.ReadBeString();
-		sound_loop_tag = s.ReadBeString();
-		projectile_file = s.ReadBeString();
+    public void Read(NoitaStream s){
+		action_id.Read(s);
+		action_name.Read(s);
+		action_description.Read(s);
+		action_sprite_filename.Read(s);
+		action_unidentified_sprite_filename.Read(s);
+		action_type.Read(s);
+		action_spawn_level.Read(s);
+		action_spawn_probability.Read(s);
+		action_spawn_requires_flag.Read(s);
+		action_spawn_manual_unlock.Read(s);
+		action_max_uses.Read(s);
+		custom_xml_file.Read(s);
+		action_mana_drain.Read(s);
+		action_is_dangerous_blast.Read(s);
+		action_draw_many_count.Read(s);
+		action_ai_never_uses.Read(s);
+		action_never_unlimited.Read(s);
+		state_shuffled.Read(s);
+		state_cards_drawn.Read(s);
+		state_discarded_action.Read(s);
+		state_destroyed_action.Read(s);
+		fire_rate_wait.Read(s);
+		speed_multiplier.Read(s);
+		child_speed_multiplier.Read(s);
+		dampening.Read(s);
+		explosion_radius.Read(s);
+		spread_degrees.Read(s);
+		pattern_degrees.Read(s);
+		screenshake.Read(s);
+		recoil.Read(s);
+		damage_melee_add.Read(s);
+		damage_projectile_add.Read(s);
+		damage_electricity_add.Read(s);
+		damage_fire_add.Read(s);
+		damage_explosion_add.Read(s);
+		damage_ice_add.Read(s);
+		damage_slice_add.Read(s);
+		damage_healing_add.Read(s);
+		damage_curse_add.Read(s);
+		damage_drill_add.Read(s);
+		damage_null_all.Read(s);
+		damage_critical_chance.Read(s);
+		damage_critical_multiplier.Read(s);
+		explosion_damage_to_materials.Read(s);
+		knockback_force.Read(s);
+		reload_time.Read(s);
+		lightning_count.Read(s);
+		material.Read(s);
+		material_amount.Read(s);
+		trail_material.Read(s);
+		trail_material_amount.Read(s);
+		bounces.Read(s);
+		gravity.Read(s);
+		light.Read(s);
+		blood_count_multiplier.Read(s);
+		gore_particles.Read(s);
+		ragdoll_fx.Read(s);
+		friendly_fire.Read(s);
+		physics_impulse_coeff.Read(s);
+		lifetime_add.Read(s);
+		sprite.Read(s);
+		extra_entities.Read(s);
+		game_effect_entities.Read(s);
+		sound_loop_tag.Read(s);
+		projectile_file.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(action_id);
-		s.WriteBeString(action_name);
-		s.WriteBeString(action_description);
-		s.WriteBeString(action_sprite_filename);
-		s.WriteBeString(action_unidentified_sprite_filename);
-		s.WriteBeInt32(action_type);
-		s.WriteBeString(action_spawn_level);
-		s.WriteBeString(action_spawn_probability);
-		s.WriteBeString(action_spawn_requires_flag);
-		s.WriteBool(action_spawn_manual_unlock);
-		s.WriteBeInt32(action_max_uses);
-		s.WriteBeString(custom_xml_file);
-		s.WriteBeFloat(action_mana_drain);
-		s.WriteBool(action_is_dangerous_blast);
-		s.WriteBeInt32(action_draw_many_count);
-		s.WriteBool(action_ai_never_uses);
-		s.WriteBool(action_never_unlimited);
-		s.WriteBool(state_shuffled);
-		s.WriteBeInt32(state_cards_drawn);
-		s.WriteBool(state_discarded_action);
-		s.WriteBool(state_destroyed_action);
-		s.WriteBeInt32(fire_rate_wait);
-		s.WriteBeFloat(speed_multiplier);
-		s.WriteBeFloat(child_speed_multiplier);
-		s.WriteBeFloat(dampening);
-		s.WriteBeFloat(explosion_radius);
-		s.WriteBeFloat(spread_degrees);
-		s.WriteBeFloat(pattern_degrees);
-		s.WriteBeFloat(screenshake);
-		s.WriteBeFloat(recoil);
-		s.WriteBeFloat(damage_melee_add);
-		s.WriteBeFloat(damage_projectile_add);
-		s.WriteBeFloat(damage_electricity_add);
-		s.WriteBeFloat(damage_fire_add);
-		s.WriteBeFloat(damage_explosion_add);
-		s.WriteBeFloat(damage_ice_add);
-		s.WriteBeFloat(damage_slice_add);
-		s.WriteBeFloat(damage_healing_add);
-		s.WriteBeFloat(damage_curse_add);
-		s.WriteBeFloat(damage_drill_add);
-		s.WriteBeFloat(damage_null_all);
-		s.WriteBeInt32(damage_critical_chance);
-		s.WriteBeFloat(damage_critical_multiplier);
-		s.WriteBeFloat(explosion_damage_to_materials);
-		s.WriteBeFloat(knockback_force);
-		s.WriteBeInt32(reload_time);
-		s.WriteBeInt32(lightning_count);
-		s.WriteBeString(material);
-		s.WriteBeInt32(material_amount);
-		s.WriteBeString(trail_material);
-		s.WriteBeInt32(trail_material_amount);
-		s.WriteBeInt32(bounces);
-		s.WriteBeFloat(gravity);
-		s.WriteBeFloat(light);
-		s.WriteBeFloat(blood_count_multiplier);
-		s.WriteBeInt32(gore_particles);
-		s.WriteBeInt32(ragdoll_fx);
-		s.WriteBool(friendly_fire);
-		s.WriteBeFloat(physics_impulse_coeff);
-		s.WriteBeInt32(lifetime_add);
-		s.WriteBeString(sprite);
-		s.WriteBeString(extra_entities);
-		s.WriteBeString(game_effect_entities);
-		s.WriteBeString(sound_loop_tag);
-		s.WriteBeString(projectile_file);
+    public void Write(NoitaStream s){
+		action_id.Write(s);
+		action_name.Write(s);
+		action_description.Write(s);
+		action_sprite_filename.Write(s);
+		action_unidentified_sprite_filename.Write(s);
+		action_type.Write(s);
+		action_spawn_level.Write(s);
+		action_spawn_probability.Write(s);
+		action_spawn_requires_flag.Write(s);
+		action_spawn_manual_unlock.Write(s);
+		action_max_uses.Write(s);
+		custom_xml_file.Write(s);
+		action_mana_drain.Write(s);
+		action_is_dangerous_blast.Write(s);
+		action_draw_many_count.Write(s);
+		action_ai_never_uses.Write(s);
+		action_never_unlimited.Write(s);
+		state_shuffled.Write(s);
+		state_cards_drawn.Write(s);
+		state_discarded_action.Write(s);
+		state_destroyed_action.Write(s);
+		fire_rate_wait.Write(s);
+		speed_multiplier.Write(s);
+		child_speed_multiplier.Write(s);
+		dampening.Write(s);
+		explosion_radius.Write(s);
+		spread_degrees.Write(s);
+		pattern_degrees.Write(s);
+		screenshake.Write(s);
+		recoil.Write(s);
+		damage_melee_add.Write(s);
+		damage_projectile_add.Write(s);
+		damage_electricity_add.Write(s);
+		damage_fire_add.Write(s);
+		damage_explosion_add.Write(s);
+		damage_ice_add.Write(s);
+		damage_slice_add.Write(s);
+		damage_healing_add.Write(s);
+		damage_curse_add.Write(s);
+		damage_drill_add.Write(s);
+		damage_null_all.Write(s);
+		damage_critical_chance.Write(s);
+		damage_critical_multiplier.Write(s);
+		explosion_damage_to_materials.Write(s);
+		knockback_force.Write(s);
+		reload_time.Write(s);
+		lightning_count.Write(s);
+		material.Write(s);
+		material_amount.Write(s);
+		trail_material.Write(s);
+		trail_material_amount.Write(s);
+		bounces.Write(s);
+		gravity.Write(s);
+		light.Write(s);
+		blood_count_multiplier.Write(s);
+		gore_particles.Write(s);
+		ragdoll_fx.Write(s);
+		friendly_fire.Write(s);
+		physics_impulse_coeff.Write(s);
+		lifetime_add.Write(s);
+		sprite.Write(s);
+		extra_entities.Write(s);
+		game_effect_entities.Write(s);
+		sound_loop_tag.Write(s);
+		projectile_file.Write(s);
 
     }
 }

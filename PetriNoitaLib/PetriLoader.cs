@@ -42,7 +42,7 @@ namespace PetriNoitaLib
         {
             this.length = BEHelper.ReadBeUInt32(s);
             byte[] buffer = new byte[this.length];
-            s.Read(buffer, 0, buffer.Length);
+            s.ReadAtLeast(buffer, buffer.Length);
             this.value = System.Text.ASCIIEncoding.ASCII.GetString(buffer, 0, (int)this.length);
         }
     }

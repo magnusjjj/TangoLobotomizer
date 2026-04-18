@@ -1,36 +1,45 @@
 namespace GeneratedNoitaClasses;
-public class IKLimbsAnimatorComponent {
-	public Int32 future_state_samples { get; set; }
-	public float ground_attachment_ray_length_coeff { get; set; }
-	public float leg_velocity_coeff { get; set; }
-	public bool affect_flying { get; set; }
-	public float large_movement_penalty_coeff { get; set; }
-	public float no_ground_attachment_penalty_coeff { get; set; }
-	public Int32 ray_skip_material { get; set; }
-	public bool is_limp { get; set; }
-	public CVector2<float> mPrevBodyPosition { get; set; }
+public class IKLimbsAnimatorComponent : NoitaComponentBase,  iNoitaType<IKLimbsAnimatorComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt future_state_samples { get; set; } = new();
+	public NoitaFloat ground_attachment_ray_length_coeff { get; set; } = new();
+	public NoitaFloat leg_velocity_coeff { get; set; } = new();
+	public NoitaBool affect_flying { get; set; } = new();
+	public NoitaFloat large_movement_penalty_coeff { get; set; } = new();
+	public NoitaFloat no_ground_attachment_penalty_coeff { get; set; } = new();
+	public NoitaInt ray_skip_material { get; set; } = new();
+	public NoitaBool is_limp { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> mPrevBodyPosition { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		future_state_samples = s.ReadBeInt32();
-		ground_attachment_ray_length_coeff = s.ReadBeFloat();
-		leg_velocity_coeff = s.ReadBeFloat();
-		affect_flying = s.ReadBool();
-		large_movement_penalty_coeff = s.ReadBeFloat();
-		no_ground_attachment_penalty_coeff = s.ReadBeFloat();
-		ray_skip_material = s.ReadBeInt32();
-		is_limp = s.ReadBool();
-		mPrevBodyPosition.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		future_state_samples.Read(s);
+		ground_attachment_ray_length_coeff.Read(s);
+		leg_velocity_coeff.Read(s);
+		affect_flying.Read(s);
+		large_movement_penalty_coeff.Read(s);
+		no_ground_attachment_penalty_coeff.Read(s);
+		ray_skip_material.Read(s);
+		is_limp.Read(s);
+		mPrevBodyPosition.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(future_state_samples);
-		s.WriteBeFloat(ground_attachment_ray_length_coeff);
-		s.WriteBeFloat(leg_velocity_coeff);
-		s.WriteBool(affect_flying);
-		s.WriteBeFloat(large_movement_penalty_coeff);
-		s.WriteBeFloat(no_ground_attachment_penalty_coeff);
-		s.WriteBeInt32(ray_skip_material);
-		s.WriteBool(is_limp);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		future_state_samples.Write(s);
+		ground_attachment_ray_length_coeff.Write(s);
+		leg_velocity_coeff.Write(s);
+		affect_flying.Write(s);
+		large_movement_penalty_coeff.Write(s);
+		no_ground_attachment_penalty_coeff.Write(s);
+		ray_skip_material.Write(s);
+		is_limp.Write(s);
 		mPrevBodyPosition.Write(s);
 
     }

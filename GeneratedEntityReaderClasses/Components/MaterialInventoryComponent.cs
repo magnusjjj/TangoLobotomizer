@@ -1,76 +1,79 @@
 namespace GeneratedNoitaClasses;
-public class MaterialInventoryComponent {
-	public bool drop_as_item { get; set; }
-	public bool on_death_spill { get; set; }
-	public bool leak_gently { get; set; }
-	public float leak_on_damage_percent { get; set; }
-	public float leak_pressure_min { get; set; }
-	public float leak_pressure_max { get; set; }
-	public float min_damage_to_leak { get; set; }
-	public float b2_force_on_leak { get; set; }
-	public float death_throw_particle_velocity_coeff { get; set; }
-	public bool kill_when_empty { get; set; }
-	public bool halftime_materials { get; set; }
-	public Int32 do_reactions { get; set; }
-	public bool do_reactions_explosions { get; set; }
-	public bool do_reactions_entities { get; set; }
-	public Int32 reaction_speed { get; set; }
-	public bool reactions_shaking_speeds_up { get; set; }
-	public double max_capacity { get; set; }
-	public List<double> count_per_material_type { get; set; }
-	public float audio_collision_size_modifier_amount { get; set; }
-	public Int32 last_frame_drank { get; set; }
+public class MaterialInventoryComponent : NoitaComponentBase,  iNoitaType<MaterialInventoryComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool drop_as_item { get; set; } = new();
+	public NoitaBool on_death_spill { get; set; } = new();
+	public NoitaBool leak_gently { get; set; } = new();
+	public NoitaFloat leak_on_damage_percent { get; set; } = new();
+	public NoitaFloat leak_pressure_min { get; set; } = new();
+	public NoitaFloat leak_pressure_max { get; set; } = new();
+	public NoitaFloat min_damage_to_leak { get; set; } = new();
+	public NoitaFloat b2_force_on_leak { get; set; } = new();
+	public NoitaFloat death_throw_particle_velocity_coeff { get; set; } = new();
+	public NoitaBool kill_when_empty { get; set; } = new();
+	public NoitaBool halftime_materials { get; set; } = new();
+	public NoitaInt do_reactions { get; set; } = new();
+	public NoitaBool do_reactions_explosions { get; set; } = new();
+	public NoitaBool do_reactions_entities { get; set; } = new();
+	public NoitaInt reaction_speed { get; set; } = new();
+	public NoitaBool reactions_shaking_speeds_up { get; set; } = new();
+	public NoitaDouble max_capacity { get; set; } = new();
+	public NoitaVector<NoitaDouble> count_per_material_type { get; set; } = new();
+	public NoitaFloat audio_collision_size_modifier_amount { get; set; } = new();
+	public NoitaInt last_frame_drank { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		drop_as_item = s.ReadBool();
-		on_death_spill = s.ReadBool();
-		leak_gently = s.ReadBool();
-		leak_on_damage_percent = s.ReadBeFloat();
-		leak_pressure_min = s.ReadBeFloat();
-		leak_pressure_max = s.ReadBeFloat();
-		min_damage_to_leak = s.ReadBeFloat();
-		b2_force_on_leak = s.ReadBeFloat();
-		death_throw_particle_velocity_coeff = s.ReadBeFloat();
-		kill_when_empty = s.ReadBool();
-		halftime_materials = s.ReadBool();
-		do_reactions = s.ReadBeInt32();
-		do_reactions_explosions = s.ReadBool();
-		do_reactions_entities = s.ReadBool();
-		reaction_speed = s.ReadBeInt32();
-		reactions_shaking_speeds_up = s.ReadBool();
-		max_capacity = s.ReadBeDouble();
-		count_per_material_type = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- count_per_material_type.Add(double.Load(s));
-}
-		audio_collision_size_modifier_amount = s.ReadBeFloat();
-		last_frame_drank = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		drop_as_item.Read(s);
+		on_death_spill.Read(s);
+		leak_gently.Read(s);
+		leak_on_damage_percent.Read(s);
+		leak_pressure_min.Read(s);
+		leak_pressure_max.Read(s);
+		min_damage_to_leak.Read(s);
+		b2_force_on_leak.Read(s);
+		death_throw_particle_velocity_coeff.Read(s);
+		kill_when_empty.Read(s);
+		halftime_materials.Read(s);
+		do_reactions.Read(s);
+		do_reactions_explosions.Read(s);
+		do_reactions_entities.Read(s);
+		reaction_speed.Read(s);
+		reactions_shaking_speeds_up.Read(s);
+		max_capacity.Read(s);
+		count_per_material_type.Read(s);
+		audio_collision_size_modifier_amount.Read(s);
+		last_frame_drank.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(drop_as_item);
-		s.WriteBool(on_death_spill);
-		s.WriteBool(leak_gently);
-		s.WriteBeFloat(leak_on_damage_percent);
-		s.WriteBeFloat(leak_pressure_min);
-		s.WriteBeFloat(leak_pressure_max);
-		s.WriteBeFloat(min_damage_to_leak);
-		s.WriteBeFloat(b2_force_on_leak);
-		s.WriteBeFloat(death_throw_particle_velocity_coeff);
-		s.WriteBool(kill_when_empty);
-		s.WriteBool(halftime_materials);
-		s.WriteBeInt32(do_reactions);
-		s.WriteBool(do_reactions_explosions);
-		s.WriteBool(do_reactions_entities);
-		s.WriteBeInt32(reaction_speed);
-		s.WriteBool(reactions_shaking_speeds_up);
-		s.WriteBeDouble(max_capacity);
-		s.WriteBeUInt32(count_per_material_type.Length);
-foreach(var item in count_per_material_type){ count_per_material_type.Write(s);
-}
-		s.WriteBeFloat(audio_collision_size_modifier_amount);
-		s.WriteBeInt32(last_frame_drank);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		drop_as_item.Write(s);
+		on_death_spill.Write(s);
+		leak_gently.Write(s);
+		leak_on_damage_percent.Write(s);
+		leak_pressure_min.Write(s);
+		leak_pressure_max.Write(s);
+		min_damage_to_leak.Write(s);
+		b2_force_on_leak.Write(s);
+		death_throw_particle_velocity_coeff.Write(s);
+		kill_when_empty.Write(s);
+		halftime_materials.Write(s);
+		do_reactions.Write(s);
+		do_reactions_explosions.Write(s);
+		do_reactions_entities.Write(s);
+		reaction_speed.Write(s);
+		reactions_shaking_speeds_up.Write(s);
+		max_capacity.Write(s);
+		count_per_material_type.Write(s);
+		audio_collision_size_modifier_amount.Write(s);
+		last_frame_drank.Write(s);
 
     }
 }

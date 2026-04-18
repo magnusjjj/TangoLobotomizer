@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class UIInfoComponent {
-	public string name { get; set; }
+public class UIInfoComponent : NoitaComponentBase,  iNoitaType<UIInfoComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString name { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		name = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		name.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(name);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		name.Write(s);
 
     }
 }

@@ -1,28 +1,31 @@
 namespace GeneratedNoitaClasses;
-public class GameLogComponent {
-	public bool report_death { get; set; }
-	public bool report_damage { get; set; }
-	public bool report_new_biomes { get; set; }
-	public List<string> mVisitiedBiomes { get; set; }
+public class GameLogComponent : NoitaComponentBase,  iNoitaType<GameLogComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool report_death { get; set; } = new();
+	public NoitaBool report_damage { get; set; } = new();
+	public NoitaBool report_new_biomes { get; set; } = new();
+	public NoitaVector<NoitaString> mVisitiedBiomes { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		report_death = s.ReadBool();
-		report_damage = s.ReadBool();
-		report_new_biomes = s.ReadBool();
-		mVisitiedBiomes = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- mVisitiedBiomes.Add(string.Load(s));
-}
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		report_death.Read(s);
+		report_damage.Read(s);
+		report_new_biomes.Read(s);
+		mVisitiedBiomes.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(report_death);
-		s.WriteBool(report_damage);
-		s.WriteBool(report_new_biomes);
-		s.WriteBeUInt32(mVisitiedBiomes.Length);
-foreach(var item in mVisitiedBiomes){ mVisitiedBiomes.Write(s);
-}
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		report_death.Write(s);
+		report_damage.Write(s);
+		report_new_biomes.Write(s);
+		mVisitiedBiomes.Write(s);
 
     }
 }

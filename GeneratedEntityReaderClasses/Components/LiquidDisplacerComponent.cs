@@ -1,19 +1,28 @@
 namespace GeneratedNoitaClasses;
-public class LiquidDisplacerComponent {
-	public Int32 radius { get; set; }
-	public float velocity_x { get; set; }
-	public float velocity_y { get; set; }
+public class LiquidDisplacerComponent : NoitaComponentBase,  iNoitaType<LiquidDisplacerComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt radius { get; set; } = new();
+	public NoitaFloat velocity_x { get; set; } = new();
+	public NoitaFloat velocity_y { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeInt32();
-		velocity_x = s.ReadBeFloat();
-		velocity_y = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		velocity_x.Read(s);
+		velocity_y.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(radius);
-		s.WriteBeFloat(velocity_x);
-		s.WriteBeFloat(velocity_y);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		velocity_x.Write(s);
+		velocity_y.Write(s);
 
     }
 }

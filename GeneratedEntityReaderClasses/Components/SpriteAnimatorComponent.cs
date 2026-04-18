@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class SpriteAnimatorComponent {
-	public string target_sprite_comp_name { get; set; }
-	public bool rotate_to_surface_normal { get; set; }
+public class SpriteAnimatorComponent : NoitaComponentBase,  iNoitaType<SpriteAnimatorComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString target_sprite_comp_name { get; set; } = new();
+	public NoitaBool rotate_to_surface_normal { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		target_sprite_comp_name = s.ReadBeString();
-		rotate_to_surface_normal = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		target_sprite_comp_name.Read(s);
+		rotate_to_surface_normal.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(target_sprite_comp_name);
-		s.WriteBool(rotate_to_surface_normal);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		target_sprite_comp_name.Write(s);
+		rotate_to_surface_normal.Write(s);
 
     }
 }

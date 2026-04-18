@@ -1,28 +1,31 @@
 namespace GeneratedNoitaClasses;
-public class GameAreaEffectComponent {
-	public float radius { get; set; }
-	public string collide_with_tag { get; set; }
-	public Int32 frame_length { get; set; }
-	public List<string> game_effect_entitities { get; set; }
+public class GameAreaEffectComponent : NoitaComponentBase,  iNoitaType<GameAreaEffectComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
+	public NoitaString collide_with_tag { get; set; } = new();
+	public NoitaInt frame_length { get; set; } = new();
+	public NoitaVector<NoitaString> game_effect_entitities { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeFloat();
-		collide_with_tag = s.ReadBeString();
-		frame_length = s.ReadBeInt32();
-		game_effect_entitities = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- game_effect_entitities.Add(string.Load(s));
-}
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		collide_with_tag.Read(s);
+		frame_length.Read(s);
+		game_effect_entitities.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(radius);
-		s.WriteBeString(collide_with_tag);
-		s.WriteBeInt32(frame_length);
-		s.WriteBeUInt32(game_effect_entitities.Length);
-foreach(var item in game_effect_entitities){ game_effect_entitities.Write(s);
-}
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		collide_with_tag.Write(s);
+		frame_length.Write(s);
+		game_effect_entitities.Write(s);
 
     }
 }

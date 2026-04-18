@@ -1,127 +1,136 @@
 namespace GeneratedNoitaClasses;
-public class LuaComponent {
-	public string script_source_file { get; set; }
-	public UInt32 vm_type { get; set; }
-	public bool execute_on_added { get; set; }
-	public bool execute_on_removed { get; set; }
-	public Int32 execute_every_n_frame { get; set; }
-	public Int32 execute_times { get; set; }
-	public Int32 limit_how_many_times_per_frame { get; set; }
-	public Int32 limit_to_every_n_frame { get; set; }
-	public bool limit_all_callbacks { get; set; }
-	public bool remove_after_executed { get; set; }
-	public bool enable_coroutines { get; set; }
-	public bool call_init_function { get; set; }
-	public string script_enabled_changed { get; set; }
-	public string script_damage_received { get; set; }
-	public string script_damage_about_to_be_received { get; set; }
-	public string script_item_picked_up { get; set; }
-	public string script_shot { get; set; }
-	public string script_collision_trigger_hit { get; set; }
-	public string script_collision_trigger_timer_finished { get; set; }
-	public string script_physics_body_modified { get; set; }
-	public string script_pressure_plate_change { get; set; }
-	public string script_inhaled_material { get; set; }
-	public string script_death { get; set; }
-	public string script_throw_item { get; set; }
-	public string script_material_area_checker_failed { get; set; }
-	public string script_material_area_checker_success { get; set; }
-	public string script_electricity_receiver_switched { get; set; }
-	public string script_electricity_receiver_electrified { get; set; }
-	public string script_kick { get; set; }
-	public string script_interacting { get; set; }
-	public string script_audio_event_dead { get; set; }
-	public string script_wand_fired { get; set; }
-	public string script_teleported { get; set; }
-	public string script_portal_teleport_used { get; set; }
-	public string script_polymorphing_to { get; set; }
-	public string script_biome_entered { get; set; }
-	public Int32 mLastExecutionFrame { get; set; }
-	public Int32 mTimesExecutedThisFrame { get; set; }
-	public bool mModAppendsDone { get; set; }
+public class LuaComponent : NoitaComponentBase,  iNoitaType<LuaComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString script_source_file { get; set; } = new();
+	public NoitaUInt vm_type { get; set; } = new();
+	public NoitaBool execute_on_added { get; set; } = new();
+	public NoitaBool execute_on_removed { get; set; } = new();
+	public NoitaInt execute_every_n_frame { get; set; } = new();
+	public NoitaInt execute_times { get; set; } = new();
+	public NoitaInt limit_how_many_times_per_frame { get; set; } = new();
+	public NoitaInt limit_to_every_n_frame { get; set; } = new();
+	public NoitaBool limit_all_callbacks { get; set; } = new();
+	public NoitaBool remove_after_executed { get; set; } = new();
+	public NoitaBool enable_coroutines { get; set; } = new();
+	public NoitaBool call_init_function { get; set; } = new();
+	public NoitaString script_enabled_changed { get; set; } = new();
+	public NoitaString script_damage_received { get; set; } = new();
+	public NoitaString script_damage_about_to_be_received { get; set; } = new();
+	public NoitaString script_item_picked_up { get; set; } = new();
+	public NoitaString script_shot { get; set; } = new();
+	public NoitaString script_collision_trigger_hit { get; set; } = new();
+	public NoitaString script_collision_trigger_timer_finished { get; set; } = new();
+	public NoitaString script_physics_body_modified { get; set; } = new();
+	public NoitaString script_pressure_plate_change { get; set; } = new();
+	public NoitaString script_inhaled_material { get; set; } = new();
+	public NoitaString script_death { get; set; } = new();
+	public NoitaString script_throw_item { get; set; } = new();
+	public NoitaString script_material_area_checker_failed { get; set; } = new();
+	public NoitaString script_material_area_checker_success { get; set; } = new();
+	public NoitaString script_electricity_receiver_switched { get; set; } = new();
+	public NoitaString script_electricity_receiver_electrified { get; set; } = new();
+	public NoitaString script_kick { get; set; } = new();
+	public NoitaString script_interacting { get; set; } = new();
+	public NoitaString script_audio_event_dead { get; set; } = new();
+	public NoitaString script_wand_fired { get; set; } = new();
+	public NoitaString script_teleported { get; set; } = new();
+	public NoitaString script_portal_teleport_used { get; set; } = new();
+	public NoitaString script_polymorphing_to { get; set; } = new();
+	public NoitaString script_biome_entered { get; set; } = new();
+	public NoitaInt mLastExecutionFrame { get; set; } = new();
+	public NoitaInt mTimesExecutedThisFrame { get; set; } = new();
+	public NoitaBool mModAppendsDone { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		script_source_file = s.ReadBeString();
-		vm_type = s.ReadBeUInt32();
-		execute_on_added = s.ReadBool();
-		execute_on_removed = s.ReadBool();
-		execute_every_n_frame = s.ReadBeInt32();
-		execute_times = s.ReadBeInt32();
-		limit_how_many_times_per_frame = s.ReadBeInt32();
-		limit_to_every_n_frame = s.ReadBeInt32();
-		limit_all_callbacks = s.ReadBool();
-		remove_after_executed = s.ReadBool();
-		enable_coroutines = s.ReadBool();
-		call_init_function = s.ReadBool();
-		script_enabled_changed = s.ReadBeString();
-		script_damage_received = s.ReadBeString();
-		script_damage_about_to_be_received = s.ReadBeString();
-		script_item_picked_up = s.ReadBeString();
-		script_shot = s.ReadBeString();
-		script_collision_trigger_hit = s.ReadBeString();
-		script_collision_trigger_timer_finished = s.ReadBeString();
-		script_physics_body_modified = s.ReadBeString();
-		script_pressure_plate_change = s.ReadBeString();
-		script_inhaled_material = s.ReadBeString();
-		script_death = s.ReadBeString();
-		script_throw_item = s.ReadBeString();
-		script_material_area_checker_failed = s.ReadBeString();
-		script_material_area_checker_success = s.ReadBeString();
-		script_electricity_receiver_switched = s.ReadBeString();
-		script_electricity_receiver_electrified = s.ReadBeString();
-		script_kick = s.ReadBeString();
-		script_interacting = s.ReadBeString();
-		script_audio_event_dead = s.ReadBeString();
-		script_wand_fired = s.ReadBeString();
-		script_teleported = s.ReadBeString();
-		script_portal_teleport_used = s.ReadBeString();
-		script_polymorphing_to = s.ReadBeString();
-		script_biome_entered = s.ReadBeString();
-		mLastExecutionFrame = s.ReadBeInt32();
-		mTimesExecutedThisFrame = s.ReadBeInt32();
-		mModAppendsDone = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		script_source_file.Read(s);
+		vm_type.Read(s);
+		execute_on_added.Read(s);
+		execute_on_removed.Read(s);
+		execute_every_n_frame.Read(s);
+		execute_times.Read(s);
+		limit_how_many_times_per_frame.Read(s);
+		limit_to_every_n_frame.Read(s);
+		limit_all_callbacks.Read(s);
+		remove_after_executed.Read(s);
+		enable_coroutines.Read(s);
+		call_init_function.Read(s);
+		script_enabled_changed.Read(s);
+		script_damage_received.Read(s);
+		script_damage_about_to_be_received.Read(s);
+		script_item_picked_up.Read(s);
+		script_shot.Read(s);
+		script_collision_trigger_hit.Read(s);
+		script_collision_trigger_timer_finished.Read(s);
+		script_physics_body_modified.Read(s);
+		script_pressure_plate_change.Read(s);
+		script_inhaled_material.Read(s);
+		script_death.Read(s);
+		script_throw_item.Read(s);
+		script_material_area_checker_failed.Read(s);
+		script_material_area_checker_success.Read(s);
+		script_electricity_receiver_switched.Read(s);
+		script_electricity_receiver_electrified.Read(s);
+		script_kick.Read(s);
+		script_interacting.Read(s);
+		script_audio_event_dead.Read(s);
+		script_wand_fired.Read(s);
+		script_teleported.Read(s);
+		script_portal_teleport_used.Read(s);
+		script_polymorphing_to.Read(s);
+		script_biome_entered.Read(s);
+		mLastExecutionFrame.Read(s);
+		mTimesExecutedThisFrame.Read(s);
+		mModAppendsDone.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(script_source_file);
-		s.WriteBeUInt32(vm_type);
-		s.WriteBool(execute_on_added);
-		s.WriteBool(execute_on_removed);
-		s.WriteBeInt32(execute_every_n_frame);
-		s.WriteBeInt32(execute_times);
-		s.WriteBeInt32(limit_how_many_times_per_frame);
-		s.WriteBeInt32(limit_to_every_n_frame);
-		s.WriteBool(limit_all_callbacks);
-		s.WriteBool(remove_after_executed);
-		s.WriteBool(enable_coroutines);
-		s.WriteBool(call_init_function);
-		s.WriteBeString(script_enabled_changed);
-		s.WriteBeString(script_damage_received);
-		s.WriteBeString(script_damage_about_to_be_received);
-		s.WriteBeString(script_item_picked_up);
-		s.WriteBeString(script_shot);
-		s.WriteBeString(script_collision_trigger_hit);
-		s.WriteBeString(script_collision_trigger_timer_finished);
-		s.WriteBeString(script_physics_body_modified);
-		s.WriteBeString(script_pressure_plate_change);
-		s.WriteBeString(script_inhaled_material);
-		s.WriteBeString(script_death);
-		s.WriteBeString(script_throw_item);
-		s.WriteBeString(script_material_area_checker_failed);
-		s.WriteBeString(script_material_area_checker_success);
-		s.WriteBeString(script_electricity_receiver_switched);
-		s.WriteBeString(script_electricity_receiver_electrified);
-		s.WriteBeString(script_kick);
-		s.WriteBeString(script_interacting);
-		s.WriteBeString(script_audio_event_dead);
-		s.WriteBeString(script_wand_fired);
-		s.WriteBeString(script_teleported);
-		s.WriteBeString(script_portal_teleport_used);
-		s.WriteBeString(script_polymorphing_to);
-		s.WriteBeString(script_biome_entered);
-		s.WriteBeInt32(mLastExecutionFrame);
-		s.WriteBeInt32(mTimesExecutedThisFrame);
-		s.WriteBool(mModAppendsDone);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		script_source_file.Write(s);
+		vm_type.Write(s);
+		execute_on_added.Write(s);
+		execute_on_removed.Write(s);
+		execute_every_n_frame.Write(s);
+		execute_times.Write(s);
+		limit_how_many_times_per_frame.Write(s);
+		limit_to_every_n_frame.Write(s);
+		limit_all_callbacks.Write(s);
+		remove_after_executed.Write(s);
+		enable_coroutines.Write(s);
+		call_init_function.Write(s);
+		script_enabled_changed.Write(s);
+		script_damage_received.Write(s);
+		script_damage_about_to_be_received.Write(s);
+		script_item_picked_up.Write(s);
+		script_shot.Write(s);
+		script_collision_trigger_hit.Write(s);
+		script_collision_trigger_timer_finished.Write(s);
+		script_physics_body_modified.Write(s);
+		script_pressure_plate_change.Write(s);
+		script_inhaled_material.Write(s);
+		script_death.Write(s);
+		script_throw_item.Write(s);
+		script_material_area_checker_failed.Write(s);
+		script_material_area_checker_success.Write(s);
+		script_electricity_receiver_switched.Write(s);
+		script_electricity_receiver_electrified.Write(s);
+		script_kick.Write(s);
+		script_interacting.Write(s);
+		script_audio_event_dead.Write(s);
+		script_wand_fired.Write(s);
+		script_teleported.Write(s);
+		script_portal_teleport_used.Write(s);
+		script_polymorphing_to.Write(s);
+		script_biome_entered.Write(s);
+		mLastExecutionFrame.Write(s);
+		mTimesExecutedThisFrame.Write(s);
+		mModAppendsDone.Write(s);
 
     }
 }

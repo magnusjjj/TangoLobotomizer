@@ -1,13 +1,22 @@
 namespace GeneratedNoitaClasses;
-public class FogOfWarRemoverComponent {
-	public float radius { get; set; }
+public class FogOfWarRemoverComponent : NoitaComponentBase,  iNoitaType<FogOfWarRemoverComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(radius);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
 
     }
 }

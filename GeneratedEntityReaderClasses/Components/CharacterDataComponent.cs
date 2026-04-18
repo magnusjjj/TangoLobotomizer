@@ -1,127 +1,136 @@
 namespace GeneratedNoitaClasses;
-public class CharacterDataComponent {
-	public Int32 platforming_type { get; set; }
-	public LensValue<float> collision_aabb_min_x { get; set; }
-	public LensValue<float> collision_aabb_max_x { get; set; }
-	public LensValue<float> collision_aabb_min_y { get; set; }
-	public LensValue<float> collision_aabb_max_y { get; set; }
-	public float mass { get; set; }
-	public Int32 buoyancy_check_offset_y { get; set; }
-	public float liquid_velocity_coeff { get; set; }
-	public float gravity { get; set; }
-	public LensValue<float> fly_time_max { get; set; }
-	public float fly_recharge_spd { get; set; }
-	public float fly_recharge_spd_ground { get; set; }
-	public bool flying_needs_recharge { get; set; }
-	public Int32 flying_in_air_wait_frames { get; set; }
-	public Int32 flying_recharge_removal_frames { get; set; }
-	public Int32 climb_over_y { get; set; }
-	public Int32 check_collision_max_size_x { get; set; }
-	public Int32 check_collision_max_size_y { get; set; }
-	public bool is_on_ground { get; set; }
-	public bool is_on_slippery_ground { get; set; }
-	public float ground_stickyness { get; set; }
-	public bool effect_hit_ground { get; set; }
-	public Int32 eff_hg_damage_min { get; set; }
-	public Int32 eff_hg_damage_max { get; set; }
-	public float eff_hg_position_x { get; set; }
-	public float eff_hg_position_y { get; set; }
-	public float eff_hg_size_x { get; set; }
-	public float eff_hg_size_y { get; set; }
-	public float eff_hg_velocity_min_x { get; set; }
-	public float eff_hg_velocity_max_x { get; set; }
-	public float eff_hg_velocity_min_y { get; set; }
-	public float eff_hg_velocity_max_y { get; set; }
-	public float eff_hg_offset_y { get; set; }
-	public bool eff_hg_update_box2d { get; set; }
-	public float eff_hg_b2force_multiplier { get; set; }
-	public float destroy_ground { get; set; }
-	public bool send_transform_update_message { get; set; }
-	public bool dont_update_velocity_and_xform { get; set; }
-	public float mFlyingTimeLeft { get; set; }
+public class CharacterDataComponent : NoitaComponentBase,  iNoitaType<CharacterDataComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt platforming_type { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> collision_aabb_min_x { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> collision_aabb_max_x { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> collision_aabb_min_y { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> collision_aabb_max_y { get; set; } = new();
+	public NoitaFloat mass { get; set; } = new();
+	public NoitaInt buoyancy_check_offset_y { get; set; } = new();
+	public NoitaFloat liquid_velocity_coeff { get; set; } = new();
+	public NoitaFloat gravity { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> fly_time_max { get; set; } = new();
+	public NoitaFloat fly_recharge_spd { get; set; } = new();
+	public NoitaFloat fly_recharge_spd_ground { get; set; } = new();
+	public NoitaBool flying_needs_recharge { get; set; } = new();
+	public NoitaInt flying_in_air_wait_frames { get; set; } = new();
+	public NoitaInt flying_recharge_removal_frames { get; set; } = new();
+	public NoitaInt climb_over_y { get; set; } = new();
+	public NoitaInt check_collision_max_size_x { get; set; } = new();
+	public NoitaInt check_collision_max_size_y { get; set; } = new();
+	public NoitaBool is_on_ground { get; set; } = new();
+	public NoitaBool is_on_slippery_ground { get; set; } = new();
+	public NoitaFloat ground_stickyness { get; set; } = new();
+	public NoitaBool effect_hit_ground { get; set; } = new();
+	public NoitaInt eff_hg_damage_min { get; set; } = new();
+	public NoitaInt eff_hg_damage_max { get; set; } = new();
+	public NoitaFloat eff_hg_position_x { get; set; } = new();
+	public NoitaFloat eff_hg_position_y { get; set; } = new();
+	public NoitaFloat eff_hg_size_x { get; set; } = new();
+	public NoitaFloat eff_hg_size_y { get; set; } = new();
+	public NoitaFloat eff_hg_velocity_min_x { get; set; } = new();
+	public NoitaFloat eff_hg_velocity_max_x { get; set; } = new();
+	public NoitaFloat eff_hg_velocity_min_y { get; set; } = new();
+	public NoitaFloat eff_hg_velocity_max_y { get; set; } = new();
+	public NoitaFloat eff_hg_offset_y { get; set; } = new();
+	public NoitaBool eff_hg_update_box2d { get; set; } = new();
+	public NoitaFloat eff_hg_b2force_multiplier { get; set; } = new();
+	public NoitaFloat destroy_ground { get; set; } = new();
+	public NoitaBool send_transform_update_message { get; set; } = new();
+	public NoitaBool dont_update_velocity_and_xform { get; set; } = new();
+	public NoitaFloat mFlyingTimeLeft { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		platforming_type = s.ReadBeInt32();
-		collision_aabb_min_x.Load(s);
-		collision_aabb_max_x.Load(s);
-		collision_aabb_min_y.Load(s);
-		collision_aabb_max_y.Load(s);
-		mass = s.ReadBeFloat();
-		buoyancy_check_offset_y = s.ReadBeInt32();
-		liquid_velocity_coeff = s.ReadBeFloat();
-		gravity = s.ReadBeFloat();
-		fly_time_max.Load(s);
-		fly_recharge_spd = s.ReadBeFloat();
-		fly_recharge_spd_ground = s.ReadBeFloat();
-		flying_needs_recharge = s.ReadBool();
-		flying_in_air_wait_frames = s.ReadBeInt32();
-		flying_recharge_removal_frames = s.ReadBeInt32();
-		climb_over_y = s.ReadBeInt32();
-		check_collision_max_size_x = s.ReadBeInt32();
-		check_collision_max_size_y = s.ReadBeInt32();
-		is_on_ground = s.ReadBool();
-		is_on_slippery_ground = s.ReadBool();
-		ground_stickyness = s.ReadBeFloat();
-		effect_hit_ground = s.ReadBool();
-		eff_hg_damage_min = s.ReadBeInt32();
-		eff_hg_damage_max = s.ReadBeInt32();
-		eff_hg_position_x = s.ReadBeFloat();
-		eff_hg_position_y = s.ReadBeFloat();
-		eff_hg_size_x = s.ReadBeFloat();
-		eff_hg_size_y = s.ReadBeFloat();
-		eff_hg_velocity_min_x = s.ReadBeFloat();
-		eff_hg_velocity_max_x = s.ReadBeFloat();
-		eff_hg_velocity_min_y = s.ReadBeFloat();
-		eff_hg_velocity_max_y = s.ReadBeFloat();
-		eff_hg_offset_y = s.ReadBeFloat();
-		eff_hg_update_box2d = s.ReadBool();
-		eff_hg_b2force_multiplier = s.ReadBeFloat();
-		destroy_ground = s.ReadBeFloat();
-		send_transform_update_message = s.ReadBool();
-		dont_update_velocity_and_xform = s.ReadBool();
-		mFlyingTimeLeft = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		platforming_type.Read(s);
+		collision_aabb_min_x.Read(s);
+		collision_aabb_max_x.Read(s);
+		collision_aabb_min_y.Read(s);
+		collision_aabb_max_y.Read(s);
+		mass.Read(s);
+		buoyancy_check_offset_y.Read(s);
+		liquid_velocity_coeff.Read(s);
+		gravity.Read(s);
+		fly_time_max.Read(s);
+		fly_recharge_spd.Read(s);
+		fly_recharge_spd_ground.Read(s);
+		flying_needs_recharge.Read(s);
+		flying_in_air_wait_frames.Read(s);
+		flying_recharge_removal_frames.Read(s);
+		climb_over_y.Read(s);
+		check_collision_max_size_x.Read(s);
+		check_collision_max_size_y.Read(s);
+		is_on_ground.Read(s);
+		is_on_slippery_ground.Read(s);
+		ground_stickyness.Read(s);
+		effect_hit_ground.Read(s);
+		eff_hg_damage_min.Read(s);
+		eff_hg_damage_max.Read(s);
+		eff_hg_position_x.Read(s);
+		eff_hg_position_y.Read(s);
+		eff_hg_size_x.Read(s);
+		eff_hg_size_y.Read(s);
+		eff_hg_velocity_min_x.Read(s);
+		eff_hg_velocity_max_x.Read(s);
+		eff_hg_velocity_min_y.Read(s);
+		eff_hg_velocity_max_y.Read(s);
+		eff_hg_offset_y.Read(s);
+		eff_hg_update_box2d.Read(s);
+		eff_hg_b2force_multiplier.Read(s);
+		destroy_ground.Read(s);
+		send_transform_update_message.Read(s);
+		dont_update_velocity_and_xform.Read(s);
+		mFlyingTimeLeft.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(platforming_type);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		platforming_type.Write(s);
 		collision_aabb_min_x.Write(s);
 		collision_aabb_max_x.Write(s);
 		collision_aabb_min_y.Write(s);
 		collision_aabb_max_y.Write(s);
-		s.WriteBeFloat(mass);
-		s.WriteBeInt32(buoyancy_check_offset_y);
-		s.WriteBeFloat(liquid_velocity_coeff);
-		s.WriteBeFloat(gravity);
+		mass.Write(s);
+		buoyancy_check_offset_y.Write(s);
+		liquid_velocity_coeff.Write(s);
+		gravity.Write(s);
 		fly_time_max.Write(s);
-		s.WriteBeFloat(fly_recharge_spd);
-		s.WriteBeFloat(fly_recharge_spd_ground);
-		s.WriteBool(flying_needs_recharge);
-		s.WriteBeInt32(flying_in_air_wait_frames);
-		s.WriteBeInt32(flying_recharge_removal_frames);
-		s.WriteBeInt32(climb_over_y);
-		s.WriteBeInt32(check_collision_max_size_x);
-		s.WriteBeInt32(check_collision_max_size_y);
-		s.WriteBool(is_on_ground);
-		s.WriteBool(is_on_slippery_ground);
-		s.WriteBeFloat(ground_stickyness);
-		s.WriteBool(effect_hit_ground);
-		s.WriteBeInt32(eff_hg_damage_min);
-		s.WriteBeInt32(eff_hg_damage_max);
-		s.WriteBeFloat(eff_hg_position_x);
-		s.WriteBeFloat(eff_hg_position_y);
-		s.WriteBeFloat(eff_hg_size_x);
-		s.WriteBeFloat(eff_hg_size_y);
-		s.WriteBeFloat(eff_hg_velocity_min_x);
-		s.WriteBeFloat(eff_hg_velocity_max_x);
-		s.WriteBeFloat(eff_hg_velocity_min_y);
-		s.WriteBeFloat(eff_hg_velocity_max_y);
-		s.WriteBeFloat(eff_hg_offset_y);
-		s.WriteBool(eff_hg_update_box2d);
-		s.WriteBeFloat(eff_hg_b2force_multiplier);
-		s.WriteBeFloat(destroy_ground);
-		s.WriteBool(send_transform_update_message);
-		s.WriteBool(dont_update_velocity_and_xform);
-		s.WriteBeFloat(mFlyingTimeLeft);
+		fly_recharge_spd.Write(s);
+		fly_recharge_spd_ground.Write(s);
+		flying_needs_recharge.Write(s);
+		flying_in_air_wait_frames.Write(s);
+		flying_recharge_removal_frames.Write(s);
+		climb_over_y.Write(s);
+		check_collision_max_size_x.Write(s);
+		check_collision_max_size_y.Write(s);
+		is_on_ground.Write(s);
+		is_on_slippery_ground.Write(s);
+		ground_stickyness.Write(s);
+		effect_hit_ground.Write(s);
+		eff_hg_damage_min.Write(s);
+		eff_hg_damage_max.Write(s);
+		eff_hg_position_x.Write(s);
+		eff_hg_position_y.Write(s);
+		eff_hg_size_x.Write(s);
+		eff_hg_size_y.Write(s);
+		eff_hg_velocity_min_x.Write(s);
+		eff_hg_velocity_max_x.Write(s);
+		eff_hg_velocity_min_y.Write(s);
+		eff_hg_velocity_max_y.Write(s);
+		eff_hg_offset_y.Write(s);
+		eff_hg_update_box2d.Write(s);
+		eff_hg_b2force_multiplier.Write(s);
+		destroy_ground.Write(s);
+		send_transform_update_message.Write(s);
+		dont_update_velocity_and_xform.Write(s);
+		mFlyingTimeLeft.Write(s);
 
     }
 }

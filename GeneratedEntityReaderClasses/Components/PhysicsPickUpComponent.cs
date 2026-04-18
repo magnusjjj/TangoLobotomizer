@@ -1,22 +1,31 @@
 namespace GeneratedNoitaClasses;
-public class PhysicsPickUpComponent {
-	public CXForm<float> transform { get; set; }
-	public CVector2<float> original_left_joint_pos { get; set; }
-	public CVector2<float> original_right_joint_pos { get; set; }
-	public float pick_up_strength { get; set; }
+public class PhysicsPickUpComponent : NoitaComponentBase,  iNoitaType<PhysicsPickUpComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaCXForm<NoitaFloat> transform { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> original_left_joint_pos { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> original_right_joint_pos { get; set; } = new();
+	public NoitaFloat pick_up_strength { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		transform.Load(s);
-		original_left_joint_pos.Load(s);
-		original_right_joint_pos.Load(s);
-		pick_up_strength = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		transform.Read(s);
+		original_left_joint_pos.Read(s);
+		original_right_joint_pos.Read(s);
+		pick_up_strength.Read(s);
 
     }
-    public void Save(NoitaStream s){
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
 		transform.Write(s);
 		original_left_joint_pos.Write(s);
 		original_right_joint_pos.Write(s);
-		s.WriteBeFloat(pick_up_strength);
+		pick_up_strength.Write(s);
 
     }
 }

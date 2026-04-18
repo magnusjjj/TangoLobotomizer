@@ -1,28 +1,37 @@
 namespace GeneratedNoitaClasses;
-public class ElectricityReceiverComponent {
-	public Int32 offset_x { get; set; }
-	public Int32 offset_y { get; set; }
-	public Int32 radius { get; set; }
-	public Int32 active_time_frames { get; set; }
-	public Int32 switch_on_msg_interval_frames { get; set; }
-	public Int32 electrified_msg_interval_frames { get; set; }
+public class ElectricityReceiverComponent : NoitaComponentBase,  iNoitaType<ElectricityReceiverComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt offset_x { get; set; } = new();
+	public NoitaInt offset_y { get; set; } = new();
+	public NoitaInt radius { get; set; } = new();
+	public NoitaInt active_time_frames { get; set; } = new();
+	public NoitaInt switch_on_msg_interval_frames { get; set; } = new();
+	public NoitaInt electrified_msg_interval_frames { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		offset_x = s.ReadBeInt32();
-		offset_y = s.ReadBeInt32();
-		radius = s.ReadBeInt32();
-		active_time_frames = s.ReadBeInt32();
-		switch_on_msg_interval_frames = s.ReadBeInt32();
-		electrified_msg_interval_frames = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		offset_x.Read(s);
+		offset_y.Read(s);
+		radius.Read(s);
+		active_time_frames.Read(s);
+		switch_on_msg_interval_frames.Read(s);
+		electrified_msg_interval_frames.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(offset_x);
-		s.WriteBeInt32(offset_y);
-		s.WriteBeInt32(radius);
-		s.WriteBeInt32(active_time_frames);
-		s.WriteBeInt32(switch_on_msg_interval_frames);
-		s.WriteBeInt32(electrified_msg_interval_frames);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		offset_x.Write(s);
+		offset_y.Write(s);
+		radius.Write(s);
+		active_time_frames.Write(s);
+		switch_on_msg_interval_frames.Write(s);
+		electrified_msg_interval_frames.Write(s);
 
     }
 }

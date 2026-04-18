@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class NinjaRopeComponent {
-	public float max_length { get; set; }
-	public float mLength { get; set; }
+public class NinjaRopeComponent : NoitaComponentBase,  iNoitaType<NinjaRopeComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat max_length { get; set; } = new();
+	public NoitaFloat mLength { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		max_length = s.ReadBeFloat();
-		mLength = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		max_length.Read(s);
+		mLength.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(max_length);
-		s.WriteBeFloat(mLength);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		max_length.Write(s);
+		mLength.Write(s);
 
     }
 }

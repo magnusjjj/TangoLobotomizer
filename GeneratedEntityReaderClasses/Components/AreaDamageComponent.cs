@@ -1,37 +1,46 @@
 namespace GeneratedNoitaClasses;
-public class AreaDamageComponent {
-	public CVector2<float> aabb_min { get; set; }
-	public CVector2<float> aabb_max { get; set; }
-	public float circle_radius { get; set; }
-	public UInt32 damage_type { get; set; }
-	public float damage_per_frame { get; set; }
-	public Int32 update_every_n_frame { get; set; }
-	public UInt32 entity_responsible { get; set; }
-	public string death_cause { get; set; }
-	public string entities_with_tag { get; set; }
+public class AreaDamageComponent : NoitaComponentBase,  iNoitaType<AreaDamageComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> aabb_min { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> aabb_max { get; set; } = new();
+	public NoitaFloat circle_radius { get; set; } = new();
+	public NoitaUInt damage_type { get; set; } = new();
+	public NoitaFloat damage_per_frame { get; set; } = new();
+	public NoitaInt update_every_n_frame { get; set; } = new();
+	public NoitaUInt entity_responsible { get; set; } = new();
+	public NoitaString death_cause { get; set; } = new();
+	public NoitaString entities_with_tag { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		aabb_min.Load(s);
-		aabb_max.Load(s);
-		circle_radius = s.ReadBeFloat();
-		damage_type = s.ReadBeUInt32();
-		damage_per_frame = s.ReadBeFloat();
-		update_every_n_frame = s.ReadBeInt32();
-		entity_responsible = s.ReadBeUInt32();
-		death_cause = s.ReadBeString();
-		entities_with_tag = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		aabb_min.Read(s);
+		aabb_max.Read(s);
+		circle_radius.Read(s);
+		damage_type.Read(s);
+		damage_per_frame.Read(s);
+		update_every_n_frame.Read(s);
+		entity_responsible.Read(s);
+		death_cause.Read(s);
+		entities_with_tag.Read(s);
 
     }
-    public void Save(NoitaStream s){
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
 		aabb_min.Write(s);
 		aabb_max.Write(s);
-		s.WriteBeFloat(circle_radius);
-		s.WriteBeUInt32(damage_type);
-		s.WriteBeFloat(damage_per_frame);
-		s.WriteBeInt32(update_every_n_frame);
-		s.WriteBeUInt32(entity_responsible);
-		s.WriteBeString(death_cause);
-		s.WriteBeString(entities_with_tag);
+		circle_radius.Write(s);
+		damage_type.Write(s);
+		damage_per_frame.Write(s);
+		update_every_n_frame.Write(s);
+		entity_responsible.Write(s);
+		death_cause.Write(s);
+		entities_with_tag.Write(s);
 
     }
 }

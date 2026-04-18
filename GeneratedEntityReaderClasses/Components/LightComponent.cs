@@ -1,37 +1,46 @@
 namespace GeneratedNoitaClasses;
-public class LightComponent {
-	public bool update_properties { get; set; }
-	public float radius { get; set; }
-	public UInt32 r { get; set; }
-	public UInt32 g { get; set; }
-	public UInt32 b { get; set; }
-	public float offset_x { get; set; }
-	public float offset_y { get; set; }
-	public float fade_out_time { get; set; }
-	public float blinking_freq { get; set; }
+public class LightComponent : NoitaComponentBase,  iNoitaType<LightComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool update_properties { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
+	public NoitaUInt r { get; set; } = new();
+	public NoitaUInt g { get; set; } = new();
+	public NoitaUInt b { get; set; } = new();
+	public NoitaFloat offset_x { get; set; } = new();
+	public NoitaFloat offset_y { get; set; } = new();
+	public NoitaFloat fade_out_time { get; set; } = new();
+	public NoitaFloat blinking_freq { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		update_properties = s.ReadBool();
-		radius = s.ReadBeFloat();
-		r = s.ReadBeUInt32();
-		g = s.ReadBeUInt32();
-		b = s.ReadBeUInt32();
-		offset_x = s.ReadBeFloat();
-		offset_y = s.ReadBeFloat();
-		fade_out_time = s.ReadBeFloat();
-		blinking_freq = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		update_properties.Read(s);
+		radius.Read(s);
+		r.Read(s);
+		g.Read(s);
+		b.Read(s);
+		offset_x.Read(s);
+		offset_y.Read(s);
+		fade_out_time.Read(s);
+		blinking_freq.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(update_properties);
-		s.WriteBeFloat(radius);
-		s.WriteBeUInt32(r);
-		s.WriteBeUInt32(g);
-		s.WriteBeUInt32(b);
-		s.WriteBeFloat(offset_x);
-		s.WriteBeFloat(offset_y);
-		s.WriteBeFloat(fade_out_time);
-		s.WriteBeFloat(blinking_freq);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		update_properties.Write(s);
+		radius.Write(s);
+		r.Write(s);
+		g.Write(s);
+		b.Write(s);
+		offset_x.Write(s);
+		offset_y.Write(s);
+		fade_out_time.Write(s);
+		blinking_freq.Write(s);
 
     }
 }

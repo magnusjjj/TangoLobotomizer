@@ -1,27 +1,36 @@
 namespace GeneratedNoitaClasses;
-public class ItemPickUpperComponent {
-	public bool is_in_npc { get; set; }
-	public bool pick_up_any_item_buggy { get; set; }
-	public bool is_immune_to_kicks { get; set; }
-	public UInt32 only_pick_this_entity { get; set; }
-	public bool drop_items_on_death { get; set; }
-	public CVector2<float> mLatestItemOverlapInfoBoxPosition { get; set; }
+public class ItemPickUpperComponent : NoitaComponentBase,  iNoitaType<ItemPickUpperComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaBool is_in_npc { get; set; } = new();
+	public NoitaBool pick_up_any_item_buggy { get; set; } = new();
+	public NoitaBool is_immune_to_kicks { get; set; } = new();
+	public NoitaUInt only_pick_this_entity { get; set; } = new();
+	public NoitaBool drop_items_on_death { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> mLatestItemOverlapInfoBoxPosition { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		is_in_npc = s.ReadBool();
-		pick_up_any_item_buggy = s.ReadBool();
-		is_immune_to_kicks = s.ReadBool();
-		only_pick_this_entity = s.ReadBeUInt32();
-		drop_items_on_death = s.ReadBool();
-		mLatestItemOverlapInfoBoxPosition.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		is_in_npc.Read(s);
+		pick_up_any_item_buggy.Read(s);
+		is_immune_to_kicks.Read(s);
+		only_pick_this_entity.Read(s);
+		drop_items_on_death.Read(s);
+		mLatestItemOverlapInfoBoxPosition.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBool(is_in_npc);
-		s.WriteBool(pick_up_any_item_buggy);
-		s.WriteBool(is_immune_to_kicks);
-		s.WriteBeUInt32(only_pick_this_entity);
-		s.WriteBool(drop_items_on_death);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		is_in_npc.Write(s);
+		pick_up_any_item_buggy.Write(s);
+		is_immune_to_kicks.Write(s);
+		only_pick_this_entity.Write(s);
+		drop_items_on_death.Write(s);
 		mLatestItemOverlapInfoBoxPosition.Write(s);
 
     }

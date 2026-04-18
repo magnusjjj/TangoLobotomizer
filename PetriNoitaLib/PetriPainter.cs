@@ -50,7 +50,7 @@ namespace PetriNoitaLib
             }
         }
 
-        public Bitmap LoadImage(string filename)
+        public Bitmap? LoadImage(string filename)
         {
             LoadMaterialColors();
 

@@ -1,31 +1,40 @@
 namespace GeneratedNoitaClasses;
-public class EnergyShieldComponent {
-	public float radius { get; set; }
-	public float damage_multiplier { get; set; }
-	public float max_energy { get; set; }
-	public float energy_required_to_shield { get; set; }
-	public float recharge_speed { get; set; }
-	public float sector_degrees { get; set; }
-	public float energy { get; set; }
+public class EnergyShieldComponent : NoitaComponentBase,  iNoitaType<EnergyShieldComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
+	public NoitaFloat damage_multiplier { get; set; } = new();
+	public NoitaFloat max_energy { get; set; } = new();
+	public NoitaFloat energy_required_to_shield { get; set; } = new();
+	public NoitaFloat recharge_speed { get; set; } = new();
+	public NoitaFloat sector_degrees { get; set; } = new();
+	public NoitaFloat energy { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeFloat();
-		damage_multiplier = s.ReadBeFloat();
-		max_energy = s.ReadBeFloat();
-		energy_required_to_shield = s.ReadBeFloat();
-		recharge_speed = s.ReadBeFloat();
-		sector_degrees = s.ReadBeFloat();
-		energy = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		damage_multiplier.Read(s);
+		max_energy.Read(s);
+		energy_required_to_shield.Read(s);
+		recharge_speed.Read(s);
+		sector_degrees.Read(s);
+		energy.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(radius);
-		s.WriteBeFloat(damage_multiplier);
-		s.WriteBeFloat(max_energy);
-		s.WriteBeFloat(energy_required_to_shield);
-		s.WriteBeFloat(recharge_speed);
-		s.WriteBeFloat(sector_degrees);
-		s.WriteBeFloat(energy);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		damage_multiplier.Write(s);
+		max_energy.Write(s);
+		energy_required_to_shield.Write(s);
+		recharge_speed.Write(s);
+		sector_degrees.Write(s);
+		energy.Write(s);
 
     }
 }

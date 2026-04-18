@@ -1,76 +1,85 @@
 namespace GeneratedNoitaClasses;
-public class MagicConvertMaterialComponent {
-	public Int32 radius { get; set; }
-	public Int32 min_radius { get; set; }
-	public bool is_circle { get; set; }
-	public Int32 steps_per_frame { get; set; }
-	public Int32 from_material { get; set; }
-	public string from_material_tag { get; set; }
-	public bool from_any_material { get; set; }
-	public Int32 to_material { get; set; }
-	public bool clean_stains { get; set; }
-	public bool extinguish_fire { get; set; }
-	public Int32 fan_the_flames { get; set; }
-	public Int32 temperature_reaction_temp { get; set; }
-	public Int32 ignite_materials { get; set; }
-	public bool loop { get; set; }
-	public bool kill_when_finished { get; set; }
-	public bool convert_entities { get; set; }
-	public bool stain_frozen { get; set; }
-	public float reaction_audio_amount { get; set; }
-	public bool convert_same_material { get; set; }
-	public string from_material_array { get; set; }
-	public string to_material_array { get; set; }
-	public Int32 mRadius { get; set; }
+public class MagicConvertMaterialComponent : NoitaComponentBase,  iNoitaType<MagicConvertMaterialComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt radius { get; set; } = new();
+	public NoitaInt min_radius { get; set; } = new();
+	public NoitaBool is_circle { get; set; } = new();
+	public NoitaInt steps_per_frame { get; set; } = new();
+	public NoitaInt from_material { get; set; } = new();
+	public NoitaString from_material_tag { get; set; } = new();
+	public NoitaBool from_any_material { get; set; } = new();
+	public NoitaInt to_material { get; set; } = new();
+	public NoitaBool clean_stains { get; set; } = new();
+	public NoitaBool extinguish_fire { get; set; } = new();
+	public NoitaInt fan_the_flames { get; set; } = new();
+	public NoitaInt temperature_reaction_temp { get; set; } = new();
+	public NoitaInt ignite_materials { get; set; } = new();
+	public NoitaBool loop { get; set; } = new();
+	public NoitaBool kill_when_finished { get; set; } = new();
+	public NoitaBool convert_entities { get; set; } = new();
+	public NoitaBool stain_frozen { get; set; } = new();
+	public NoitaFloat reaction_audio_amount { get; set; } = new();
+	public NoitaBool convert_same_material { get; set; } = new();
+	public NoitaString from_material_array { get; set; } = new();
+	public NoitaString to_material_array { get; set; } = new();
+	public NoitaInt mRadius { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeInt32();
-		min_radius = s.ReadBeInt32();
-		is_circle = s.ReadBool();
-		steps_per_frame = s.ReadBeInt32();
-		from_material = s.ReadBeInt32();
-		from_material_tag = s.ReadBeString();
-		from_any_material = s.ReadBool();
-		to_material = s.ReadBeInt32();
-		clean_stains = s.ReadBool();
-		extinguish_fire = s.ReadBool();
-		fan_the_flames = s.ReadBeInt32();
-		temperature_reaction_temp = s.ReadBeInt32();
-		ignite_materials = s.ReadBeInt32();
-		loop = s.ReadBool();
-		kill_when_finished = s.ReadBool();
-		convert_entities = s.ReadBool();
-		stain_frozen = s.ReadBool();
-		reaction_audio_amount = s.ReadBeFloat();
-		convert_same_material = s.ReadBool();
-		from_material_array = s.ReadBeString();
-		to_material_array = s.ReadBeString();
-		mRadius = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		min_radius.Read(s);
+		is_circle.Read(s);
+		steps_per_frame.Read(s);
+		from_material.Read(s);
+		from_material_tag.Read(s);
+		from_any_material.Read(s);
+		to_material.Read(s);
+		clean_stains.Read(s);
+		extinguish_fire.Read(s);
+		fan_the_flames.Read(s);
+		temperature_reaction_temp.Read(s);
+		ignite_materials.Read(s);
+		loop.Read(s);
+		kill_when_finished.Read(s);
+		convert_entities.Read(s);
+		stain_frozen.Read(s);
+		reaction_audio_amount.Read(s);
+		convert_same_material.Read(s);
+		from_material_array.Read(s);
+		to_material_array.Read(s);
+		mRadius.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(radius);
-		s.WriteBeInt32(min_radius);
-		s.WriteBool(is_circle);
-		s.WriteBeInt32(steps_per_frame);
-		s.WriteBeInt32(from_material);
-		s.WriteBeString(from_material_tag);
-		s.WriteBool(from_any_material);
-		s.WriteBeInt32(to_material);
-		s.WriteBool(clean_stains);
-		s.WriteBool(extinguish_fire);
-		s.WriteBeInt32(fan_the_flames);
-		s.WriteBeInt32(temperature_reaction_temp);
-		s.WriteBeInt32(ignite_materials);
-		s.WriteBool(loop);
-		s.WriteBool(kill_when_finished);
-		s.WriteBool(convert_entities);
-		s.WriteBool(stain_frozen);
-		s.WriteBeFloat(reaction_audio_amount);
-		s.WriteBool(convert_same_material);
-		s.WriteBeString(from_material_array);
-		s.WriteBeString(to_material_array);
-		s.WriteBeInt32(mRadius);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		min_radius.Write(s);
+		is_circle.Write(s);
+		steps_per_frame.Write(s);
+		from_material.Write(s);
+		from_material_tag.Write(s);
+		from_any_material.Write(s);
+		to_material.Write(s);
+		clean_stains.Write(s);
+		extinguish_fire.Write(s);
+		fan_the_flames.Write(s);
+		temperature_reaction_temp.Write(s);
+		ignite_materials.Write(s);
+		loop.Write(s);
+		kill_when_finished.Write(s);
+		convert_entities.Write(s);
+		stain_frozen.Write(s);
+		reaction_audio_amount.Write(s);
+		convert_same_material.Write(s);
+		from_material_array.Write(s);
+		to_material_array.Write(s);
+		mRadius.Write(s);
 
     }
 }

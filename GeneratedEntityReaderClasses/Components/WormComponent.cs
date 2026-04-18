@@ -1,61 +1,70 @@
 namespace GeneratedNoitaClasses;
-public class WormComponent {
-	public float speed { get; set; }
-	public float acceleration { get; set; }
-	public LensValue<float> ground_decceleration { get; set; }
-	public float gravity { get; set; }
-	public float tail_gravity { get; set; }
-	public float part_distance { get; set; }
-	public Int32 ground_check_offset { get; set; }
-	public float hitbox_radius { get; set; }
-	public float bite_damage { get; set; }
-	public float target_kill_radius { get; set; }
-	public float target_kill_ragdoll_force { get; set; }
-	public float jump_cam_shake { get; set; }
-	public float jump_cam_shake_distance { get; set; }
-	public float eat_anim_wait_mult { get; set; }
-	public string ragdoll_filename { get; set; }
-	public bool is_water_worm { get; set; }
-	public float max_speed { get; set; }
+public class WormComponent : NoitaComponentBase,  iNoitaType<WormComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat speed { get; set; } = new();
+	public NoitaFloat acceleration { get; set; } = new();
+	public NoitaLensValue<NoitaFloat> ground_decceleration { get; set; } = new();
+	public NoitaFloat gravity { get; set; } = new();
+	public NoitaFloat tail_gravity { get; set; } = new();
+	public NoitaFloat part_distance { get; set; } = new();
+	public NoitaInt ground_check_offset { get; set; } = new();
+	public NoitaFloat hitbox_radius { get; set; } = new();
+	public NoitaFloat bite_damage { get; set; } = new();
+	public NoitaFloat target_kill_radius { get; set; } = new();
+	public NoitaFloat target_kill_ragdoll_force { get; set; } = new();
+	public NoitaFloat jump_cam_shake { get; set; } = new();
+	public NoitaFloat jump_cam_shake_distance { get; set; } = new();
+	public NoitaFloat eat_anim_wait_mult { get; set; } = new();
+	public NoitaString ragdoll_filename { get; set; } = new();
+	public NoitaBool is_water_worm { get; set; } = new();
+	public NoitaFloat max_speed { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		speed = s.ReadBeFloat();
-		acceleration = s.ReadBeFloat();
-		ground_decceleration.Load(s);
-		gravity = s.ReadBeFloat();
-		tail_gravity = s.ReadBeFloat();
-		part_distance = s.ReadBeFloat();
-		ground_check_offset = s.ReadBeInt32();
-		hitbox_radius = s.ReadBeFloat();
-		bite_damage = s.ReadBeFloat();
-		target_kill_radius = s.ReadBeFloat();
-		target_kill_ragdoll_force = s.ReadBeFloat();
-		jump_cam_shake = s.ReadBeFloat();
-		jump_cam_shake_distance = s.ReadBeFloat();
-		eat_anim_wait_mult = s.ReadBeFloat();
-		ragdoll_filename = s.ReadBeString();
-		is_water_worm = s.ReadBool();
-		max_speed = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		speed.Read(s);
+		acceleration.Read(s);
+		ground_decceleration.Read(s);
+		gravity.Read(s);
+		tail_gravity.Read(s);
+		part_distance.Read(s);
+		ground_check_offset.Read(s);
+		hitbox_radius.Read(s);
+		bite_damage.Read(s);
+		target_kill_radius.Read(s);
+		target_kill_ragdoll_force.Read(s);
+		jump_cam_shake.Read(s);
+		jump_cam_shake_distance.Read(s);
+		eat_anim_wait_mult.Read(s);
+		ragdoll_filename.Read(s);
+		is_water_worm.Read(s);
+		max_speed.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(speed);
-		s.WriteBeFloat(acceleration);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		speed.Write(s);
+		acceleration.Write(s);
 		ground_decceleration.Write(s);
-		s.WriteBeFloat(gravity);
-		s.WriteBeFloat(tail_gravity);
-		s.WriteBeFloat(part_distance);
-		s.WriteBeInt32(ground_check_offset);
-		s.WriteBeFloat(hitbox_radius);
-		s.WriteBeFloat(bite_damage);
-		s.WriteBeFloat(target_kill_radius);
-		s.WriteBeFloat(target_kill_ragdoll_force);
-		s.WriteBeFloat(jump_cam_shake);
-		s.WriteBeFloat(jump_cam_shake_distance);
-		s.WriteBeFloat(eat_anim_wait_mult);
-		s.WriteBeString(ragdoll_filename);
-		s.WriteBool(is_water_worm);
-		s.WriteBeFloat(max_speed);
+		gravity.Write(s);
+		tail_gravity.Write(s);
+		part_distance.Write(s);
+		ground_check_offset.Write(s);
+		hitbox_radius.Write(s);
+		bite_damage.Write(s);
+		target_kill_radius.Write(s);
+		target_kill_ragdoll_force.Write(s);
+		jump_cam_shake.Write(s);
+		jump_cam_shake_distance.Write(s);
+		eat_anim_wait_mult.Write(s);
+		ragdoll_filename.Write(s);
+		is_water_worm.Write(s);
+		max_speed.Write(s);
 
     }
 }

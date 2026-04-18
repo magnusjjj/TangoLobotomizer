@@ -1,55 +1,55 @@
 namespace GeneratedNoitaClasses;
-public class ConfigDamagesByType {
-	public float melee { get; set; }
-	public float projectile { get; set; }
-	public float explosion { get; set; }
-	public float electricity { get; set; }
-	public float fire { get; set; }
-	public float drill { get; set; }
-	public float slice { get; set; }
-	public float ice { get; set; }
-	public float healing { get; set; }
-	public float physics_hit { get; set; }
-	public float radioactive { get; set; }
-	public float poison { get; set; }
-	public float overeating { get; set; }
-	public float curse { get; set; }
-	public float holy { get; set; }
+public class ConfigDamagesByType :  iNoitaType<ConfigDamagesByType>{
+	public NoitaFloat melee { get; set; } = new();
+	public NoitaFloat projectile { get; set; } = new();
+	public NoitaFloat explosion { get; set; } = new();
+	public NoitaFloat electricity { get; set; } = new();
+	public NoitaFloat fire { get; set; } = new();
+	public NoitaFloat drill { get; set; } = new();
+	public NoitaFloat slice { get; set; } = new();
+	public NoitaFloat ice { get; set; } = new();
+	public NoitaFloat healing { get; set; } = new();
+	public NoitaFloat physics_hit { get; set; } = new();
+	public NoitaFloat radioactive { get; set; } = new();
+	public NoitaFloat poison { get; set; } = new();
+	public NoitaFloat overeating { get; set; } = new();
+	public NoitaFloat curse { get; set; } = new();
+	public NoitaFloat holy { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		melee = s.ReadBeFloat();
-		projectile = s.ReadBeFloat();
-		explosion = s.ReadBeFloat();
-		electricity = s.ReadBeFloat();
-		fire = s.ReadBeFloat();
-		drill = s.ReadBeFloat();
-		slice = s.ReadBeFloat();
-		ice = s.ReadBeFloat();
-		healing = s.ReadBeFloat();
-		physics_hit = s.ReadBeFloat();
-		radioactive = s.ReadBeFloat();
-		poison = s.ReadBeFloat();
-		overeating = s.ReadBeFloat();
-		curse = s.ReadBeFloat();
-		holy = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		melee.Read(s);
+		projectile.Read(s);
+		explosion.Read(s);
+		electricity.Read(s);
+		fire.Read(s);
+		drill.Read(s);
+		slice.Read(s);
+		ice.Read(s);
+		healing.Read(s);
+		physics_hit.Read(s);
+		radioactive.Read(s);
+		poison.Read(s);
+		overeating.Read(s);
+		curse.Read(s);
+		holy.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(melee);
-		s.WriteBeFloat(projectile);
-		s.WriteBeFloat(explosion);
-		s.WriteBeFloat(electricity);
-		s.WriteBeFloat(fire);
-		s.WriteBeFloat(drill);
-		s.WriteBeFloat(slice);
-		s.WriteBeFloat(ice);
-		s.WriteBeFloat(healing);
-		s.WriteBeFloat(physics_hit);
-		s.WriteBeFloat(radioactive);
-		s.WriteBeFloat(poison);
-		s.WriteBeFloat(overeating);
-		s.WriteBeFloat(curse);
-		s.WriteBeFloat(holy);
+    public void Write(NoitaStream s){
+		melee.Write(s);
+		projectile.Write(s);
+		explosion.Write(s);
+		electricity.Write(s);
+		fire.Write(s);
+		drill.Write(s);
+		slice.Write(s);
+		ice.Write(s);
+		healing.Write(s);
+		physics_hit.Write(s);
+		radioactive.Write(s);
+		poison.Write(s);
+		overeating.Write(s);
+		curse.Write(s);
+		holy.Write(s);
 
     }
 }

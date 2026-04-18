@@ -1,40 +1,49 @@
 namespace GeneratedNoitaClasses;
-public class PhysicsThrowableComponent {
-	public float throw_force_coeff { get; set; }
-	public float max_throw_speed { get; set; }
-	public float min_torque { get; set; }
-	public float max_torque { get; set; }
-	public float tip_check_offset_min { get; set; }
-	public float tip_check_offset_max { get; set; }
-	public float tip_check_random_rotation_deg { get; set; }
-	public float attach_min_speed { get; set; }
-	public bool attach_to_surfaces_knife_style { get; set; }
-	public Int32 hp { get; set; }
+public class PhysicsThrowableComponent : NoitaComponentBase,  iNoitaType<PhysicsThrowableComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat throw_force_coeff { get; set; } = new();
+	public NoitaFloat max_throw_speed { get; set; } = new();
+	public NoitaFloat min_torque { get; set; } = new();
+	public NoitaFloat max_torque { get; set; } = new();
+	public NoitaFloat tip_check_offset_min { get; set; } = new();
+	public NoitaFloat tip_check_offset_max { get; set; } = new();
+	public NoitaFloat tip_check_random_rotation_deg { get; set; } = new();
+	public NoitaFloat attach_min_speed { get; set; } = new();
+	public NoitaBool attach_to_surfaces_knife_style { get; set; } = new();
+	public NoitaInt hp { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		throw_force_coeff = s.ReadBeFloat();
-		max_throw_speed = s.ReadBeFloat();
-		min_torque = s.ReadBeFloat();
-		max_torque = s.ReadBeFloat();
-		tip_check_offset_min = s.ReadBeFloat();
-		tip_check_offset_max = s.ReadBeFloat();
-		tip_check_random_rotation_deg = s.ReadBeFloat();
-		attach_min_speed = s.ReadBeFloat();
-		attach_to_surfaces_knife_style = s.ReadBool();
-		hp = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		throw_force_coeff.Read(s);
+		max_throw_speed.Read(s);
+		min_torque.Read(s);
+		max_torque.Read(s);
+		tip_check_offset_min.Read(s);
+		tip_check_offset_max.Read(s);
+		tip_check_random_rotation_deg.Read(s);
+		attach_min_speed.Read(s);
+		attach_to_surfaces_knife_style.Read(s);
+		hp.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(throw_force_coeff);
-		s.WriteBeFloat(max_throw_speed);
-		s.WriteBeFloat(min_torque);
-		s.WriteBeFloat(max_torque);
-		s.WriteBeFloat(tip_check_offset_min);
-		s.WriteBeFloat(tip_check_offset_max);
-		s.WriteBeFloat(tip_check_random_rotation_deg);
-		s.WriteBeFloat(attach_min_speed);
-		s.WriteBool(attach_to_surfaces_knife_style);
-		s.WriteBeInt32(hp);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		throw_force_coeff.Write(s);
+		max_throw_speed.Write(s);
+		min_torque.Write(s);
+		max_torque.Write(s);
+		tip_check_offset_min.Write(s);
+		tip_check_offset_max.Write(s);
+		tip_check_random_rotation_deg.Write(s);
+		attach_min_speed.Write(s);
+		attach_to_surfaces_knife_style.Write(s);
+		hp.Write(s);
 
     }
 }

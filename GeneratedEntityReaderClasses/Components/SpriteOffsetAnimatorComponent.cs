@@ -1,31 +1,40 @@
 namespace GeneratedNoitaClasses;
-public class SpriteOffsetAnimatorComponent {
-	public float x_amount { get; set; }
-	public float x_speed { get; set; }
-	public float y_amount { get; set; }
-	public float y_speed { get; set; }
-	public Int32 sprite_id { get; set; }
-	public float x_phase { get; set; }
-	public float x_phase_offset { get; set; }
+public class SpriteOffsetAnimatorComponent : NoitaComponentBase,  iNoitaType<SpriteOffsetAnimatorComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat x_amount { get; set; } = new();
+	public NoitaFloat x_speed { get; set; } = new();
+	public NoitaFloat y_amount { get; set; } = new();
+	public NoitaFloat y_speed { get; set; } = new();
+	public NoitaInt sprite_id { get; set; } = new();
+	public NoitaFloat x_phase { get; set; } = new();
+	public NoitaFloat x_phase_offset { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		x_amount = s.ReadBeFloat();
-		x_speed = s.ReadBeFloat();
-		y_amount = s.ReadBeFloat();
-		y_speed = s.ReadBeFloat();
-		sprite_id = s.ReadBeInt32();
-		x_phase = s.ReadBeFloat();
-		x_phase_offset = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		x_amount.Read(s);
+		x_speed.Read(s);
+		y_amount.Read(s);
+		y_speed.Read(s);
+		sprite_id.Read(s);
+		x_phase.Read(s);
+		x_phase_offset.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(x_amount);
-		s.WriteBeFloat(x_speed);
-		s.WriteBeFloat(y_amount);
-		s.WriteBeFloat(y_speed);
-		s.WriteBeInt32(sprite_id);
-		s.WriteBeFloat(x_phase);
-		s.WriteBeFloat(x_phase_offset);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		x_amount.Write(s);
+		x_speed.Write(s);
+		y_amount.Write(s);
+		y_speed.Write(s);
+		sprite_id.Write(s);
+		x_phase.Write(s);
+		x_phase_offset.Write(s);
 
     }
 }

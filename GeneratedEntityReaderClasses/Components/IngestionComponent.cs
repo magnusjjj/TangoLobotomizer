@@ -1,34 +1,43 @@
 namespace GeneratedNoitaClasses;
-public class IngestionComponent {
-	public Int64 ingestion_size { get; set; }
-	public Int64 ingestion_capacity { get; set; }
-	public UInt32 ingestion_cooldown_delay_frames { get; set; }
-	public UInt32 ingestion_reduce_every_n_frame { get; set; }
-	public float overingestion_damage { get; set; }
-	public float blood_healing_speed { get; set; }
-	public string ingestion_satiation_material_tag { get; set; }
-	public Int32 m_ingestion_cooldown_frames { get; set; }
+public class IngestionComponent : NoitaComponentBase,  iNoitaType<IngestionComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt64 ingestion_size { get; set; } = new();
+	public NoitaInt64 ingestion_capacity { get; set; } = new();
+	public NoitaUInt ingestion_cooldown_delay_frames { get; set; } = new();
+	public NoitaUInt ingestion_reduce_every_n_frame { get; set; } = new();
+	public NoitaFloat overingestion_damage { get; set; } = new();
+	public NoitaFloat blood_healing_speed { get; set; } = new();
+	public NoitaString ingestion_satiation_material_tag { get; set; } = new();
+	public NoitaInt m_ingestion_cooldown_frames { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		ingestion_size = s.ReadBeInt64();
-		ingestion_capacity = s.ReadBeInt64();
-		ingestion_cooldown_delay_frames = s.ReadBeUInt32();
-		ingestion_reduce_every_n_frame = s.ReadBeUInt32();
-		overingestion_damage = s.ReadBeFloat();
-		blood_healing_speed = s.ReadBeFloat();
-		ingestion_satiation_material_tag = s.ReadBeString();
-		m_ingestion_cooldown_frames = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		ingestion_size.Read(s);
+		ingestion_capacity.Read(s);
+		ingestion_cooldown_delay_frames.Read(s);
+		ingestion_reduce_every_n_frame.Read(s);
+		overingestion_damage.Read(s);
+		blood_healing_speed.Read(s);
+		ingestion_satiation_material_tag.Read(s);
+		m_ingestion_cooldown_frames.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt64(ingestion_size);
-		s.WriteBeInt64(ingestion_capacity);
-		s.WriteBeUInt32(ingestion_cooldown_delay_frames);
-		s.WriteBeUInt32(ingestion_reduce_every_n_frame);
-		s.WriteBeFloat(overingestion_damage);
-		s.WriteBeFloat(blood_healing_speed);
-		s.WriteBeString(ingestion_satiation_material_tag);
-		s.WriteBeInt32(m_ingestion_cooldown_frames);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		ingestion_size.Write(s);
+		ingestion_capacity.Write(s);
+		ingestion_cooldown_delay_frames.Write(s);
+		ingestion_reduce_every_n_frame.Write(s);
+		overingestion_damage.Write(s);
+		blood_healing_speed.Write(s);
+		ingestion_satiation_material_tag.Write(s);
+		m_ingestion_cooldown_frames.Write(s);
 
     }
 }

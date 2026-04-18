@@ -1,19 +1,28 @@
 namespace GeneratedNoitaClasses;
-public class ShotEffectComponent {
-	public UInt32 condition_effect { get; set; }
-	public UInt32 condition_status { get; set; }
-	public string extra_modifier { get; set; }
+public class ShotEffectComponent : NoitaComponentBase,  iNoitaType<ShotEffectComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaUInt condition_effect { get; set; } = new();
+	public NoitaUInt condition_status { get; set; } = new();
+	public NoitaString extra_modifier { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		condition_effect = s.ReadBeUInt32();
-		condition_status = s.ReadBeUInt32();
-		extra_modifier = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		condition_effect.Read(s);
+		condition_status.Read(s);
+		extra_modifier.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeUInt32(condition_effect);
-		s.WriteBeUInt32(condition_status);
-		s.WriteBeString(extra_modifier);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		condition_effect.Write(s);
+		condition_status.Write(s);
+		extra_modifier.Write(s);
 
     }
 }

@@ -1,25 +1,34 @@
 namespace GeneratedNoitaClasses;
-public class PressurePlateComponent {
-	public Int32 check_every_x_frames { get; set; }
-	public Int32 state { get; set; }
-	public CVector2<float> aabb_min { get; set; }
-	public CVector2<float> aabb_max { get; set; }
-	public float material_percent { get; set; }
+public class PressurePlateComponent : NoitaComponentBase,  iNoitaType<PressurePlateComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt check_every_x_frames { get; set; } = new();
+	public NoitaInt state { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> aabb_min { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> aabb_max { get; set; } = new();
+	public NoitaFloat material_percent { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		check_every_x_frames = s.ReadBeInt32();
-		state = s.ReadBeInt32();
-		aabb_min.Load(s);
-		aabb_max.Load(s);
-		material_percent = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		check_every_x_frames.Read(s);
+		state.Read(s);
+		aabb_min.Read(s);
+		aabb_max.Read(s);
+		material_percent.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(check_every_x_frames);
-		s.WriteBeInt32(state);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		check_every_x_frames.Write(s);
+		state.Write(s);
 		aabb_min.Write(s);
 		aabb_max.Write(s);
-		s.WriteBeFloat(material_percent);
+		material_percent.Write(s);
 
     }
 }

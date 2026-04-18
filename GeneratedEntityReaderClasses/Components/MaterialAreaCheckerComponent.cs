@@ -1,34 +1,43 @@
 namespace GeneratedNoitaClasses;
-public class MaterialAreaCheckerComponent {
-	public Int32 update_every_x_frame { get; set; }
-	public bool look_for_failure { get; set; }
-	public types_aabb area_aabb { get; set; }
-	public Int32 material { get; set; }
-	public Int32 material2 { get; set; }
-	public Int32 count_min { get; set; }
-	public bool always_check_fullness { get; set; }
-	public bool kill_after_message { get; set; }
+public class MaterialAreaCheckerComponent : NoitaComponentBase,  iNoitaType<MaterialAreaCheckerComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt update_every_x_frame { get; set; } = new();
+	public NoitaBool look_for_failure { get; set; } = new();
+	public types_aabb area_aabb { get; set; } = new();
+	public NoitaInt material { get; set; } = new();
+	public NoitaInt material2 { get; set; } = new();
+	public NoitaInt count_min { get; set; } = new();
+	public NoitaBool always_check_fullness { get; set; } = new();
+	public NoitaBool kill_after_message { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		update_every_x_frame = s.ReadBeInt32();
-		look_for_failure = s.ReadBool();
-		area_aabb.Load(s);
-		material = s.ReadBeInt32();
-		material2 = s.ReadBeInt32();
-		count_min = s.ReadBeInt32();
-		always_check_fullness = s.ReadBool();
-		kill_after_message = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		update_every_x_frame.Read(s);
+		look_for_failure.Read(s);
+		area_aabb.Read(s);
+		material.Read(s);
+		material2.Read(s);
+		count_min.Read(s);
+		always_check_fullness.Read(s);
+		kill_after_message.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(update_every_x_frame);
-		s.WriteBool(look_for_failure);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		update_every_x_frame.Write(s);
+		look_for_failure.Write(s);
 		area_aabb.Write(s);
-		s.WriteBeInt32(material);
-		s.WriteBeInt32(material2);
-		s.WriteBeInt32(count_min);
-		s.WriteBool(always_check_fullness);
-		s.WriteBool(kill_after_message);
+		material.Write(s);
+		material2.Write(s);
+		count_min.Write(s);
+		always_check_fullness.Write(s);
+		kill_after_message.Write(s);
 
     }
 }

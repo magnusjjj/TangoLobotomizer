@@ -1,16 +1,25 @@
 namespace GeneratedNoitaClasses;
-public class ItemRechargeNearGroundComponent {
-	public float TEMP_TEMPY { get; set; }
-	public float TEMP_TEMP_TEMP { get; set; }
+public class ItemRechargeNearGroundComponent : NoitaComponentBase,  iNoitaType<ItemRechargeNearGroundComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat TEMP_TEMPY { get; set; } = new();
+	public NoitaFloat TEMP_TEMP_TEMP { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		TEMP_TEMPY = s.ReadBeFloat();
-		TEMP_TEMP_TEMP = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		TEMP_TEMPY.Read(s);
+		TEMP_TEMP_TEMP.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(TEMP_TEMPY);
-		s.WriteBeFloat(TEMP_TEMP_TEMP);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		TEMP_TEMPY.Write(s);
+		TEMP_TEMP_TEMP.Write(s);
 
     }
 }

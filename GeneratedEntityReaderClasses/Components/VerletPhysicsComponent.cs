@@ -1,115 +1,112 @@
 namespace GeneratedNoitaClasses;
-public class VerletPhysicsComponent {
-	public Int32 num_points { get; set; }
-	public Int32 num_links { get; set; }
-	public Int32 width { get; set; }
-	public UInt32 type { get; set; }
-	public float resting_distance { get; set; }
-	public float mass_min { get; set; }
-	public float mass_max { get; set; }
-	public float stiffness { get; set; }
-	public float velocity_dampening { get; set; }
-	public float liquid_damping { get; set; }
-	public float gets_entity_velocity_coeff { get; set; }
-	public bool collide_with_cells { get; set; }
-	public bool simulate_gravity { get; set; }
-	public bool simulate_wind { get; set; }
-	public float wind_change_speed { get; set; }
-	public bool constrain_stretching { get; set; }
-	public bool pixelate_sprite_transforms { get; set; }
-	public bool scale_sprite_x { get; set; }
-	public bool follow_entity_transform { get; set; }
-	public CVector2<float> animation_target_offset { get; set; }
-	public float animation_amount { get; set; }
-	public float animation_speed { get; set; }
-	public float animation_energy { get; set; }
-	public float cloth_sprite_z_index { get; set; }
-	public Int32 stain_cells_probability { get; set; }
-	public UInt32 cloth_color_edge { get; set; }
-	public UInt32 cloth_color { get; set; }
-	public CVector2<float> m_position_previous { get; set; }
-	public bool m_is_culled_previous { get; set; }
-	public List<UInt32> colors { get; set; }
-	public List<UInt32> materials { get; set; }
+public class VerletPhysicsComponent : NoitaComponentBase,  iNoitaType<VerletPhysicsComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt num_points { get; set; } = new();
+	public NoitaInt num_links { get; set; } = new();
+	public NoitaInt width { get; set; } = new();
+	public NoitaUInt type { get; set; } = new();
+	public NoitaFloat resting_distance { get; set; } = new();
+	public NoitaFloat mass_min { get; set; } = new();
+	public NoitaFloat mass_max { get; set; } = new();
+	public NoitaFloat stiffness { get; set; } = new();
+	public NoitaFloat velocity_dampening { get; set; } = new();
+	public NoitaFloat liquid_damping { get; set; } = new();
+	public NoitaFloat gets_entity_velocity_coeff { get; set; } = new();
+	public NoitaBool collide_with_cells { get; set; } = new();
+	public NoitaBool simulate_gravity { get; set; } = new();
+	public NoitaBool simulate_wind { get; set; } = new();
+	public NoitaFloat wind_change_speed { get; set; } = new();
+	public NoitaBool constrain_stretching { get; set; } = new();
+	public NoitaBool pixelate_sprite_transforms { get; set; } = new();
+	public NoitaBool scale_sprite_x { get; set; } = new();
+	public NoitaBool follow_entity_transform { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> animation_target_offset { get; set; } = new();
+	public NoitaFloat animation_amount { get; set; } = new();
+	public NoitaFloat animation_speed { get; set; } = new();
+	public NoitaFloat animation_energy { get; set; } = new();
+	public NoitaFloat cloth_sprite_z_index { get; set; } = new();
+	public NoitaInt stain_cells_probability { get; set; } = new();
+	public NoitaUInt cloth_color_edge { get; set; } = new();
+	public NoitaUInt cloth_color { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> m_position_previous { get; set; } = new();
+	public NoitaBool m_is_culled_previous { get; set; } = new();
+	public NoitaUintArrayInline colors { get; set; } = new();
+	public NoitaUintArrayInline materials { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		num_points = s.ReadBeInt32();
-		num_links = s.ReadBeInt32();
-		width = s.ReadBeInt32();
-		type = s.ReadBeUInt32();
-		resting_distance = s.ReadBeFloat();
-		mass_min = s.ReadBeFloat();
-		mass_max = s.ReadBeFloat();
-		stiffness = s.ReadBeFloat();
-		velocity_dampening = s.ReadBeFloat();
-		liquid_damping = s.ReadBeFloat();
-		gets_entity_velocity_coeff = s.ReadBeFloat();
-		collide_with_cells = s.ReadBool();
-		simulate_gravity = s.ReadBool();
-		simulate_wind = s.ReadBool();
-		wind_change_speed = s.ReadBeFloat();
-		constrain_stretching = s.ReadBool();
-		pixelate_sprite_transforms = s.ReadBool();
-		scale_sprite_x = s.ReadBool();
-		follow_entity_transform = s.ReadBool();
-		animation_target_offset.Load(s);
-		animation_amount = s.ReadBeFloat();
-		animation_speed = s.ReadBeFloat();
-		animation_energy = s.ReadBeFloat();
-		cloth_sprite_z_index = s.ReadBeFloat();
-		stain_cells_probability = s.ReadBeInt32();
-		cloth_color_edge = s.ReadBeUInt32();
-		cloth_color = s.ReadBeUInt32();
-		m_position_previous.Load(s);
-		m_is_culled_previous = s.ReadBool();
-		colors = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- colors.Add(UInt32.Load(s));
-}
-		materials = [];
-UInt32 len = s.ReadBeUInt32();
-for(int i = 0; i < len; i++) {
- materials.Add(UInt32.Load(s));
-}
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		num_points.Read(s);
+		num_links.Read(s);
+		width.Read(s);
+		type.Read(s);
+		resting_distance.Read(s);
+		mass_min.Read(s);
+		mass_max.Read(s);
+		stiffness.Read(s);
+		velocity_dampening.Read(s);
+		liquid_damping.Read(s);
+		gets_entity_velocity_coeff.Read(s);
+		collide_with_cells.Read(s);
+		simulate_gravity.Read(s);
+		simulate_wind.Read(s);
+		wind_change_speed.Read(s);
+		constrain_stretching.Read(s);
+		pixelate_sprite_transforms.Read(s);
+		scale_sprite_x.Read(s);
+		follow_entity_transform.Read(s);
+		animation_target_offset.Read(s);
+		animation_amount.Read(s);
+		animation_speed.Read(s);
+		animation_energy.Read(s);
+		cloth_sprite_z_index.Read(s);
+		stain_cells_probability.Read(s);
+		cloth_color_edge.Read(s);
+		cloth_color.Read(s);
+		m_position_previous.Read(s);
+		m_is_culled_previous.Read(s);
+		colors.Read(s);
+		materials.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(num_points);
-		s.WriteBeInt32(num_links);
-		s.WriteBeInt32(width);
-		s.WriteBeUInt32(type);
-		s.WriteBeFloat(resting_distance);
-		s.WriteBeFloat(mass_min);
-		s.WriteBeFloat(mass_max);
-		s.WriteBeFloat(stiffness);
-		s.WriteBeFloat(velocity_dampening);
-		s.WriteBeFloat(liquid_damping);
-		s.WriteBeFloat(gets_entity_velocity_coeff);
-		s.WriteBool(collide_with_cells);
-		s.WriteBool(simulate_gravity);
-		s.WriteBool(simulate_wind);
-		s.WriteBeFloat(wind_change_speed);
-		s.WriteBool(constrain_stretching);
-		s.WriteBool(pixelate_sprite_transforms);
-		s.WriteBool(scale_sprite_x);
-		s.WriteBool(follow_entity_transform);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		num_points.Write(s);
+		num_links.Write(s);
+		width.Write(s);
+		type.Write(s);
+		resting_distance.Write(s);
+		mass_min.Write(s);
+		mass_max.Write(s);
+		stiffness.Write(s);
+		velocity_dampening.Write(s);
+		liquid_damping.Write(s);
+		gets_entity_velocity_coeff.Write(s);
+		collide_with_cells.Write(s);
+		simulate_gravity.Write(s);
+		simulate_wind.Write(s);
+		wind_change_speed.Write(s);
+		constrain_stretching.Write(s);
+		pixelate_sprite_transforms.Write(s);
+		scale_sprite_x.Write(s);
+		follow_entity_transform.Write(s);
 		animation_target_offset.Write(s);
-		s.WriteBeFloat(animation_amount);
-		s.WriteBeFloat(animation_speed);
-		s.WriteBeFloat(animation_energy);
-		s.WriteBeFloat(cloth_sprite_z_index);
-		s.WriteBeInt32(stain_cells_probability);
-		s.WriteBeUInt32(cloth_color_edge);
-		s.WriteBeUInt32(cloth_color);
+		animation_amount.Write(s);
+		animation_speed.Write(s);
+		animation_energy.Write(s);
+		cloth_sprite_z_index.Write(s);
+		stain_cells_probability.Write(s);
+		cloth_color_edge.Write(s);
+		cloth_color.Write(s);
 		m_position_previous.Write(s);
-		s.WriteBool(m_is_culled_previous);
-		s.WriteBeUInt32(colors.Length);
-foreach(var item in colors){ colors.Write(s);
-}
-		s.WriteBeUInt32(materials.Length);
-foreach(var item in materials){ materials.Write(s);
-}
+		m_is_culled_previous.Write(s);
+		colors.Write(s);
+		materials.Write(s);
 
     }
 }

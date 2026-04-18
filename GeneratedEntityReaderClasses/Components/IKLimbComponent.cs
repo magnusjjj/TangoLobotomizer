@@ -1,26 +1,35 @@
 namespace GeneratedNoitaClasses;
-public class IKLimbComponent {
-	public float length { get; set; }
-	public float thigh_extra_lenght { get; set; }
-	public CVector2<float> end_position { get; set; }
-	public float mJointSideInterpolation { get; set; }
-	public CVector2<float> mJointWorldPos { get; set; }
-	public CVector2<float> mEndPrevPos { get; set; }
+public class IKLimbComponent : NoitaComponentBase,  iNoitaType<IKLimbComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat length { get; set; } = new();
+	public NoitaFloat thigh_extra_lenght { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> end_position { get; set; } = new();
+	public NoitaFloat mJointSideInterpolation { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> mJointWorldPos { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> mEndPrevPos { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		length = s.ReadBeFloat();
-		thigh_extra_lenght = s.ReadBeFloat();
-		end_position.Load(s);
-		mJointSideInterpolation = s.ReadBeFloat();
-		mJointWorldPos.Load(s);
-		mEndPrevPos.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		length.Read(s);
+		thigh_extra_lenght.Read(s);
+		end_position.Read(s);
+		mJointSideInterpolation.Read(s);
+		mJointWorldPos.Read(s);
+		mEndPrevPos.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(length);
-		s.WriteBeFloat(thigh_extra_lenght);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		length.Write(s);
+		thigh_extra_lenght.Write(s);
 		end_position.Write(s);
-		s.WriteBeFloat(mJointSideInterpolation);
+		mJointSideInterpolation.Write(s);
 		mJointWorldPos.Write(s);
 		mEndPrevPos.Write(s);
 

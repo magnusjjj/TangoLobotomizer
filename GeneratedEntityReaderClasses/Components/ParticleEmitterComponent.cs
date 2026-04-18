@@ -1,196 +1,205 @@
 namespace GeneratedNoitaClasses;
-public class ParticleEmitterComponent {
-	public string emitted_material_name { get; set; }
-	public bool create_real_particles { get; set; }
-	public bool emit_real_particles { get; set; }
-	public bool emit_cosmetic_particles { get; set; }
-	public bool cosmetic_force_create { get; set; }
-	public bool render_back { get; set; }
-	public bool render_ultrabright { get; set; }
-	public bool collide_with_grid { get; set; }
-	public bool collide_with_gas_and_fire { get; set; }
-	public bool particle_single_width { get; set; }
-	public bool emit_only_if_there_is_space { get; set; }
-	public Int32 emitter_lifetime_frames { get; set; }
-	public bool fire_cells_dont_ignite_damagemodel { get; set; }
-	public bool color_is_based_on_pos { get; set; }
-	public UInt32 color { get; set; }
-	public float custom_alpha { get; set; }
-	public CVector2<float> offset { get; set; }
-	public float x_pos_offset_min { get; set; }
-	public float y_pos_offset_min { get; set; }
-	public float x_pos_offset_max { get; set; }
-	public float y_pos_offset_max { get; set; }
-	public ValueRange area_circle_radius { get; set; }
-	public float area_circle_sector_degrees { get; set; }
-	public float x_vel_min { get; set; }
-	public float x_vel_max { get; set; }
-	public float y_vel_min { get; set; }
-	public float y_vel_max { get; set; }
-	public float direction_random_deg { get; set; }
-	public CVector2<float> gravity { get; set; }
-	public float velocity_always_away_from_center { get; set; }
-	public float lifetime_min { get; set; }
-	public float lifetime_max { get; set; }
-	public float airflow_force { get; set; }
-	public float airflow_time { get; set; }
-	public float airflow_scale { get; set; }
-	public float friction { get; set; }
-	public float attractor_force { get; set; }
-	public LensValue<int> count_min { get; set; }
-	public LensValue<int> count_max { get; set; }
-	public Int32 emission_interval_min_frames { get; set; }
-	public Int32 emission_interval_max_frames { get; set; }
-	public Int32 emission_chance { get; set; }
-	public UInt32 custom_style { get; set; }
-	public Int32 delay_frames { get; set; }
-	public bool is_emitting { get; set; }
-	public bool use_material_inventory { get; set; }
-	public bool is_trail { get; set; }
-	public float trail_gap { get; set; }
-	public bool render_on_grid { get; set; }
-	public bool fade_based_on_lifetime { get; set; }
-	public bool draw_as_long { get; set; }
-	public float b2_force { get; set; }
-	public bool set_magic_creation { get; set; }
-	public string image_animation_file { get; set; }
-	public string image_animation_colors_file { get; set; }
-	public float image_animation_speed { get; set; }
-	public bool image_animation_loop { get; set; }
-	public float image_animation_phase { get; set; }
-	public float image_animation_emission_probability { get; set; }
-	public bool image_animation_raytrace_from_center { get; set; }
-	public bool image_animation_use_entity_rotation { get; set; }
-	public bool ignore_transform_updated_msg { get; set; }
+public class ParticleEmitterComponent : NoitaComponentBase,  iNoitaType<ParticleEmitterComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString emitted_material_name { get; set; } = new();
+	public NoitaBool create_real_particles { get; set; } = new();
+	public NoitaBool emit_real_particles { get; set; } = new();
+	public NoitaBool emit_cosmetic_particles { get; set; } = new();
+	public NoitaBool cosmetic_force_create { get; set; } = new();
+	public NoitaBool render_back { get; set; } = new();
+	public NoitaBool render_ultrabright { get; set; } = new();
+	public NoitaBool collide_with_grid { get; set; } = new();
+	public NoitaBool collide_with_gas_and_fire { get; set; } = new();
+	public NoitaBool particle_single_width { get; set; } = new();
+	public NoitaBool emit_only_if_there_is_space { get; set; } = new();
+	public NoitaInt emitter_lifetime_frames { get; set; } = new();
+	public NoitaBool fire_cells_dont_ignite_damagemodel { get; set; } = new();
+	public NoitaBool color_is_based_on_pos { get; set; } = new();
+	public NoitaUInt color { get; set; } = new();
+	public NoitaFloat custom_alpha { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> offset { get; set; } = new();
+	public NoitaFloat x_pos_offset_min { get; set; } = new();
+	public NoitaFloat y_pos_offset_min { get; set; } = new();
+	public NoitaFloat x_pos_offset_max { get; set; } = new();
+	public NoitaFloat y_pos_offset_max { get; set; } = new();
+	public ValueRange area_circle_radius { get; set; } = new();
+	public NoitaFloat area_circle_sector_degrees { get; set; } = new();
+	public NoitaFloat x_vel_min { get; set; } = new();
+	public NoitaFloat x_vel_max { get; set; } = new();
+	public NoitaFloat y_vel_min { get; set; } = new();
+	public NoitaFloat y_vel_max { get; set; } = new();
+	public NoitaFloat direction_random_deg { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> gravity { get; set; } = new();
+	public NoitaFloat velocity_always_away_from_center { get; set; } = new();
+	public NoitaFloat lifetime_min { get; set; } = new();
+	public NoitaFloat lifetime_max { get; set; } = new();
+	public NoitaFloat airflow_force { get; set; } = new();
+	public NoitaFloat airflow_time { get; set; } = new();
+	public NoitaFloat airflow_scale { get; set; } = new();
+	public NoitaFloat friction { get; set; } = new();
+	public NoitaFloat attractor_force { get; set; } = new();
+	public NoitaLensValue<NoitaInt> count_min { get; set; } = new();
+	public NoitaLensValue<NoitaInt> count_max { get; set; } = new();
+	public NoitaInt emission_interval_min_frames { get; set; } = new();
+	public NoitaInt emission_interval_max_frames { get; set; } = new();
+	public NoitaInt emission_chance { get; set; } = new();
+	public NoitaUInt custom_style { get; set; } = new();
+	public NoitaInt delay_frames { get; set; } = new();
+	public NoitaBool is_emitting { get; set; } = new();
+	public NoitaBool use_material_inventory { get; set; } = new();
+	public NoitaBool is_trail { get; set; } = new();
+	public NoitaFloat trail_gap { get; set; } = new();
+	public NoitaBool render_on_grid { get; set; } = new();
+	public NoitaBool fade_based_on_lifetime { get; set; } = new();
+	public NoitaBool draw_as_long { get; set; } = new();
+	public NoitaFloat b2_force { get; set; } = new();
+	public NoitaBool set_magic_creation { get; set; } = new();
+	public NoitaString image_animation_file { get; set; } = new();
+	public NoitaString image_animation_colors_file { get; set; } = new();
+	public NoitaFloat image_animation_speed { get; set; } = new();
+	public NoitaBool image_animation_loop { get; set; } = new();
+	public NoitaFloat image_animation_phase { get; set; } = new();
+	public NoitaFloat image_animation_emission_probability { get; set; } = new();
+	public NoitaBool image_animation_raytrace_from_center { get; set; } = new();
+	public NoitaBool image_animation_use_entity_rotation { get; set; } = new();
+	public NoitaBool ignore_transform_updated_msg { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		emitted_material_name = s.ReadBeString();
-		create_real_particles = s.ReadBool();
-		emit_real_particles = s.ReadBool();
-		emit_cosmetic_particles = s.ReadBool();
-		cosmetic_force_create = s.ReadBool();
-		render_back = s.ReadBool();
-		render_ultrabright = s.ReadBool();
-		collide_with_grid = s.ReadBool();
-		collide_with_gas_and_fire = s.ReadBool();
-		particle_single_width = s.ReadBool();
-		emit_only_if_there_is_space = s.ReadBool();
-		emitter_lifetime_frames = s.ReadBeInt32();
-		fire_cells_dont_ignite_damagemodel = s.ReadBool();
-		color_is_based_on_pos = s.ReadBool();
-		color = s.ReadBeUInt32();
-		custom_alpha = s.ReadBeFloat();
-		offset.Load(s);
-		x_pos_offset_min = s.ReadBeFloat();
-		y_pos_offset_min = s.ReadBeFloat();
-		x_pos_offset_max = s.ReadBeFloat();
-		y_pos_offset_max = s.ReadBeFloat();
-		area_circle_radius.Load(s);
-		area_circle_sector_degrees = s.ReadBeFloat();
-		x_vel_min = s.ReadBeFloat();
-		x_vel_max = s.ReadBeFloat();
-		y_vel_min = s.ReadBeFloat();
-		y_vel_max = s.ReadBeFloat();
-		direction_random_deg = s.ReadBeFloat();
-		gravity.Load(s);
-		velocity_always_away_from_center = s.ReadBeFloat();
-		lifetime_min = s.ReadBeFloat();
-		lifetime_max = s.ReadBeFloat();
-		airflow_force = s.ReadBeFloat();
-		airflow_time = s.ReadBeFloat();
-		airflow_scale = s.ReadBeFloat();
-		friction = s.ReadBeFloat();
-		attractor_force = s.ReadBeFloat();
-		count_min.Load(s);
-		count_max.Load(s);
-		emission_interval_min_frames = s.ReadBeInt32();
-		emission_interval_max_frames = s.ReadBeInt32();
-		emission_chance = s.ReadBeInt32();
-		custom_style = s.ReadBeUInt32();
-		delay_frames = s.ReadBeInt32();
-		is_emitting = s.ReadBool();
-		use_material_inventory = s.ReadBool();
-		is_trail = s.ReadBool();
-		trail_gap = s.ReadBeFloat();
-		render_on_grid = s.ReadBool();
-		fade_based_on_lifetime = s.ReadBool();
-		draw_as_long = s.ReadBool();
-		b2_force = s.ReadBeFloat();
-		set_magic_creation = s.ReadBool();
-		image_animation_file = s.ReadBeString();
-		image_animation_colors_file = s.ReadBeString();
-		image_animation_speed = s.ReadBeFloat();
-		image_animation_loop = s.ReadBool();
-		image_animation_phase = s.ReadBeFloat();
-		image_animation_emission_probability = s.ReadBeFloat();
-		image_animation_raytrace_from_center = s.ReadBool();
-		image_animation_use_entity_rotation = s.ReadBool();
-		ignore_transform_updated_msg = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		emitted_material_name.Read(s);
+		create_real_particles.Read(s);
+		emit_real_particles.Read(s);
+		emit_cosmetic_particles.Read(s);
+		cosmetic_force_create.Read(s);
+		render_back.Read(s);
+		render_ultrabright.Read(s);
+		collide_with_grid.Read(s);
+		collide_with_gas_and_fire.Read(s);
+		particle_single_width.Read(s);
+		emit_only_if_there_is_space.Read(s);
+		emitter_lifetime_frames.Read(s);
+		fire_cells_dont_ignite_damagemodel.Read(s);
+		color_is_based_on_pos.Read(s);
+		color.Read(s);
+		custom_alpha.Read(s);
+		offset.Read(s);
+		x_pos_offset_min.Read(s);
+		y_pos_offset_min.Read(s);
+		x_pos_offset_max.Read(s);
+		y_pos_offset_max.Read(s);
+		area_circle_radius.Read(s);
+		area_circle_sector_degrees.Read(s);
+		x_vel_min.Read(s);
+		x_vel_max.Read(s);
+		y_vel_min.Read(s);
+		y_vel_max.Read(s);
+		direction_random_deg.Read(s);
+		gravity.Read(s);
+		velocity_always_away_from_center.Read(s);
+		lifetime_min.Read(s);
+		lifetime_max.Read(s);
+		airflow_force.Read(s);
+		airflow_time.Read(s);
+		airflow_scale.Read(s);
+		friction.Read(s);
+		attractor_force.Read(s);
+		count_min.Read(s);
+		count_max.Read(s);
+		emission_interval_min_frames.Read(s);
+		emission_interval_max_frames.Read(s);
+		emission_chance.Read(s);
+		custom_style.Read(s);
+		delay_frames.Read(s);
+		is_emitting.Read(s);
+		use_material_inventory.Read(s);
+		is_trail.Read(s);
+		trail_gap.Read(s);
+		render_on_grid.Read(s);
+		fade_based_on_lifetime.Read(s);
+		draw_as_long.Read(s);
+		b2_force.Read(s);
+		set_magic_creation.Read(s);
+		image_animation_file.Read(s);
+		image_animation_colors_file.Read(s);
+		image_animation_speed.Read(s);
+		image_animation_loop.Read(s);
+		image_animation_phase.Read(s);
+		image_animation_emission_probability.Read(s);
+		image_animation_raytrace_from_center.Read(s);
+		image_animation_use_entity_rotation.Read(s);
+		ignore_transform_updated_msg.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(emitted_material_name);
-		s.WriteBool(create_real_particles);
-		s.WriteBool(emit_real_particles);
-		s.WriteBool(emit_cosmetic_particles);
-		s.WriteBool(cosmetic_force_create);
-		s.WriteBool(render_back);
-		s.WriteBool(render_ultrabright);
-		s.WriteBool(collide_with_grid);
-		s.WriteBool(collide_with_gas_and_fire);
-		s.WriteBool(particle_single_width);
-		s.WriteBool(emit_only_if_there_is_space);
-		s.WriteBeInt32(emitter_lifetime_frames);
-		s.WriteBool(fire_cells_dont_ignite_damagemodel);
-		s.WriteBool(color_is_based_on_pos);
-		s.WriteBeUInt32(color);
-		s.WriteBeFloat(custom_alpha);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		emitted_material_name.Write(s);
+		create_real_particles.Write(s);
+		emit_real_particles.Write(s);
+		emit_cosmetic_particles.Write(s);
+		cosmetic_force_create.Write(s);
+		render_back.Write(s);
+		render_ultrabright.Write(s);
+		collide_with_grid.Write(s);
+		collide_with_gas_and_fire.Write(s);
+		particle_single_width.Write(s);
+		emit_only_if_there_is_space.Write(s);
+		emitter_lifetime_frames.Write(s);
+		fire_cells_dont_ignite_damagemodel.Write(s);
+		color_is_based_on_pos.Write(s);
+		color.Write(s);
+		custom_alpha.Write(s);
 		offset.Write(s);
-		s.WriteBeFloat(x_pos_offset_min);
-		s.WriteBeFloat(y_pos_offset_min);
-		s.WriteBeFloat(x_pos_offset_max);
-		s.WriteBeFloat(y_pos_offset_max);
+		x_pos_offset_min.Write(s);
+		y_pos_offset_min.Write(s);
+		x_pos_offset_max.Write(s);
+		y_pos_offset_max.Write(s);
 		area_circle_radius.Write(s);
-		s.WriteBeFloat(area_circle_sector_degrees);
-		s.WriteBeFloat(x_vel_min);
-		s.WriteBeFloat(x_vel_max);
-		s.WriteBeFloat(y_vel_min);
-		s.WriteBeFloat(y_vel_max);
-		s.WriteBeFloat(direction_random_deg);
+		area_circle_sector_degrees.Write(s);
+		x_vel_min.Write(s);
+		x_vel_max.Write(s);
+		y_vel_min.Write(s);
+		y_vel_max.Write(s);
+		direction_random_deg.Write(s);
 		gravity.Write(s);
-		s.WriteBeFloat(velocity_always_away_from_center);
-		s.WriteBeFloat(lifetime_min);
-		s.WriteBeFloat(lifetime_max);
-		s.WriteBeFloat(airflow_force);
-		s.WriteBeFloat(airflow_time);
-		s.WriteBeFloat(airflow_scale);
-		s.WriteBeFloat(friction);
-		s.WriteBeFloat(attractor_force);
+		velocity_always_away_from_center.Write(s);
+		lifetime_min.Write(s);
+		lifetime_max.Write(s);
+		airflow_force.Write(s);
+		airflow_time.Write(s);
+		airflow_scale.Write(s);
+		friction.Write(s);
+		attractor_force.Write(s);
 		count_min.Write(s);
 		count_max.Write(s);
-		s.WriteBeInt32(emission_interval_min_frames);
-		s.WriteBeInt32(emission_interval_max_frames);
-		s.WriteBeInt32(emission_chance);
-		s.WriteBeUInt32(custom_style);
-		s.WriteBeInt32(delay_frames);
-		s.WriteBool(is_emitting);
-		s.WriteBool(use_material_inventory);
-		s.WriteBool(is_trail);
-		s.WriteBeFloat(trail_gap);
-		s.WriteBool(render_on_grid);
-		s.WriteBool(fade_based_on_lifetime);
-		s.WriteBool(draw_as_long);
-		s.WriteBeFloat(b2_force);
-		s.WriteBool(set_magic_creation);
-		s.WriteBeString(image_animation_file);
-		s.WriteBeString(image_animation_colors_file);
-		s.WriteBeFloat(image_animation_speed);
-		s.WriteBool(image_animation_loop);
-		s.WriteBeFloat(image_animation_phase);
-		s.WriteBeFloat(image_animation_emission_probability);
-		s.WriteBool(image_animation_raytrace_from_center);
-		s.WriteBool(image_animation_use_entity_rotation);
-		s.WriteBool(ignore_transform_updated_msg);
+		emission_interval_min_frames.Write(s);
+		emission_interval_max_frames.Write(s);
+		emission_chance.Write(s);
+		custom_style.Write(s);
+		delay_frames.Write(s);
+		is_emitting.Write(s);
+		use_material_inventory.Write(s);
+		is_trail.Write(s);
+		trail_gap.Write(s);
+		render_on_grid.Write(s);
+		fade_based_on_lifetime.Write(s);
+		draw_as_long.Write(s);
+		b2_force.Write(s);
+		set_magic_creation.Write(s);
+		image_animation_file.Write(s);
+		image_animation_colors_file.Write(s);
+		image_animation_speed.Write(s);
+		image_animation_loop.Write(s);
+		image_animation_phase.Write(s);
+		image_animation_emission_probability.Write(s);
+		image_animation_raytrace_from_center.Write(s);
+		image_animation_use_entity_rotation.Write(s);
+		ignore_transform_updated_msg.Write(s);
 
     }
 }

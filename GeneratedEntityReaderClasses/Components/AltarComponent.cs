@@ -1,25 +1,34 @@
 namespace GeneratedNoitaClasses;
-public class AltarComponent {
-	public string recognized_entity_tags { get; set; }
-	public Int32 good_fx_material { get; set; }
-	public Int32 neutral_fx_material { get; set; }
-	public Int32 evil_fx_material { get; set; }
-	public Int32 uses_remaining { get; set; }
+public class AltarComponent : NoitaComponentBase,  iNoitaType<AltarComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString recognized_entity_tags { get; set; } = new();
+	public NoitaInt good_fx_material { get; set; } = new();
+	public NoitaInt neutral_fx_material { get; set; } = new();
+	public NoitaInt evil_fx_material { get; set; } = new();
+	public NoitaInt uses_remaining { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		recognized_entity_tags = s.ReadBeString();
-		good_fx_material = s.ReadBeInt32();
-		neutral_fx_material = s.ReadBeInt32();
-		evil_fx_material = s.ReadBeInt32();
-		uses_remaining = s.ReadBeInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		recognized_entity_tags.Read(s);
+		good_fx_material.Read(s);
+		neutral_fx_material.Read(s);
+		evil_fx_material.Read(s);
+		uses_remaining.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(recognized_entity_tags);
-		s.WriteBeInt32(good_fx_material);
-		s.WriteBeInt32(neutral_fx_material);
-		s.WriteBeInt32(evil_fx_material);
-		s.WriteBeInt32(uses_remaining);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		recognized_entity_tags.Write(s);
+		good_fx_material.Write(s);
+		neutral_fx_material.Write(s);
+		evil_fx_material.Write(s);
+		uses_remaining.Write(s);
 
     }
 }

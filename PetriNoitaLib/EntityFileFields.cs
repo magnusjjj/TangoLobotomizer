@@ -19,8 +19,8 @@ namespace PetriNoitaLib
     // A simple field is just anything that is one singular line to convert back or forth.
     class SimpleField : iField
     {
-        public string Type { get; set; }
-        public object Value { get; set; }
+        public string Type { get; set; } = "";
+        public object Value { get; set; } = "";
 
         // Anything 
         public static Dictionary<string, (Func<Stream, MatchCollection, object> reader, Action<Stream> writer)> simple_converters = new Dictionary<string, (Func<Stream, MatchCollection, object> reader, Action<Stream> writer)> { 

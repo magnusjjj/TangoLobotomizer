@@ -1,82 +1,91 @@
 namespace GeneratedNoitaClasses;
-public class SpriteComponent {
-	public string image_file { get; set; }
-	public bool ui_is_parent { get; set; }
-	public bool is_text_sprite { get; set; }
-	public float offset_x { get; set; }
-	public float offset_y { get; set; }
-	public CVector2<float> transform_offset { get; set; }
-	public CVector2<float> offset_animator_offset { get; set; }
-	public float alpha { get; set; }
-	public bool visible { get; set; }
-	public bool emissive { get; set; }
-	public bool additive { get; set; }
-	public bool fog_of_war_hole { get; set; }
-	public bool smooth_filtering { get; set; }
-	public string rect_animation { get; set; }
-	public string next_rect_animation { get; set; }
-	public string text { get; set; }
-	public float z_index { get; set; }
-	public bool update_transform { get; set; }
-	public bool update_transform_rotation { get; set; }
-	public bool kill_entity_after_finished { get; set; }
-	public bool has_special_scale { get; set; }
-	public float special_scale_x { get; set; }
-	public float special_scale_y { get; set; }
-	public bool never_ragdollify_on_death { get; set; }
+public class SpriteComponent : NoitaComponentBase,  iNoitaType<SpriteComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaString image_file { get; set; } = new();
+	public NoitaBool ui_is_parent { get; set; } = new();
+	public NoitaBool is_text_sprite { get; set; } = new();
+	public NoitaFloat offset_x { get; set; } = new();
+	public NoitaFloat offset_y { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> transform_offset { get; set; } = new();
+	public NoitaCVector2<NoitaFloat> offset_animator_offset { get; set; } = new();
+	public NoitaFloat alpha { get; set; } = new();
+	public NoitaBool visible { get; set; } = new();
+	public NoitaBool emissive { get; set; } = new();
+	public NoitaBool additive { get; set; } = new();
+	public NoitaBool fog_of_war_hole { get; set; } = new();
+	public NoitaBool smooth_filtering { get; set; } = new();
+	public NoitaString rect_animation { get; set; } = new();
+	public NoitaString next_rect_animation { get; set; } = new();
+	public NoitaString text { get; set; } = new();
+	public NoitaFloat z_index { get; set; } = new();
+	public NoitaBool update_transform { get; set; } = new();
+	public NoitaBool update_transform_rotation { get; set; } = new();
+	public NoitaBool kill_entity_after_finished { get; set; } = new();
+	public NoitaBool has_special_scale { get; set; } = new();
+	public NoitaFloat special_scale_x { get; set; } = new();
+	public NoitaFloat special_scale_y { get; set; } = new();
+	public NoitaBool never_ragdollify_on_death { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		image_file = s.ReadBeString();
-		ui_is_parent = s.ReadBool();
-		is_text_sprite = s.ReadBool();
-		offset_x = s.ReadBeFloat();
-		offset_y = s.ReadBeFloat();
-		transform_offset.Load(s);
-		offset_animator_offset.Load(s);
-		alpha = s.ReadBeFloat();
-		visible = s.ReadBool();
-		emissive = s.ReadBool();
-		additive = s.ReadBool();
-		fog_of_war_hole = s.ReadBool();
-		smooth_filtering = s.ReadBool();
-		rect_animation = s.ReadBeString();
-		next_rect_animation = s.ReadBeString();
-		text = s.ReadBeString();
-		z_index = s.ReadBeFloat();
-		update_transform = s.ReadBool();
-		update_transform_rotation = s.ReadBool();
-		kill_entity_after_finished = s.ReadBool();
-		has_special_scale = s.ReadBool();
-		special_scale_x = s.ReadBeFloat();
-		special_scale_y = s.ReadBeFloat();
-		never_ragdollify_on_death = s.ReadBool();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		image_file.Read(s);
+		ui_is_parent.Read(s);
+		is_text_sprite.Read(s);
+		offset_x.Read(s);
+		offset_y.Read(s);
+		transform_offset.Read(s);
+		offset_animator_offset.Read(s);
+		alpha.Read(s);
+		visible.Read(s);
+		emissive.Read(s);
+		additive.Read(s);
+		fog_of_war_hole.Read(s);
+		smooth_filtering.Read(s);
+		rect_animation.Read(s);
+		next_rect_animation.Read(s);
+		text.Read(s);
+		z_index.Read(s);
+		update_transform.Read(s);
+		update_transform_rotation.Read(s);
+		kill_entity_after_finished.Read(s);
+		has_special_scale.Read(s);
+		special_scale_x.Read(s);
+		special_scale_y.Read(s);
+		never_ragdollify_on_death.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeString(image_file);
-		s.WriteBool(ui_is_parent);
-		s.WriteBool(is_text_sprite);
-		s.WriteBeFloat(offset_x);
-		s.WriteBeFloat(offset_y);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		image_file.Write(s);
+		ui_is_parent.Write(s);
+		is_text_sprite.Write(s);
+		offset_x.Write(s);
+		offset_y.Write(s);
 		transform_offset.Write(s);
 		offset_animator_offset.Write(s);
-		s.WriteBeFloat(alpha);
-		s.WriteBool(visible);
-		s.WriteBool(emissive);
-		s.WriteBool(additive);
-		s.WriteBool(fog_of_war_hole);
-		s.WriteBool(smooth_filtering);
-		s.WriteBeString(rect_animation);
-		s.WriteBeString(next_rect_animation);
-		s.WriteBeString(text);
-		s.WriteBeFloat(z_index);
-		s.WriteBool(update_transform);
-		s.WriteBool(update_transform_rotation);
-		s.WriteBool(kill_entity_after_finished);
-		s.WriteBool(has_special_scale);
-		s.WriteBeFloat(special_scale_x);
-		s.WriteBeFloat(special_scale_y);
-		s.WriteBool(never_ragdollify_on_death);
+		alpha.Write(s);
+		visible.Write(s);
+		emissive.Write(s);
+		additive.Write(s);
+		fog_of_war_hole.Write(s);
+		smooth_filtering.Write(s);
+		rect_animation.Write(s);
+		next_rect_animation.Write(s);
+		text.Write(s);
+		z_index.Write(s);
+		update_transform.Write(s);
+		update_transform_rotation.Write(s);
+		kill_entity_after_finished.Write(s);
+		has_special_scale.Write(s);
+		special_scale_x.Write(s);
+		special_scale_y.Write(s);
+		never_ragdollify_on_death.Write(s);
 
     }
 }

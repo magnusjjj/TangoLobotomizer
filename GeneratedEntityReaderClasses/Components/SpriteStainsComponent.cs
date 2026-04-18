@@ -1,20 +1,29 @@
 namespace GeneratedNoitaClasses;
-public class SpriteStainsComponent {
-	public Int32 sprite_id { get; set; }
-	public bool fade_stains_towards_srite_top { get; set; }
-	public LensValue<int> stain_shaken_drop_chance_multiplier { get; set; }
+public class SpriteStainsComponent : NoitaComponentBase,  iNoitaType<SpriteStainsComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaInt sprite_id { get; set; } = new();
+	public NoitaBool fade_stains_towards_srite_top { get; set; } = new();
+	public NoitaLensValue<NoitaInt> stain_shaken_drop_chance_multiplier { get; set; } = new();
 	
 
-    public void Load(NoitaStream s){
-		sprite_id = s.ReadBeInt32();
-		fade_stains_towards_srite_top = s.ReadBool();
-		stain_shaken_drop_chance_multiplier.Load(s);
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		sprite_id.Read(s);
+		fade_stains_towards_srite_top.Read(s);
+		stain_shaken_drop_chance_multiplier.Read(s);
 		
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeInt32(sprite_id);
-		s.WriteBool(fade_stains_towards_srite_top);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		sprite_id.Write(s);
+		fade_stains_towards_srite_top.Write(s);
 		stain_shaken_drop_chance_multiplier.Write(s);
 		
 

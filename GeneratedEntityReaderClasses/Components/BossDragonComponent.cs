@@ -1,91 +1,100 @@
 namespace GeneratedNoitaClasses;
-public class BossDragonComponent {
-	public float speed { get; set; }
-	public float speed_hunt { get; set; }
-	public float acceleration { get; set; }
-	public float direction_adjust_speed { get; set; }
-	public float direction_adjust_speed_hunt { get; set; }
-	public float gravity { get; set; }
-	public float tail_gravity { get; set; }
-	public float part_distance { get; set; }
-	public Int32 ground_check_offset { get; set; }
-	public float eat_ground_radius { get; set; }
-	public bool eat_ground { get; set; }
-	public float hitbox_radius { get; set; }
-	public float bite_damage { get; set; }
-	public float target_kill_radius { get; set; }
-	public float target_kill_ragdoll_force { get; set; }
-	public float hunt_box_radius { get; set; }
-	public float random_target_box_radius { get; set; }
-	public Int32 new_hunt_target_check_every { get; set; }
-	public Int32 new_random_target_check_every { get; set; }
-	public float jump_cam_shake { get; set; }
-	public float jump_cam_shake_distance { get; set; }
-	public float eat_anim_wait_mult { get; set; }
-	public string projectile_1 { get; set; }
-	public Int32 projectile_1_count { get; set; }
-	public string projectile_2 { get; set; }
-	public Int32 projectile_2_count { get; set; }
-	public string ragdoll_filename { get; set; }
+public class BossDragonComponent : NoitaComponentBase,  iNoitaType<BossDragonComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat speed { get; set; } = new();
+	public NoitaFloat speed_hunt { get; set; } = new();
+	public NoitaFloat acceleration { get; set; } = new();
+	public NoitaFloat direction_adjust_speed { get; set; } = new();
+	public NoitaFloat direction_adjust_speed_hunt { get; set; } = new();
+	public NoitaFloat gravity { get; set; } = new();
+	public NoitaFloat tail_gravity { get; set; } = new();
+	public NoitaFloat part_distance { get; set; } = new();
+	public NoitaInt ground_check_offset { get; set; } = new();
+	public NoitaFloat eat_ground_radius { get; set; } = new();
+	public NoitaBool eat_ground { get; set; } = new();
+	public NoitaFloat hitbox_radius { get; set; } = new();
+	public NoitaFloat bite_damage { get; set; } = new();
+	public NoitaFloat target_kill_radius { get; set; } = new();
+	public NoitaFloat target_kill_ragdoll_force { get; set; } = new();
+	public NoitaFloat hunt_box_radius { get; set; } = new();
+	public NoitaFloat random_target_box_radius { get; set; } = new();
+	public NoitaInt new_hunt_target_check_every { get; set; } = new();
+	public NoitaInt new_random_target_check_every { get; set; } = new();
+	public NoitaFloat jump_cam_shake { get; set; } = new();
+	public NoitaFloat jump_cam_shake_distance { get; set; } = new();
+	public NoitaFloat eat_anim_wait_mult { get; set; } = new();
+	public NoitaString projectile_1 { get; set; } = new();
+	public NoitaInt projectile_1_count { get; set; } = new();
+	public NoitaString projectile_2 { get; set; } = new();
+	public NoitaInt projectile_2_count { get; set; } = new();
+	public NoitaString ragdoll_filename { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		speed = s.ReadBeFloat();
-		speed_hunt = s.ReadBeFloat();
-		acceleration = s.ReadBeFloat();
-		direction_adjust_speed = s.ReadBeFloat();
-		direction_adjust_speed_hunt = s.ReadBeFloat();
-		gravity = s.ReadBeFloat();
-		tail_gravity = s.ReadBeFloat();
-		part_distance = s.ReadBeFloat();
-		ground_check_offset = s.ReadBeInt32();
-		eat_ground_radius = s.ReadBeFloat();
-		eat_ground = s.ReadBool();
-		hitbox_radius = s.ReadBeFloat();
-		bite_damage = s.ReadBeFloat();
-		target_kill_radius = s.ReadBeFloat();
-		target_kill_ragdoll_force = s.ReadBeFloat();
-		hunt_box_radius = s.ReadBeFloat();
-		random_target_box_radius = s.ReadBeFloat();
-		new_hunt_target_check_every = s.ReadBeInt32();
-		new_random_target_check_every = s.ReadBeInt32();
-		jump_cam_shake = s.ReadBeFloat();
-		jump_cam_shake_distance = s.ReadBeFloat();
-		eat_anim_wait_mult = s.ReadBeFloat();
-		projectile_1 = s.ReadBeString();
-		projectile_1_count = s.ReadBeInt32();
-		projectile_2 = s.ReadBeString();
-		projectile_2_count = s.ReadBeInt32();
-		ragdoll_filename = s.ReadBeString();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		speed.Read(s);
+		speed_hunt.Read(s);
+		acceleration.Read(s);
+		direction_adjust_speed.Read(s);
+		direction_adjust_speed_hunt.Read(s);
+		gravity.Read(s);
+		tail_gravity.Read(s);
+		part_distance.Read(s);
+		ground_check_offset.Read(s);
+		eat_ground_radius.Read(s);
+		eat_ground.Read(s);
+		hitbox_radius.Read(s);
+		bite_damage.Read(s);
+		target_kill_radius.Read(s);
+		target_kill_ragdoll_force.Read(s);
+		hunt_box_radius.Read(s);
+		random_target_box_radius.Read(s);
+		new_hunt_target_check_every.Read(s);
+		new_random_target_check_every.Read(s);
+		jump_cam_shake.Read(s);
+		jump_cam_shake_distance.Read(s);
+		eat_anim_wait_mult.Read(s);
+		projectile_1.Read(s);
+		projectile_1_count.Read(s);
+		projectile_2.Read(s);
+		projectile_2_count.Read(s);
+		ragdoll_filename.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(speed);
-		s.WriteBeFloat(speed_hunt);
-		s.WriteBeFloat(acceleration);
-		s.WriteBeFloat(direction_adjust_speed);
-		s.WriteBeFloat(direction_adjust_speed_hunt);
-		s.WriteBeFloat(gravity);
-		s.WriteBeFloat(tail_gravity);
-		s.WriteBeFloat(part_distance);
-		s.WriteBeInt32(ground_check_offset);
-		s.WriteBeFloat(eat_ground_radius);
-		s.WriteBool(eat_ground);
-		s.WriteBeFloat(hitbox_radius);
-		s.WriteBeFloat(bite_damage);
-		s.WriteBeFloat(target_kill_radius);
-		s.WriteBeFloat(target_kill_ragdoll_force);
-		s.WriteBeFloat(hunt_box_radius);
-		s.WriteBeFloat(random_target_box_radius);
-		s.WriteBeInt32(new_hunt_target_check_every);
-		s.WriteBeInt32(new_random_target_check_every);
-		s.WriteBeFloat(jump_cam_shake);
-		s.WriteBeFloat(jump_cam_shake_distance);
-		s.WriteBeFloat(eat_anim_wait_mult);
-		s.WriteBeString(projectile_1);
-		s.WriteBeInt32(projectile_1_count);
-		s.WriteBeString(projectile_2);
-		s.WriteBeInt32(projectile_2_count);
-		s.WriteBeString(ragdoll_filename);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		speed.Write(s);
+		speed_hunt.Write(s);
+		acceleration.Write(s);
+		direction_adjust_speed.Write(s);
+		direction_adjust_speed_hunt.Write(s);
+		gravity.Write(s);
+		tail_gravity.Write(s);
+		part_distance.Write(s);
+		ground_check_offset.Write(s);
+		eat_ground_radius.Write(s);
+		eat_ground.Write(s);
+		hitbox_radius.Write(s);
+		bite_damage.Write(s);
+		target_kill_radius.Write(s);
+		target_kill_ragdoll_force.Write(s);
+		hunt_box_radius.Write(s);
+		random_target_box_radius.Write(s);
+		new_hunt_target_check_every.Write(s);
+		new_random_target_check_every.Write(s);
+		jump_cam_shake.Write(s);
+		jump_cam_shake_distance.Write(s);
+		eat_anim_wait_mult.Write(s);
+		projectile_1.Write(s);
+		projectile_1_count.Write(s);
+		projectile_2.Write(s);
+		projectile_2_count.Write(s);
+		ragdoll_filename.Write(s);
 
     }
 }

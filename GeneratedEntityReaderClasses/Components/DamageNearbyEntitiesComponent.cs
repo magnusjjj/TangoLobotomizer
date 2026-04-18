@@ -1,40 +1,49 @@
 namespace GeneratedNoitaClasses;
-public class DamageNearbyEntitiesComponent {
-	public float radius { get; set; }
-	public float damage_min { get; set; }
-	public float damage_max { get; set; }
-	public float target_vec_max_len { get; set; }
-	public float knockback_multiplier { get; set; }
-	public Int32 time_between_damaging { get; set; }
-	public UInt32 damage_type { get; set; }
-	public string damage_description { get; set; }
-	public string target_tag { get; set; }
-	public UInt32 ragdoll_fx { get; set; }
+public class DamageNearbyEntitiesComponent : NoitaComponentBase,  iNoitaType<DamageNearbyEntitiesComponent>{
+	public NoitaBool Deleted { get; set; } = new();
+	public NoitaBool Enabled { get; set; } = new();
+	public NoitaString Tags { get; set; } = new();
+	public NoitaFloat radius { get; set; } = new();
+	public NoitaFloat damage_min { get; set; } = new();
+	public NoitaFloat damage_max { get; set; } = new();
+	public NoitaFloat target_vec_max_len { get; set; } = new();
+	public NoitaFloat knockback_multiplier { get; set; } = new();
+	public NoitaInt time_between_damaging { get; set; } = new();
+	public NoitaUInt damage_type { get; set; } = new();
+	public NoitaString damage_description { get; set; } = new();
+	public NoitaString target_tag { get; set; } = new();
+	public NoitaUInt ragdoll_fx { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		radius = s.ReadBeFloat();
-		damage_min = s.ReadBeFloat();
-		damage_max = s.ReadBeFloat();
-		target_vec_max_len = s.ReadBeFloat();
-		knockback_multiplier = s.ReadBeFloat();
-		time_between_damaging = s.ReadBeInt32();
-		damage_type = s.ReadBeUInt32();
-		damage_description = s.ReadBeString();
-		target_tag = s.ReadBeString();
-		ragdoll_fx = s.ReadBeUInt32();
+    public void Read(NoitaStream s){
+		Deleted.Read(s);
+		Enabled.Read(s);
+		Tags.Read(s);
+		radius.Read(s);
+		damage_min.Read(s);
+		damage_max.Read(s);
+		target_vec_max_len.Read(s);
+		knockback_multiplier.Read(s);
+		time_between_damaging.Read(s);
+		damage_type.Read(s);
+		damage_description.Read(s);
+		target_tag.Read(s);
+		ragdoll_fx.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(radius);
-		s.WriteBeFloat(damage_min);
-		s.WriteBeFloat(damage_max);
-		s.WriteBeFloat(target_vec_max_len);
-		s.WriteBeFloat(knockback_multiplier);
-		s.WriteBeInt32(time_between_damaging);
-		s.WriteBeUInt32(damage_type);
-		s.WriteBeString(damage_description);
-		s.WriteBeString(target_tag);
-		s.WriteBeUInt32(ragdoll_fx);
+    public void Write(NoitaStream s){
+		Deleted.Write(s);
+		Enabled.Write(s);
+		Tags.Write(s);
+		radius.Write(s);
+		damage_min.Write(s);
+		damage_max.Write(s);
+		target_vec_max_len.Write(s);
+		knockback_multiplier.Write(s);
+		time_between_damaging.Write(s);
+		damage_type.Write(s);
+		damage_description.Write(s);
+		target_tag.Write(s);
+		ragdoll_fx.Write(s);
 
     }
 }

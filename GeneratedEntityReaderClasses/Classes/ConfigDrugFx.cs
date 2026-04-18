@@ -1,28 +1,28 @@
 namespace GeneratedNoitaClasses;
-public class ConfigDrugFx {
-	public float distortion_amount { get; set; }
-	public float color_amount { get; set; }
-	public float fractals_amount { get; set; }
-	public float fractals_size { get; set; }
-	public float nightvision_amount { get; set; }
-	public float doublevision_amount { get; set; }
+public class ConfigDrugFx :  iNoitaType<ConfigDrugFx>{
+	public NoitaFloat distortion_amount { get; set; } = new();
+	public NoitaFloat color_amount { get; set; } = new();
+	public NoitaFloat fractals_amount { get; set; } = new();
+	public NoitaFloat fractals_size { get; set; } = new();
+	public NoitaFloat nightvision_amount { get; set; } = new();
+	public NoitaFloat doublevision_amount { get; set; } = new();
 
-    public void Load(NoitaStream s){
-		distortion_amount = s.ReadBeFloat();
-		color_amount = s.ReadBeFloat();
-		fractals_amount = s.ReadBeFloat();
-		fractals_size = s.ReadBeFloat();
-		nightvision_amount = s.ReadBeFloat();
-		doublevision_amount = s.ReadBeFloat();
+    public void Read(NoitaStream s){
+		distortion_amount.Read(s);
+		color_amount.Read(s);
+		fractals_amount.Read(s);
+		fractals_size.Read(s);
+		nightvision_amount.Read(s);
+		doublevision_amount.Read(s);
 
     }
-    public void Save(NoitaStream s){
-		s.WriteBeFloat(distortion_amount);
-		s.WriteBeFloat(color_amount);
-		s.WriteBeFloat(fractals_amount);
-		s.WriteBeFloat(fractals_size);
-		s.WriteBeFloat(nightvision_amount);
-		s.WriteBeFloat(doublevision_amount);
+    public void Write(NoitaStream s){
+		distortion_amount.Write(s);
+		color_amount.Write(s);
+		fractals_amount.Write(s);
+		fractals_size.Write(s);
+		nightvision_amount.Write(s);
+		doublevision_amount.Write(s);
 
     }
 }
