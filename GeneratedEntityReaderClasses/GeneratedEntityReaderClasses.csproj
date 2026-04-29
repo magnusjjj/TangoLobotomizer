@@ -18,8 +18,4 @@
     <PackageReference Include="DotFastLZ.Compression" Version="2024.4.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PetriNoitaLib\PetriNoitaLib.csproj" />
-  </ItemGroup>
-
 </Project>

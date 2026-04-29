@@ -1,6 +1,4 @@
-﻿using PetriNoitaLib;
-using PetriNoitaLib.V2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;

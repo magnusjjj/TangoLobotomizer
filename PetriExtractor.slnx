@@ -2,6 +2,9 @@
   <Project Path="EntityFileGeneratorGeneratedClassesTest/EntityFileGeneratorGeneratedClassesTest.csproj" Id="ca838f81-67fe-4b27-b22c-cb0b4f6910ed" />
   <Project Path="EntityFileReaderGenerator/EntityFileReaderGenerator.csproj" Id="fad0de03-66a1-4d05-a85f-d4979501da07" />
   <Project Path="GeneratedEntityReaderClasses/GeneratedEntityReaderClasses.csproj" Id="67546130-6017-4ddc-89a5-48fbcad39a82" />
+  <Project Path="GeneratedEntityReaderClassesPython/GeneratedEntityReaderClassesPython.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="127883a1-f8a1-4771-a8a0-159ace140bc0">
+    <Build Project="false" />
+  </Project>
   <Project Path="PetriExtractor/PetriExtractor.csproj" />
   <Project Path="PetriNoitaLib/PetriNoitaLib.csproj" Id="b9005adf-6faa-4420-804a-2f771052f86c" />
   <Project Path="PetriViewer/PetriViewer.csproj" Id="4dcf27b5-3934-4394-8fe0-50f03bd1273e" />

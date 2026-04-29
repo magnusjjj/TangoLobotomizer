@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GeneratedNoitaClasses;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
-List<EntityFile> entities = new List<EntityFile>();
 
 int FailedAt(NoitaStream a, NoitaStream b)
 {
@@ -28,30 +29,36 @@ int FailedAt(NoitaStream a, NoitaStream b)
 int fails = 0;
 int successes = 0;
 
+long startTime = Stopwatch.GetTimestamp();
+FileStream fs = File.Open("test.json", FileMode.Create);
+fs.Write(Encoding.UTF8.GetBytes("["));
+
 foreach(string filename in Directory.GetFiles("C:\\Users\\slightlytango\\Desktop\\petri_fying\\save00\\world\\", "entities_*.bin"))
 {
 //    try
 //    {
-        EntityFile ef = new EntityFile();
-        var lzcontent = LZFile.ReadFile(filename);
-        ef.Read(lzcontent);
-        string entity_json = JsonSerializer.Serialize(ef);//!, typeof(EntityFile), NoitaCSharpJSONSerializer.Default);
-        EntityFile ef2 = JsonSerializer.Deserialize<EntityFile>(entity_json);
+    EntityFile ef = new EntityFile();
+    var lzcontent = LZFile.ReadFile(filename);
+    ef.Read(lzcontent);
+    fs.Write(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(ef, typeof(EntityFile), NoitaCSharpJSONSerializer.Default) + ","));
+
+    //!, typeof(EntityFile), NoitaCSharpJSONSerializer.Default);
+    //EntityFile ef2 = JsonSerializer.Deserialize<EntityFile>(entity_json);
 
 
-        NoitaStream memoryStream = new NoitaDebugStream(lzcontent);
-        ef2.Write(memoryStream);
+    //NoitaStream memoryStream = new NoitaDebugStream(lzcontent);
+    //ef2.Write(memoryStream);
 
-        if (FailedAt(lzcontent, memoryStream) != -1)
-        {
-            //Console.WriteLine("Uh oh stinky " + filename);
-        }
-        else
-        {
-            successes++;
-            //Console.WriteLine("Perfection " + filename);
+    //if (FailedAt(lzcontent, memoryStream) != -1)
+    //{
+    //Console.WriteLine("Uh oh stinky " + filename);
+    //}
+    //else
+    //{
+    //    successes++;
+    //Console.WriteLine("Perfection " + filename);
 
-        }
+    //}
     //} catch(Exception e)
     //{
     //    fails++;
@@ -59,8 +66,13 @@ foreach(string filename in Directory.GetFiles("C:\\Users\\slightlytango\\Desktop
     //    throw new Exception("Ah shit");
     //}
 }
+fs.Seek(-1, SeekOrigin.End);
 
-Console.WriteLine("Successes: " + successes + " Errors " + fails);
+fs.Write(Encoding.UTF8.GetBytes("]"));
+TimeSpan elapsedTime = Stopwatch.GetElapsedTime(startTime);
+
+
+Console.WriteLine("Successes: " + successes + " Errors " + fails + " took " + elapsedTime.TotalSeconds);
 
 //Console.WriteLine("Done!");
 //Console.ReadLine();
